@@ -7,4 +7,5 @@ package com.example.versus.tictactoe;
 public class B {
 
     //Emilio
+//Sergio Sanchez Ruz
 }
