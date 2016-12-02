@@ -14,6 +14,7 @@
     tools:background="@mipmap/fondo_inicio">
 
     <ImageView
+        android:contentDescription="@string/desc"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         app:srcCompat="@mipmap/tresenrayatitulo"
@@ -23,6 +24,7 @@
         android:layout_marginTop="18dp" />
 
     <ImageView
+        android:contentDescription="@string/desc"
         android:layout_width="300dp"
         android:layout_height="300dp"
         app:srcCompat="@mipmap/tic_tac_toe"
@@ -32,7 +34,7 @@
 
     <Button
         android:text="@string/play"
-        android:textSize="35dp"
+        android:textSize="35sp"
         android:layout_width="150dp"
         android:layout_height="750dp"
         android:id="@+id/btnPlay"
