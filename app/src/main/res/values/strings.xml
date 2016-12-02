@@ -2,4 +2,14 @@
     <string name="app_name">TicTacToe</string>
     <string name="play">Play</string>
     <string name="desc">Description</string>
+    <string name="language">Language</string>
+    <string name="spanish">Spanish</string>
+    <string name="english">English</string>
+    <string name="ubicacion">Data location</string>
+    <string name="memory">Memory</string>
+    <string name="sd">SD Card</string>
+    <string name="filename">File name</string>
+    <string name="save">Save</string>
+    <string name="back">Back</string>
+
 </resources>

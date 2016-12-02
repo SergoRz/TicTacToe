@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">TresEnRaya</string>
+    <string name="play">Jugar</string>
+    <string name="desc">Descripcion</string>
+    <string name="language">Idioma</string>
+    <string name="spanish">Español</string>
+    <string name="english">Ingles</string>
+    <string name="ubicacion">Ubicación de los datos</string>
+    <string name="memory">Memoria</string>
+    <string name="sd">Tarjeta SD</string>
+    <string name="filename">Nombre del fichero</string>
+    <string name="save">Guardar</string>
+    <string name="back">Volver</string>
+</resources>
