@@ -12,9 +12,5 @@ public class MainActivity extends AppCompatActivity {
 dghfdghdfgfdf
     gs
     fgsd
-    fg
-    sdfg
-    sdfg
-    
     }
 }
