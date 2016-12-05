@@ -9,6 +9,12 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.menu_principal);
-dfgsdfgsdfgsdfgsdsdfg
+dghfdghdfgfdf
+    gs
+    fgsd
+    fg
+    sdfg
+    sdfg
+    
     }
 }
