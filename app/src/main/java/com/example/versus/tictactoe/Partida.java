@@ -2,7 +2,7 @@ package com.example.versus.tictactoe;
 
 import java.util.ArrayList;
 
-public class Partida {
+public class Partida{
 
     private Jugador j1;
     private Jugador j2;
@@ -14,6 +14,7 @@ public class Partida {
     }
 
     public void iniciarPartida(){
+        //Creacion de las piezas
         Pieza p11 = new Pieza(1,1);
         Pieza p12 = new Pieza(1,2);
         Pieza p13 = new Pieza(1,3);
@@ -26,6 +27,16 @@ public class Partida {
         Pieza p32 = new Pieza(3,2);
         Pieza p33 = new Pieza(3,3);
 
+        //Creacion de las combinaciones ganadoras
+        ArrayList<Pieza> aP1 = new ArrayList<Pieza>();
+
+        Combinacion cGanadora1 = new Combinacion
+
+    }
+
+    public boolean comprobarSolucion(){
+
+        return false;
     }
 
 }
