@@ -30,7 +30,7 @@ public class Partida{
         //Creacion de las combinaciones ganadoras
         ArrayList<Pieza> aP1 = new ArrayList<Pieza>();
 
-        Combinacion cGanadora1 = new Combinacion
+        //Combinacion cGanadora1 = new Combinacion;
 
     }
 
