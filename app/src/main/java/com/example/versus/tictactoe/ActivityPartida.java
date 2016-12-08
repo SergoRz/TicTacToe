@@ -2,13 +2,23 @@ package com.example.versus.tictactoe;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.view.Window;
 
-public class MainActivity extends AppCompatActivity {
+public class ActivityPartida extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.menu_principal);
+        setContentView(R.layout.activity_partida);
+        Partida p;
+        Jugador j1;
+        Jugador j2;
+
+
+
     }
+
+    public void colocarPieza(){
+
+    }
+
 }
