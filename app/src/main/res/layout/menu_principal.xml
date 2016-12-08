@@ -13,32 +13,60 @@
     android:background="@mipmap/fondo_inicio"
     tools:background="@mipmap/fondo_inicio">
 
-    <ImageView
-        android:contentDescription="@string/desc"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:srcCompat="@mipmap/tresenrayatitulo"
-        android:id="@+id/ivTexto"
-        android:layout_below="@+id/ivFoto"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="18dp" />
 
-    <ImageView
-        android:contentDescription="@string/desc"
-        android:layout_width="300dp"
-        android:layout_height="300dp"
-        app:srcCompat="@mipmap/tic_tac_toe"
-        android:id="@+id/ivFoto"
-        android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true" />
 
-    <Button
-        android:text="@string/play"
-        android:textSize="35sp"
-        android:layout_width="150dp"
-        android:layout_height="750dp"
-        android:id="@+id/btnPlay"
-        android:layout_below="@+id/ivTexto"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="16dp" />
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="11dp"
+        tools:ignore="UselessParent">
+
+        <ImageView
+            android:contentDescription="@string/desc"
+            android:layout_width="match_parent"
+            android:layout_height="300dp"
+            app:srcCompat="@mipmap/tic_tac_toe"
+            android:id="@+id/ivFoto"
+            android:layout_marginTop="19dp" />
+
+        <ImageView
+            android:contentDescription="@string/desc"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:srcCompat="@mipmap/tresenrayatitulo"
+            android:id="@+id/ivTexto"
+            android:layout_marginTop="18dp" />
+
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <ImageButton
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:padding="10dp"
+                android:background="@android:color/transparent"
+                android:scaleType="fitCenter"
+                app:srcCompat="@mipmap/play"
+                android:id="@+id/imageButton3"
+                android:layout_weight="1"
+                android:contentDescription=""
+                tools:ignore="ContentDescription" />
+
+            <ImageButton
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:padding="10dp"
+                android:background="@android:color/transparent"
+                android:scaleType="fitCenter"
+                app:srcCompat="@mipmap/settings"
+                android:id="@+id/imageButton4"
+                android:layout_weight="1"
+                tools:ignore="ContentDescription" />
+
+        </LinearLayout>
+    </LinearLayout>
+
 </RelativeLayout>
