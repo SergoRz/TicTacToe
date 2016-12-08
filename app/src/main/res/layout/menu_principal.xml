@@ -9,7 +9,7 @@
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
-    tools:context="com.example.versus.tictactoe.MainActivity"
+    tools:context="com.example.versus.tictactoe.PantallaPrincipal"
     android:background="@mipmap/fondo_inicio"
     tools:background="@mipmap/fondo_inicio">
 
@@ -19,8 +19,8 @@
         android:orientation="vertical"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_marginTop="11dp"
-        tools:ignore="UselessParent">
+        tools:ignore="UselessParent"
+        android:layout_alignParentTop="true">
 
         <ImageView
             android:contentDescription="@string/desc"
@@ -50,7 +50,7 @@
                 android:background="@android:color/transparent"
                 android:scaleType="fitCenter"
                 app:srcCompat="@mipmap/play"
-                android:id="@+id/imageButton3"
+                android:id="@+id/ibtnPlay"
                 android:layout_weight="1"
                 android:contentDescription=""
                 tools:ignore="ContentDescription" />
@@ -62,9 +62,10 @@
                 android:background="@android:color/transparent"
                 android:scaleType="fitCenter"
                 app:srcCompat="@mipmap/settings"
-                android:id="@+id/imageButton4"
+                android:id="@+id/ibtnConf"
                 android:layout_weight="1"
-                tools:ignore="ContentDescription" />
+                tools:ignore="ContentDescription"
+                android:onClick="goConfig"/>
 
         </LinearLayout>
     </LinearLayout>
