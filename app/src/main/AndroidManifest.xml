@@ -16,7 +16,6 @@
             </intent-filter>
         </activity>
         <activity android:name=".Configuracion" />
-        <activity android:name=".ActivityPartida"></activity>
     </application>
 
 </manifest>
