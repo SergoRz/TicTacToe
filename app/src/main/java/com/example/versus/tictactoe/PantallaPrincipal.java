@@ -18,4 +18,9 @@ public class PantallaPrincipal extends AppCompatActivity {
         Intent intent = new Intent(PantallaPrincipal.this, Configuracion.class);
         startActivity(intent);
     }
+
+    public void goPlay(View v){
+        Intent intent = new Intent(PantallaPrincipal.this, ActivityPartida.class);
+        startActivity(intent);
+    }
 }
