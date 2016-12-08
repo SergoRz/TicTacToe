@@ -2,10 +2,6 @@ package com.example.versus.tictactoe;
 
 import java.util.ArrayList;
 
-/**
- * Created by Versus on 02/12/2016.
- */
-
 public class Partida {
 
     private Jugador j1;
@@ -29,7 +25,6 @@ public class Partida {
         Pieza p31 = new Pieza(3,1);
         Pieza p32 = new Pieza(3,2);
         Pieza p33 = new Pieza(3,3);
-
 
     }
 
