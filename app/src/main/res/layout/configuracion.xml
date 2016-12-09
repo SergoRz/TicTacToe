@@ -85,6 +85,7 @@
         <Button
             android:text="@string/save"
             android:layout_width="match_parent"
+            android:onClick="guardarPrefs"
             android:layout_height="wrap_content"
             android:id="@+id/btnSave"
             android:layout_weight="1" />
@@ -92,6 +93,7 @@
         <Button
             android:text="@string/back"
             android:layout_width="match_parent"
+            android:onClick="back"
             android:layout_height="wrap_content"
             android:id="@+id/btnBack"
             android:layout_weight="1" />

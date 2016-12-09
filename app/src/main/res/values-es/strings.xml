@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">TresEnRaya</string>
+    <string name="tictactoe">Tres en raya</string>
     <string name="play">Jugar</string>
     <string name="desc">Descripcion</string>
     <string name="language">Idioma</string>
