@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.res.Configuration;
 import android.content.res.Resources;
+import android.os.Environment;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.DisplayMetrics;
@@ -11,6 +12,7 @@ import android.view.View;
 import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.RadioButton;
+import android.widget.Toast;
 
 import java.util.Locale;
 
@@ -133,6 +135,36 @@ public class Configuracion extends AppCompatActivity {
         Intent intent = new Intent(Configuracion.this, PantallaPrincipal.class);
         startActivity(intent);
         finish();
+    }
+
+    public void comprobarSD(View v){
+        boolean sdDisponible = false;
+        boolean sdAccesoEscritura = false;
+
+        //Comprobamos el estado de la memoria externa (tarjeta SD)
+        String estado = Environment.getExternalStorageState();
+
+        if (estado.equals(Environment.MEDIA_MOUNTED)) {
+            sdDisponible = true;
+            sdAccesoEscritura = true;
+        }
+        else if (estado.equals(Environment.MEDIA_MOUNTED_READ_ONLY)) {
+            sdDisponible = true;
+            sdAccesoEscritura = false;
+        }
+        else {
+            sdDisponible = false;
+            sdAccesoEscritura = false;
+        }
+
+        if(!sdDisponible){
+            _SD.setChecked(false);
+            Toast.makeText(this, "No hay tarjeta SD disponible", Toast.LENGTH_SHORT).show();
+        }
+        else if(sdDisponible && !sdAccesoEscritura){
+            _SD.setChecked(false);
+            Toast.makeText(this, "No esta permitido escribir en la tarjeta SD", Toast.LENGTH_SHORT).show();
+        }
     }
 
 }
