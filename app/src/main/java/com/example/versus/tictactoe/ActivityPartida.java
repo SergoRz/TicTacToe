@@ -1,14 +1,15 @@
 package com.example.versus.tictactoe;
 
+import android.content.Intent;
+import android.content.res.ColorStateList;
 import android.graphics.Color;
-import android.graphics.drawable.Drawable;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
-
+import android.widget.Toast;
 import java.util.ArrayList;
 
 public class ActivityPartida extends AppCompatActivity {
@@ -24,14 +25,13 @@ public class ActivityPartida extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_partida);
-        j1 = new Jugador("Sergio", "NARANJA");
-        j2 = new Jugador("Emilio", "VERDE");
+        j1 = new Jugador("Sergio", "NARANJA", "X");
+        j2 = new Jugador("Emilio", "VERDE", "O");
         turno = 1;
         TVTurno = (TextView) findViewById(R.id.turno);
         TVTurno.setText("TURNO " + j1.getNombre().toUpperCase());
         crearTablero();
     }
-
 
     public void crearTablero(){
         //Creacion de las piezas
@@ -56,6 +56,18 @@ public class ActivityPartida extends AppCompatActivity {
         tablero.add(p31);
         tablero.add(p32);
         tablero.add(p33);
+
+        switch (j1.getColor().toUpperCase()){
+            case "NARANJA":
+                TVTurno.setTextColor(Color.parseColor("#FF9D09"));
+                break;
+            case "VERDE":
+                TVTurno.setTextColor(Color.parseColor("#12B81D"));
+                break;
+            case "AZUL":
+                TVTurno.setTextColor(Color.parseColor("#0D7CE5"));
+                break;
+        }
     }
     public void colocarPieza(View v){
         Pieza piezaSeleccionada = null;
@@ -67,36 +79,66 @@ public class ActivityPartida extends AppCompatActivity {
                 break;
             }
         }
-        //0 es el color que tienen los botones por defecto
+
+        ColorStateList mList = botonPulsado.getTextColors();
+        int color = mList.getDefaultColor();
         //Log.d(String.valueOf(color),"Entramos en onCreate");
-        if(botonPulsado.getDrawingCacheBackgroundColor() == 0){
+        //Toast.makeText(this, String.valueOf(color),Toast.LENGTH_SHORT).show();
+
+        if(color == Color.BLACK){
             if(turno == 1){
                 j1.getCombinacion().combinacion.add(piezaSeleccionada);
                 turno = 2;
-                colorearPieza(botonPulsado, piezaSeleccionada, j1);
+                colorearPieza(botonPulsado, piezaSeleccionada, j1, j2);
             }else{
                 j2.getCombinacion().combinacion.add(piezaSeleccionada);
                 turno = 1;
-                colorearPieza(botonPulsado, piezaSeleccionada, j2);
+                colorearPieza(botonPulsado, piezaSeleccionada, j2, j1);
             }
         } else{
-            //toast no hagas trampa
+            Toast.makeText(this, "¡No hagas trampas!", Toast.LENGTH_SHORT).show();
         }
     }
 
-    public void colorearPieza(Button botonPulsado, Pieza piezaSeleccionada, Jugador jugador){
-        jugador.getCombinacion().combinacion.add(piezaSeleccionada);
-        switch (jugador.getColor().toUpperCase()){
+    public void colorearPieza(Button botonPulsado, Pieza piezaSeleccionada, Jugador jugadorActual, Jugador siguienteJugador ){
+        jugadorActual.getCombinacion().combinacion.add(piezaSeleccionada);
+        switch (jugadorActual.getColor().toUpperCase()){
             case "NARANJA":
-                botonPulsado.setBackgroundColor(Color.parseColor("#FF9D09"));
+                botonPulsado.setTextColor(Color.parseColor("#FF9D09"));
                 break;
             case "VERDE":
-                botonPulsado.setBackgroundColor(Color.parseColor("#12B81D"));
+                botonPulsado.setTextColor(Color.parseColor("#12B81D"));
                 break;
             case "AZUL":
-                botonPulsado.setBackgroundColor(Color.parseColor("#0D7CE5"));
+                botonPulsado.setTextColor(Color.parseColor("#0D7CE5"));
                 break;
         }
-        TVTurno.setText("TURNO " + jugador.getNombre().toUpperCase());
+
+        actualizarColorRotulo(siguienteJugador);
+        botonPulsado.setText(jugadorActual.getSimbolo());
+        TVTurno.setText("TURNO " + siguienteJugador.getNombre().toUpperCase());
+    }
+
+    public void actualizarColorRotulo(Jugador siguienteJugador){
+        switch (siguienteJugador.getColor().toUpperCase()){
+            case "NARANJA":
+                TVTurno.setTextColor(Color.parseColor("#FF9D09"));
+                break;
+            case "VERDE":
+                TVTurno.setTextColor(Color.parseColor("#12B81D"));
+                break;
+            case "AZUL":
+                TVTurno.setTextColor(Color.parseColor("#0D7CE5"));
+                break;
+        }
+    }
+
+    public void salir(View v){
+        //Con esto solo vuele al menu pricipal, no cierra la APP
+        finish();
+    }
+
+    public void volver(View v){
+        finish();
     }
 }
