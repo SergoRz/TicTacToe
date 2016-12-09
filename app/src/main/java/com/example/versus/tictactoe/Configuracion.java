@@ -1,5 +1,6 @@
 package com.example.versus.tictactoe;
 
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.res.Configuration;
 import android.content.res.Resources;
@@ -129,6 +130,8 @@ public class Configuracion extends AppCompatActivity {
     }
 
     public void back(View v){
+        Intent intent = new Intent(Configuracion.this, PantallaPrincipal.class);
+        startActivity(intent);
         finish();
     }
 
