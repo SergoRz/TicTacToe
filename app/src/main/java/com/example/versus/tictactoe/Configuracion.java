@@ -134,6 +134,7 @@ public class Configuracion extends AppCompatActivity {
     public void back(View v){
         Intent intent = new Intent(Configuracion.this, PantallaPrincipal.class);
         startActivity(intent);
+
         finish();
     }
 
