@@ -4,6 +4,7 @@ import android.content.res.ColorStateList;
 import android.graphics.Color;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
@@ -69,7 +70,6 @@ public class ActivityPartida extends AppCompatActivity {
         }
     }
     public void colocarPieza(View v){
-        comprobarCombinacion();
         Pieza piezaSeleccionada = null;
         Button botonPulsado = (Button) findViewById(v.getId());
 
@@ -146,39 +146,6 @@ public class ActivityPartida extends AppCompatActivity {
 
         if(jugador.getCombinacion().combinacion.size() >= 3) {
 
-        }
-    }
-
-    public void comprobarCombinacion(){
-        //Creacion de las piezas
-        Pieza p11 = new Pieza(11);
-        Pieza p12 = new Pieza(12);
-        Pieza p13 = new Pieza(13);
-
-        Pieza p21 = new Pieza(21);
-        Pieza p22 = new Pieza(22);
-        Pieza p23 = new Pieza(23);
-
-        Pieza p31 = new Pieza(31);
-        Pieza p32 = new Pieza(32);
-        Pieza p33 = new Pieza(33);
-
-        ArrayList<Pieza> a1 = new ArrayList<Pieza>();
-        a1.add(p11);
-        a1.add(p12);
-        a1.add(p13);
-        ArrayList<Pieza> a2 = new ArrayList<Pieza>();
-        a2.add(p11);
-        a2.add(p12);
-        a2.add(p33);
-
-        Combinacion c1 = new Combinacion(a1);
-        Combinacion c2 = new Combinacion(a2);
-
-        if(c1.equals(c2)){
-            Toast.makeText(this, "iguales", Toast.LENGTH_LONG);
-        }else{
-            Toast.makeText(this, "no iguales", Toast.LENGTH_LONG);
         }
     }
 }
