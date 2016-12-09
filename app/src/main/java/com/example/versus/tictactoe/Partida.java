@@ -91,12 +91,9 @@ public class Partida{
 
     public boolean comprobarGanador(Jugador jugador){
         boolean igual = false;
-        Log.d("Combinacion " + jugador.getNombre(), jugador.getCombinacion().toString());
         if(jugador.getCombinacion().combinacion.size() > 2) {
             for(Combinacion cPartida: combinacionesGanadoras){
-                Log.d("Combinacion partida", cPartida.toString());
                 if(jugador.getCombinacion().equals(cPartida)){
-                    Log.d("MSG:", "Dentro de if1");
                     igual = true;
                     break;
                 }

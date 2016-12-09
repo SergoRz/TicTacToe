@@ -81,7 +81,6 @@ public class ActivityPartida extends AppCompatActivity {
         }
     }
     public void colocarPieza(View v){
-        guardarPartida();
         Button botonPulsado = (Button) findViewById(v.getId());
 
         ColorStateList mList = botonPulsado.getTextColors();
@@ -115,7 +114,7 @@ public class ActivityPartida extends AppCompatActivity {
                 break;
         }
 
-        mostrarGanador(jugadorActual);
+        mostrarGanador(jugadorActual, siguienteJugador);
         actualizarColorRotulo(siguienteJugador);
         botonPulsado.setText(jugadorActual.getSimbolo());
         TVTurno.setText("TURNO " + siguienteJugador.getNombre().toUpperCase());
@@ -144,15 +143,16 @@ public class ActivityPartida extends AppCompatActivity {
         finish();
     }
 
-    public void mostrarGanador(Jugador jugador){
+    public void mostrarGanador(Jugador jugadorAcutal, Jugador siguienteJugador){
         //Log.d("Combinacion " + jugador.getNombre(), jugador.getCombinacion().toString());
-        if(partida.comprobarGanador(jugador))
-            Toast.makeText(this, "Ganador: " + jugador.getNombre(), Toast.LENGTH_SHORT).show();
+        if(partida.comprobarGanador(jugadorAcutal))
+            Toast.makeText(this, "Ganador: " + jugadorAcutal.getNombre(), Toast.LENGTH_SHORT).show();
+            guardarPartida(jugadorAcutal, siguienteJugador);
     }
 
-    public void guardarPartida(){
+    public void guardarPartida(Jugador ganador, Jugador perdedor){
         SharedPreferences prefs = getSharedPreferences("MisPreferencias", MODE_PRIVATE);
-        String resultado = getDateTime() + ": " + "Ganador" + " ha ganado a " + "Perdedor";
+        String resultado = getDateTime() + ": " + ganador.getNombre() + " ha ganado a " + perdedor.getNombre();
 
         if(prefs.getBoolean("guardarSD", true)){
             guardarPartidaSD(resultado);
@@ -235,22 +235,4 @@ public class ActivityPartida extends AppCompatActivity {
                 Log.d("Error", "No se añade");
         }
     }
-
-    /*
-    public void comprobarMetodo(){
-        ArrayList<Pieza> a1 = new ArrayList<>();
-        ArrayList<Pieza> a2 = new ArrayList<>();
-        a1.add(new Pieza(11));
-        a1.add(new Pieza(12));
-        a1.add(new Pieza(13));
-
-        a2.add(new Pieza(11));
-        a2.add(new Pieza(12));
-        a2.add(new Pieza(22));
-
-        Combinacion c1 = new Combinacion(a1);
-        Combinacion c2 = new Combinacion(a2);
-
-        Log.d("Comprobar metodo: ", String.valueOf(c1.equals(c2)));
-    }*/
 }
