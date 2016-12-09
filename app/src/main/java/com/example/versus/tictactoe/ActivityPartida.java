@@ -29,6 +29,7 @@ public class ActivityPartida extends AppCompatActivity {
         TVTurno = (TextView) findViewById(R.id.turno);
         TVTurno.setText("TURNO " + j1.getNombre().toUpperCase());
         crearTablero();
+
     }
 
     public void crearTablero(){
