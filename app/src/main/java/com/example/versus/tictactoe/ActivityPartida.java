@@ -114,10 +114,10 @@ public class ActivityPartida extends AppCompatActivity {
                 break;
         }
 
-        mostrarGanador(jugadorActual, siguienteJugador);
         actualizarColorRotulo(siguienteJugador);
         botonPulsado.setText(jugadorActual.getSimbolo());
         TVTurno.setText("TURNO " + siguienteJugador.getNombre().toUpperCase());
+        mostrarGanador(jugadorActual, siguienteJugador);
     }
 
     public void actualizarColorRotulo(Jugador siguienteJugador){
@@ -143,10 +143,14 @@ public class ActivityPartida extends AppCompatActivity {
         finish();
     }
 
-    public void mostrarGanador(Jugador jugadorAcutal, Jugador siguienteJugador){
-        if(partida.comprobarGanador(jugadorAcutal)) {
-            Toast.makeText(this, "Ganador: " + jugadorAcutal.getNombre(), Toast.LENGTH_SHORT).show();
-            guardarPartida(jugadorAcutal, siguienteJugador);
+    public void mostrarGanador(Jugador jugadorActual, Jugador siguienteJugador){
+        //Log.d("Combinacion " + jugador.getNombre(), jugador.getCombinacion().toString());
+        if(partida.comprobarGanador(jugadorActual)) {
+            deshabilitarBotones();
+            TVTurno.setText("GANADOR " + jugadorActual.getNombre().toUpperCase());
+            actualizarColorRotulo(jugadorActual);
+            Toast.makeText(this, "GANADOR " + jugadorActual.getNombre().toUpperCase(), Toast.LENGTH_SHORT).show();
+            guardarPartida(jugadorActual, siguienteJugador);
         }
     }
 
@@ -183,7 +187,7 @@ public class ActivityPartida extends AppCompatActivity {
             fout.close();
         }
         catch (Exception ex) {
-            Toast.makeText(this, ex.getMessage(), Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, "No se ha podido guardar la partida en la tarjeta SD", Toast.LENGTH_SHORT).show();
         }
     }
 
@@ -232,5 +236,27 @@ public class ActivityPartida extends AppCompatActivity {
                 jugador.getCombinacion().combinacion.add(tablero.get(8));
                 break;
         }
+    }
+
+    public void deshabilitarBotones(){
+        Button b11 = (Button) findViewById(R.id.p11);
+        Button b12 = (Button) findViewById(R.id.p12);
+        Button b13 = (Button) findViewById(R.id.p13);
+        Button b21 = (Button) findViewById(R.id.p21);
+        Button b22 = (Button) findViewById(R.id.p22);
+        Button b23 = (Button) findViewById(R.id.p23);
+        Button b31 = (Button) findViewById(R.id.p31);
+        Button b32 = (Button) findViewById(R.id.p32);
+        Button b33 = (Button) findViewById(R.id.p33);
+
+        b11.setClickable(false);
+        b12.setClickable(false);
+        b13.setClickable(false);
+        b21.setClickable(false);
+        b22.setClickable(false);
+        b23.setClickable(false);
+        b31.setClickable(false);
+        b32.setClickable(false);
+        b33.setClickable(false);
     }
 }
