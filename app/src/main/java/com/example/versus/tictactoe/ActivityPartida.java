@@ -70,38 +70,28 @@ public class ActivityPartida extends AppCompatActivity {
         }
     }
     public void colocarPieza(View v){
-        Pieza piezaSeleccionada = null;
-        Button botonPulsado = (Button) findViewById(v.getId());
 
-        for(Pieza p : tablero){
-            if(("p" + String.valueOf(p.getNumero())).equals(v.getId())){
-                piezaSeleccionada = p;
-                break;
-            }
-        }
+        Button botonPulsado = (Button) findViewById(v.getId());
 
         ColorStateList mList = botonPulsado.getTextColors();
         int color = mList.getDefaultColor();
-        //Log.d(String.valueOf(color),"Entramos en onCreate");
-        //Toast.makeText(this, String.valueOf(color),Toast.LENGTH_SHORT).show();
 
         if(color == Color.BLACK){
             if(turno == 1){
-                j1.getCombinacion().combinacion.add(piezaSeleccionada);
                 turno = 2;
-                colorearPieza(botonPulsado, piezaSeleccionada, j1, j2);
+                addPiezaJugador(v, j1);
+                colorearPieza(botonPulsado, j1, j2);
             }else{
-                j2.getCombinacion().combinacion.add(piezaSeleccionada);
                 turno = 1;
-                colorearPieza(botonPulsado, piezaSeleccionada, j2, j1);
+                addPiezaJugador(v, j2);
+                colorearPieza(botonPulsado, j2, j1);
             }
         } else{
             Toast.makeText(this, "¡No hagas trampas!", Toast.LENGTH_SHORT).show();
         }
     }
 
-    public void colorearPieza(Button botonPulsado, Pieza piezaSeleccionada, Jugador jugadorActual, Jugador siguienteJugador ){
-        jugadorActual.getCombinacion().combinacion.add(piezaSeleccionada);
+    public void colorearPieza(Button botonPulsado, Jugador jugadorActual, Jugador siguienteJugador ){
         switch (jugadorActual.getColor().toUpperCase()){
             case "NARANJA":
                 botonPulsado.setTextColor(Color.parseColor("#FF9D09"));
@@ -114,6 +104,7 @@ public class ActivityPartida extends AppCompatActivity {
                 break;
         }
 
+        mostrarGanador(jugadorActual);
         actualizarColorRotulo(siguienteJugador);
         botonPulsado.setText(jugadorActual.getSimbolo());
         TVTurno.setText("TURNO " + siguienteJugador.getNombre().toUpperCase());
@@ -142,10 +133,61 @@ public class ActivityPartida extends AppCompatActivity {
         finish();
     }
 
-    public void comprobarGanador(Jugador jugador){
+    public void mostrarGanador(Jugador jugador){
+        //Log.d("Combinacion " + jugador.getNombre(), jugador.getCombinacion().toString());
+        if(partida.comprobarGanador(jugador))
+            Toast.makeText(this, "Ganador: " + jugador.getNombre(), Toast.LENGTH_SHORT).show();
+    }
 
-        if(jugador.getCombinacion().combinacion.size() >= 3) {
-
+    public void addPiezaJugador(View v, Jugador jugador){
+        switch (v.getId()) {
+            case R.id.p11:
+                jugador.getCombinacion().combinacion.add(tablero.get(0));
+                //Log.d("Error", String.valueOf(tablero.get(0).getNumero()));
+                break;
+            case R.id.p12:
+                jugador.getCombinacion().combinacion.add(tablero.get(1));
+                break;
+            case R.id.p13:
+                jugador.getCombinacion().combinacion.add(tablero.get(2));
+                break;
+            case R.id.p21:
+                jugador.getCombinacion().combinacion.add(tablero.get(3));
+                break;
+            case R.id.p22:
+                jugador.getCombinacion().combinacion.add(tablero.get(4));
+                break;
+            case R.id.p23:
+                jugador.getCombinacion().combinacion.add(tablero.get(5));
+                break;
+            case R.id.p31:
+                jugador.getCombinacion().combinacion.add(tablero.get(6));
+                break;
+            case R.id.p32:
+                jugador.getCombinacion().combinacion.add(tablero.get(7));
+                break;
+            case R.id.p33:
+                jugador.getCombinacion().combinacion.add(tablero.get(8));
+                break;
+            default:
+                Log.d("Error", "No se añade");
         }
+    }
+
+    public void comprobarMetodo(){
+        ArrayList<Pieza> a1 = new ArrayList<>();
+        ArrayList<Pieza> a2 = new ArrayList<>();
+        a1.add(new Pieza(11));
+        a1.add(new Pieza(12));
+        a1.add(new Pieza(13));
+
+        a2.add(new Pieza(11));
+        a2.add(new Pieza(12));
+        a2.add(new Pieza(22));
+
+        Combinacion c1 = new Combinacion(a1);
+        Combinacion c2 = new Combinacion(a2);
+
+        Log.d("Comprobar metodo: ", String.valueOf(c1.equals(c2)));
     }
 }

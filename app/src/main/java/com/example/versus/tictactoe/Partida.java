@@ -1,5 +1,7 @@
 package com.example.versus.tictactoe;
 
+import android.util.Log;
+
 import java.util.ArrayList;
 
 public class Partida{
@@ -87,9 +89,21 @@ public class Partida{
         combinacionesGanadoras.add(cGanadora8);
     }
 
-    public boolean comprobarSolucion(){
+    public boolean comprobarGanador(Jugador jugador){
+        boolean igual = false;
+        Log.d("Combinacion " + jugador.getNombre(), jugador.getCombinacion().toString());
+        if(jugador.getCombinacion().combinacion.size() > 2) {
+            for(Combinacion cPartida: combinacionesGanadoras){
+                Log.d("Combinacion partida", cPartida.toString());
+                if(jugador.getCombinacion().equals(cPartida)){
+                    Log.d("MSG:", "Dentro de if1");
+                    igual = true;
+                    break;
+                }
+            }
+        }
 
-        return false;
+        return igual;
     }
 
 }

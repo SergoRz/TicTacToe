@@ -13,14 +13,29 @@ public class Combinacion {
     public Combinacion(){ this.combinacion = new ArrayList<Pieza>();}
 
     public boolean equals(Combinacion combinacion1){
-        boolean igual = true;
+        boolean igualComb;
+        int numPiezasEnComb = 0;
 
-        for(Pieza p: combinacion) {
-            if(!combinacion1.combinacion.contains(p)){
-                igual = false;
+        for(Pieza p1: combinacion) {
+            for(Pieza p2: combinacion1.combinacion){
+                if(p1.equals(p2)){
+                    numPiezasEnComb++;
+                    break;
+                }
             }
         }
 
-        return igual;
+        if(numPiezasEnComb < 3) igualComb = false;
+        else igualComb = true;
+
+        return igualComb;
+    }
+
+    public String toString(){
+        String cadena = "";
+        for(Pieza p: combinacion)
+            cadena = cadena + p.getNumero() + "/";
+
+        return cadena;
     }
 }

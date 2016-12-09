@@ -17,4 +17,8 @@ public class Pieza {
         this.numero = numero;
     }
 
+    public boolean equals(Pieza pieza){
+        if(this.numero == pieza.getNumero()) return true;
+        else return false;
+    }
 }
