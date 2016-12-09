@@ -12,8 +12,14 @@ public class Combinacion {
 
     public Combinacion(){ this.combinacion = new ArrayList<Pieza>();}
 
-    public boolean equals(){
-        boolean igual = false;
+    public boolean equals(Combinacion combinacion1){
+        boolean igual = true;
+
+        for(Pieza p: combinacion) {
+            if(!combinacion1.combinacion.contains(p)){
+                igual = false;
+            }
+        }
 
         return igual;
     }
