@@ -150,7 +150,6 @@ public class ActivityPartida extends AppCompatActivity {
             Toast.makeText(this, "Ganador: " + jugador.getNombre(), Toast.LENGTH_SHORT).show();
     }
 
-
     public void guardarPartida(){
         SharedPreferences prefs = getSharedPreferences("MisPreferencias", MODE_PRIVATE);
         String resultado = getDateTime() + ": " + "Ganador" + " ha ganado a " + "Perdedor";
@@ -207,7 +206,6 @@ public class ActivityPartida extends AppCompatActivity {
         switch (v.getId()) {
             case R.id.p11:
                 jugador.getCombinacion().combinacion.add(tablero.get(0));
-                //Log.d("Error", String.valueOf(tablero.get(0).getNumero()));
                 break;
             case R.id.p12:
                 jugador.getCombinacion().combinacion.add(tablero.get(1));
@@ -238,6 +236,7 @@ public class ActivityPartida extends AppCompatActivity {
         }
     }
 
+    /*
     public void comprobarMetodo(){
         ArrayList<Pieza> a1 = new ArrayList<>();
         ArrayList<Pieza> a2 = new ArrayList<>();
@@ -253,5 +252,5 @@ public class ActivityPartida extends AppCompatActivity {
         Combinacion c2 = new Combinacion(a2);
 
         Log.d("Comprobar metodo: ", String.valueOf(c1.equals(c2)));
-    }
+    }*/
 }
