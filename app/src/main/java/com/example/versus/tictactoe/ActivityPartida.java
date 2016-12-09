@@ -35,7 +35,7 @@ public class ActivityPartida extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_partida);
-        j1 = new Jugador("Sergio", "NARANJA", "X");
+        j1 = new Jugador("SergioSanchez", "NARANJA", "X");
         j2 = new Jugador("Emilio", "VERDE", "O");
         turno = 1;
         TVTurno = (TextView) findViewById(R.id.turno);
@@ -147,9 +147,9 @@ public class ActivityPartida extends AppCompatActivity {
         //Log.d("Combinacion " + jugador.getNombre(), jugador.getCombinacion().toString());
         if(partida.comprobarGanador(jugadorActual)) {
             deshabilitarBotones();
-            TVTurno.setText("GANADOR " + jugadorActual.getNombre().toUpperCase());
+            TVTurno.setText("HA GANADO " + jugadorActual.getNombre().toUpperCase());
             actualizarColorRotulo(jugadorActual);
-            Toast.makeText(this, "GANADOR " + jugadorActual.getNombre().toUpperCase(), Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, "HA GANADO "  + jugadorActual.getNombre().toUpperCase(), Toast.LENGTH_SHORT).show();
             guardarPartida(jugadorActual, siguienteJugador);
         }
     }

@@ -1,7 +1,5 @@
 package com.example.versus.tictactoe;
 
-import android.util.Log;
-
 import java.util.ArrayList;
 
 public class Partida{
