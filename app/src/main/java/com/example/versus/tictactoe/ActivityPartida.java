@@ -1,8 +1,10 @@
 package com.example.versus.tictactoe;
 
+import android.graphics.Color;
 import android.graphics.drawable.Drawable;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
@@ -22,10 +24,11 @@ public class ActivityPartida extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_partida);
-        turno = 1;
-        TVTurno = (TextView) findViewById(R.id.turno);
         j1 = new Jugador("Sergio", "NARANJA");
         j2 = new Jugador("Emilio", "VERDE");
+        turno = 1;
+        TVTurno = (TextView) findViewById(R.id.turno);
+        TVTurno.setText("TURNO " + j1.getNombre().toUpperCase());
         crearTablero();
     }
 
@@ -64,8 +67,9 @@ public class ActivityPartida extends AppCompatActivity {
                 break;
             }
         }
-
-        if(botonPulsado.getBackground().equals("@drawable/btn_default_material")){
+        //0 es el color que tienen los botones por defecto
+        //Log.d(String.valueOf(color),"Entramos en onCreate");
+        if(botonPulsado.getDrawingCacheBackgroundColor() == 0){
             if(turno == 1){
                 j1.getCombinacion().combinacion.add(piezaSeleccionada);
                 turno = 2;
@@ -84,13 +88,13 @@ public class ActivityPartida extends AppCompatActivity {
         jugador.getCombinacion().combinacion.add(piezaSeleccionada);
         switch (jugador.getColor().toUpperCase()){
             case "NARANJA":
-                botonPulsado.setBackground(Drawable.createFromPath("@drawable/holo_orange_dark"));
+                botonPulsado.setBackgroundColor(Color.parseColor("#FF9D09"));
                 break;
             case "VERDE":
-                botonPulsado.setBackground(Drawable.createFromPath("@drawable/holo_green_dark"));
+                botonPulsado.setBackgroundColor(Color.parseColor("#12B81D"));
                 break;
             case "AZUL":
-                botonPulsado.setBackground(Drawable.createFromPath("@drawable/holo_blue_dark"));
+                botonPulsado.setBackgroundColor(Color.parseColor("#0D7CE5"));
                 break;
         }
         TVTurno.setText("TURNO " + jugador.getNombre().toUpperCase());
