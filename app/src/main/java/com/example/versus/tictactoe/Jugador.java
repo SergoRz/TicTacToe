@@ -5,11 +5,13 @@ public class Jugador {
 
     private String nombre;
     private String color;
+    private String simbolo;
     private Combinacion combinacion;
 
-    public Jugador(String nombre, String color) {
+    public Jugador(String nombre, String color, String simbolo) {
         this.nombre = nombre;
         this.color = color;
+        this.simbolo = simbolo;
         this.combinacion = new Combinacion();
     }
 
@@ -40,5 +42,13 @@ public class Jugador {
 
     public void setCombinacion(Combinacion combinacion) {
         this.combinacion = combinacion;
+    }
+
+    public String getSimbolo() {
+        return simbolo;
+    }
+
+    public void setSimbolo(String simbolo) {
+        this.simbolo = simbolo;
     }
 }
