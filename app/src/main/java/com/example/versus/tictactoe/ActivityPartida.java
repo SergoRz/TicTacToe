@@ -1,7 +1,10 @@
 package com.example.versus.tictactoe;
 
+import android.content.Context;
+import android.content.SharedPreferences;
 import android.content.res.ColorStateList;
 import android.graphics.Color;
+import android.os.Environment;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -9,7 +12,15 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import java.io.File;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.OutputStreamWriter;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 
 public class ActivityPartida extends AppCompatActivity {
 
@@ -70,7 +81,7 @@ public class ActivityPartida extends AppCompatActivity {
         }
     }
     public void colocarPieza(View v){
-
+        guardarPartida();
         Button botonPulsado = (Button) findViewById(v.getId());
 
         ColorStateList mList = botonPulsado.getTextColors();
@@ -137,6 +148,59 @@ public class ActivityPartida extends AppCompatActivity {
         //Log.d("Combinacion " + jugador.getNombre(), jugador.getCombinacion().toString());
         if(partida.comprobarGanador(jugador))
             Toast.makeText(this, "Ganador: " + jugador.getNombre(), Toast.LENGTH_SHORT).show();
+    }
+
+
+    public void guardarPartida(){
+        SharedPreferences prefs = getSharedPreferences("MisPreferencias", MODE_PRIVATE);
+        String resultado = getDateTime() + ": " + "Ganador" + " ha ganado a " + "Perdedor";
+
+        if(prefs.getBoolean("guardarSD", true)){
+            guardarPartidaSD(resultado);
+        }
+        if(prefs.getBoolean("guardarMI", true)){
+            guardarPartidaMI(resultado);
+        }
+    }
+
+    public void guardarPartidaMI(String resultado){
+        try {
+            OutputStreamWriter osw = new OutputStreamWriter(openFileOutput(nombreFichero(), Context.MODE_PRIVATE));
+            osw.write(resultado);
+            osw.close();
+        }
+        catch (IOException e) {
+            Toast.makeText(this, "No se ha podido guardar la partida en la memoria del telefono", Toast.LENGTH_SHORT).show();
+        }
+    }
+
+    public void guardarPartidaSD(String resultado){
+        try {
+            File ruta_sd = Environment.getExternalStorageDirectory();
+            File f = new File(ruta_sd.getAbsolutePath(), nombreFichero());
+            OutputStreamWriter fout = new OutputStreamWriter(new FileOutputStream(f));
+
+            fout.write(resultado);
+            fout.close();
+        }
+        catch (Exception ex) {
+            Toast.makeText(this, "No se ha podido guardar la partida en la tarjeta SD", Toast.LENGTH_SHORT).show();
+        }
+    }
+
+    public String nombreFichero(){
+        SharedPreferences prefs = getSharedPreferences("MisPreferencias", MODE_PRIVATE);
+        String nombre;
+
+        nombre = prefs.getString("nombreFichero", "ejecuciones.txt");
+
+        return nombre;
+    }
+
+    private String getDateTime() {
+        DateFormat dateFormat = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss");
+        Date date = new Date();
+        return dateFormat.format(date);
     }
 
     public void addPiezaJugador(View v, Jugador jugador){

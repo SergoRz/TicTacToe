@@ -52,6 +52,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/cbSD"
+        android:onClick="comprobarSD"
         android:layout_marginLeft="20dp"/>
 
     <CheckBox
