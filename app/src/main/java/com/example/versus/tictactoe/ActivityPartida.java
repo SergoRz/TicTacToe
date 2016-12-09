@@ -144,10 +144,10 @@ public class ActivityPartida extends AppCompatActivity {
     }
 
     public void mostrarGanador(Jugador jugadorAcutal, Jugador siguienteJugador){
-        //Log.d("Combinacion " + jugador.getNombre(), jugador.getCombinacion().toString());
-        if(partida.comprobarGanador(jugadorAcutal))
+        if(partida.comprobarGanador(jugadorAcutal)) {
             Toast.makeText(this, "Ganador: " + jugadorAcutal.getNombre(), Toast.LENGTH_SHORT).show();
             guardarPartida(jugadorAcutal, siguienteJugador);
+        }
     }
 
     public void guardarPartida(Jugador ganador, Jugador perdedor){
@@ -183,7 +183,7 @@ public class ActivityPartida extends AppCompatActivity {
             fout.close();
         }
         catch (Exception ex) {
-            Toast.makeText(this, "No se ha podido guardar la partida en la tarjeta SD", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, ex.getMessage(), Toast.LENGTH_SHORT).show();
         }
     }
 
@@ -231,8 +231,6 @@ public class ActivityPartida extends AppCompatActivity {
             case R.id.p33:
                 jugador.getCombinacion().combinacion.add(tablero.get(8));
                 break;
-            default:
-                Log.d("Error", "No se añade");
         }
     }
 }
