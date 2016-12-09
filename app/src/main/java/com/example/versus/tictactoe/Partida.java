@@ -16,17 +16,17 @@ public class Partida{
 
     public void iniciarPartida(){
         //Creacion de las piezas
-        Pieza p11 = new Pieza(1,1);
-        Pieza p12 = new Pieza(1,2);
-        Pieza p13 = new Pieza(1,3);
+        Pieza p11 = new Pieza(11);
+        Pieza p12 = new Pieza(12);
+        Pieza p13 = new Pieza(13);
 
-        Pieza p21 = new Pieza(2,1);
-        Pieza p22 = new Pieza(2,2);
-        Pieza p23 = new Pieza(2,3);
+        Pieza p21 = new Pieza(21);
+        Pieza p22 = new Pieza(22);
+        Pieza p23 = new Pieza(23);
 
-        Pieza p31 = new Pieza(3,1);
-        Pieza p32 = new Pieza(3,2);
-        Pieza p33 = new Pieza(3,3);
+        Pieza p31 = new Pieza(31);
+        Pieza p32 = new Pieza(32);
+        Pieza p33 = new Pieza(33);
 
         //Creacion de las combinaciones ganadoras
         ArrayList<Pieza> aP1 = new ArrayList<Pieza>();

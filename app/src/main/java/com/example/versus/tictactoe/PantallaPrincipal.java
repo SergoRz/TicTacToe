@@ -20,7 +20,7 @@ public class PantallaPrincipal extends AppCompatActivity {
     }
 
     public void goPlay(View v){
-        Intent intent = new Intent(PantallaPrincipal.this, ActivityPartida.class);
+        Intent intent = new Intent(this, ActivityPartida.class);
         startActivity(intent);
     }
 }

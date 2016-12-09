@@ -7,10 +7,15 @@ public class Jugador {
     private String color;
     private Combinacion combinacion;
 
-    public Jugador(String nombre, String color, Combinacion combinacion) {
+    public Jugador(String nombre, String color) {
         this.nombre = nombre;
         this.color = color;
-        this.combinacion = combinacion;
+        this.combinacion = new Combinacion();
+    }
+
+    public boolean equals(Jugador jugador){
+        if(jugador.nombre.equals(this.nombre) && jugador.color.equals(this.color))return true;
+        else return false;
     }
 
     public String getNombre() {
