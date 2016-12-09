@@ -25,6 +25,7 @@ public class PantallaPrincipal extends AppCompatActivity {
     }
 
     public void goConfig(View v){
+        finish();
         Intent intent = new Intent(PantallaPrincipal.this, Configuracion.class);
         startActivity(intent);
     }
