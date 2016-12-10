@@ -86,19 +86,19 @@ public class PantallaEleccion extends AppCompatActivity {
                 _rbOrangeJug1.setEnabled(false);
                 _rbGreenJug1.setEnabled(true);
                 _rbBlueJug1.setEnabled(true);
-                jugador1.setColor(_rbOrangeJug2.getText().toString());
+                jugador2.setColor(_rbOrangeJug2.getText().toString());
                 break;
             case R.id.rbGreenJug2:
                 _rbOrangeJug1.setEnabled(true);
                 _rbGreenJug1.setEnabled(false);
                 _rbBlueJug1.setEnabled(true);
-                jugador1.setColor(_rbGreenJug2.getText().toString());
+                jugador2.setColor(_rbGreenJug2.getText().toString());
                 break;
             case R.id.rbBlueJug2:
                 _rbOrangeJug1.setEnabled(true);
                 _rbGreenJug1.setEnabled(true);
                 _rbBlueJug1.setEnabled(false);
-                jugador1.setColor(_rbBlueJug2.getText().toString());
+                jugador2.setColor(_rbBlueJug2.getText().toString());
                 break;
         }
     }
