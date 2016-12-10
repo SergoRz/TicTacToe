@@ -211,23 +211,24 @@
                 android:text="VOLVER"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
-                android:id="@+id/button11"
-                android:layout_weight="1"
+                android:id="@+id/btnVolver"
+                android:layout_weight="1.13"
                 android:background="@android:color/background_dark"
                 android:textColor="@android:color/background_light"
                 android:textSize="24sp"
                 android:onClick="volver"/>
 
             <Button
-                android:text="SALIR"
+                android:text="REINICIAR"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
-                android:id="@+id/button"
+                android:id="@+id/btnReiniciar"
                 android:layout_weight="1"
                 android:background="@android:color/background_dark"
                 android:textColor="@android:color/background_light"
                 android:textSize="24sp"
-                android:onClick="salir"/>
+                android:onClick="reiniciar"
+                android:clickable="false" />
         </LinearLayout>
 
     </LinearLayout>

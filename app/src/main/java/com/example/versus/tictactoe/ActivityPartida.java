@@ -66,18 +66,10 @@ public class ActivityPartida extends AppCompatActivity {
         tablero.add(p32);
         tablero.add(p33);
 
-        switch (j1.getColor().toUpperCase()){
-            case "NARANJA":
-                TVTurno.setTextColor(Color.parseColor("#FF9D09"));
-                break;
-            case "VERDE":
-                TVTurno.setTextColor(Color.parseColor("#12B81D"));
-                break;
-            case "AZUL":
-                TVTurno.setTextColor(Color.parseColor("#0D7CE5"));
-                break;
-        }
+        findViewById(R.id.btnReiniciar).setClickable(false);
+        actualizarColorRotulo(j1);
     }
+
     public void colocarPieza(View v){
         Button botonPulsado = (Button) findViewById(v.getId());
 
@@ -132,9 +124,31 @@ public class ActivityPartida extends AppCompatActivity {
         }
     }
 
-    public void salir(View v){
-        //Con esto solo vuele al menu pricipal, no cierra la APP
-        finish();
+    public void reiniciar(View v){
+        ArrayList<Button> aButton = new ArrayList<>();
+        aButton.add((Button) findViewById(R.id.p11));
+        aButton.add((Button) findViewById(R.id.p12));
+        aButton.add((Button) findViewById(R.id.p13));
+        aButton.add((Button) findViewById(R.id.p21));
+        aButton.add((Button) findViewById(R.id.p22));
+        aButton.add((Button) findViewById(R.id.p23));
+        aButton.add((Button) findViewById(R.id.p31));
+        aButton.add((Button) findViewById(R.id.p32));
+        aButton.add((Button) findViewById(R.id.p33));
+
+        for(Button b: aButton){
+            b.setTextColor(Color.BLACK);
+            b.setText("");
+            b.setClickable(true);
+        }
+
+        turno = 1;
+        j1.getCombinacion().combinacion.clear();
+        j2.getCombinacion().combinacion.clear();
+
+        TVTurno.setText("TURNO DE " + j1.getNombre().toUpperCase());
+        actualizarColorRotulo(j1);
+        findViewById(R.id.btnReiniciar).setClickable(true);
     }
 
     public void volver(View v){
@@ -144,6 +158,7 @@ public class ActivityPartida extends AppCompatActivity {
     public void mostrarGanador(Jugador jugadorActual, Jugador siguienteJugador){
         //Log.d("Combinacion " + jugador.getNombre(), jugador.getCombinacion().toString());
         if(partida.comprobarGanador(jugadorActual)) {
+            findViewById(R.id.btnReiniciar).setClickable(true);
             deshabilitarBotones();
             TVTurno.setText("HA GANADO " + jugadorActual.getNombre().toUpperCase());
             actualizarColorRotulo(jugadorActual);
@@ -151,6 +166,7 @@ public class ActivityPartida extends AppCompatActivity {
             guardarPartida(jugadorActual, siguienteJugador);
         }else{
             if(jugadorActual.getCombinacion().combinacion.size() == 4 && siguienteJugador.getCombinacion().combinacion.size() == 4) {
+                findViewById(R.id.btnReiniciar).setClickable(true);
                 deshabilitarBotones();
                 TVTurno.setText("EMPATE");
                 TVTurno.setTextColor(Color.parseColor("#000000"));
@@ -245,24 +261,19 @@ public class ActivityPartida extends AppCompatActivity {
     }
 
     public void deshabilitarBotones(){
-        Button b11 = (Button) findViewById(R.id.p11);
-        Button b12 = (Button) findViewById(R.id.p12);
-        Button b13 = (Button) findViewById(R.id.p13);
-        Button b21 = (Button) findViewById(R.id.p21);
-        Button b22 = (Button) findViewById(R.id.p22);
-        Button b23 = (Button) findViewById(R.id.p23);
-        Button b31 = (Button) findViewById(R.id.p31);
-        Button b32 = (Button) findViewById(R.id.p32);
-        Button b33 = (Button) findViewById(R.id.p33);
+        ArrayList<Button> aButton = new ArrayList<>();
+        aButton.add((Button) findViewById(R.id.p11));
+        aButton.add((Button) findViewById(R.id.p12));
+        aButton.add((Button) findViewById(R.id.p13));
+        aButton.add((Button) findViewById(R.id.p21));
+        aButton.add((Button) findViewById(R.id.p22));
+        aButton.add((Button) findViewById(R.id.p23));
+        aButton.add((Button) findViewById(R.id.p31));
+        aButton.add((Button) findViewById(R.id.p32));
+        aButton.add((Button) findViewById(R.id.p33));
 
-        b11.setClickable(false);
-        b12.setClickable(false);
-        b13.setClickable(false);
-        b21.setClickable(false);
-        b22.setClickable(false);
-        b23.setClickable(false);
-        b31.setClickable(false);
-        b32.setClickable(false);
-        b33.setClickable(false);
+        for(Button b: aButton){
+            b.setClickable(false);
+        }
     }
 }
