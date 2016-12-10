@@ -18,4 +18,6 @@
     <string name="btnVolver">BACK</string>
     <string name="btnReiniciar">RESET</string>
     <string name="trampas">DONT CHEAT!</string>
+    <string name="errorFichSD">There is a problem saving game in SD</string>
+    <string name="errorFichTelf">There is a problem saving game in memory</string>
 </resources>
