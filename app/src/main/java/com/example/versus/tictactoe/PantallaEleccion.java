@@ -11,8 +11,8 @@ import android.widget.Toast;
 
 public class PantallaEleccion extends AppCompatActivity {
 
-    Jugador jugador1 = null;
-    Jugador jugador2 = null;
+    Jugador jugador1;
+    Jugador jugador2;
 
     EditText _nombreJ1;
     EditText _nombreJ2;
@@ -45,6 +45,9 @@ public class PantallaEleccion extends AppCompatActivity {
 
         jugador1 = new Jugador("X");
         jugador2 = new Jugador("O");
+
+        jugador1.setColor(_rbOrangeJug1.getText().toString());
+        jugador2.setColor(_rbGreenJug2.getText().toString());
     }
 
 

@@ -8,6 +8,7 @@ import android.graphics.Color;
 import android.os.Environment;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
@@ -24,8 +25,8 @@ import java.util.Date;
 
 public class ActivityPartida extends AppCompatActivity {
 
-    Jugador j1 = null;
-    Jugador j2 = null;
+    Jugador j1;
+    Jugador j2;
     int turno;
     Partida partida = new Partida(j1,j2);
     ArrayList<Pieza> tablero = new ArrayList<Pieza>();
@@ -38,9 +39,12 @@ public class ActivityPartida extends AppCompatActivity {
 
         Bundle extras = getIntent().getExtras();
         j1 = extras.getParcelable("jugador1");
+        Log.i("nombre", j1.getNombre());
+        Log.i("color", j1.getColor());
         j1.setCombinacion(new Combinacion());
         j2 = extras.getParcelable("jugador2");
         j2.setCombinacion(new Combinacion());
+
         turno = 1;
         TVTurno = (TextView) findViewById(R.id.turno);
 
