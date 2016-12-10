@@ -13,14 +13,12 @@ public class Jugador implements Parcelable {
 
     public Jugador(String simbolo){
         this.simbolo = simbolo;
-        this.combinacion = new Combinacion();
     }
 
     public Jugador(String nombre, String color, String simbolo) {
         this.nombre = nombre;
         this.color = color;
         this.simbolo = simbolo;
-        this.combinacion = new Combinacion();
     }
 
     public boolean equals(Jugador jugador){
@@ -78,7 +76,6 @@ public class Jugador implements Parcelable {
         dest.writeString(color);
         dest.writeString(simbolo);
         dest.writeValue(combinacion);
-
     }
 
     @SuppressWarnings("unused")

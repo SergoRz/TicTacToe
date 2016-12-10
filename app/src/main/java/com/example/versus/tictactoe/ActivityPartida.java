@@ -38,7 +38,9 @@ public class ActivityPartida extends AppCompatActivity {
 
         Bundle extras = getIntent().getExtras();
         j1 = extras.getParcelable("jugador1");
+        j1.setCombinacion(new Combinacion());
         j2 = extras.getParcelable("jugador2");
+        j2.setCombinacion(new Combinacion());
         turno = 1;
         TVTurno = (TextView) findViewById(R.id.turno);
 
