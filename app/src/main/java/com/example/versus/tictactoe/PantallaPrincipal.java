@@ -30,8 +30,9 @@ public class PantallaPrincipal extends AppCompatActivity {
         startActivity(intent);
     }
 
-    public void goPlay(View v){
-        Intent intent = new Intent(this, ActivityPartida.class);
+    public void goChoose(View v){
+        finish();
+        Intent intent = new Intent(PantallaPrincipal.this, PantallaEleccion.class);
         startActivity(intent);
     }
 

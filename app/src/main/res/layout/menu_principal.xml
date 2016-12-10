@@ -43,7 +43,7 @@
             android:layout_weight="1"
             android:contentDescription=""
             tools:ignore="ContentDescription"
-            android:onClick="goPlay"/>
+            android:onClick="goChoose"/>
 
         <ImageButton
             android:layout_width="100dp"

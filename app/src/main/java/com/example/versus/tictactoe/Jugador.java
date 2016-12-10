@@ -1,12 +1,20 @@
 package com.example.versus.tictactoe;
 
 
-public class Jugador {
+import android.os.Parcel;
+import android.os.Parcelable;
+
+public class Jugador implements Parcelable {
 
     private String nombre;
     private String color;
     private String simbolo;
     private Combinacion combinacion;
+
+    public Jugador(String simbolo){
+        this.simbolo = simbolo;
+        this.combinacion = new Combinacion();
+    }
 
     public Jugador(String nombre, String color, String simbolo) {
         this.nombre = nombre;
@@ -51,4 +59,37 @@ public class Jugador {
     public void setSimbolo(String simbolo) {
         this.simbolo = simbolo;
     }
+
+    protected Jugador(Parcel in) {
+        nombre = in.readString();
+        color = in.readString();
+        simbolo = in.readString();
+        combinacion = (Combinacion) in.readValue(Combinacion.class.getClassLoader());
+    }
+
+    @Override
+    public int describeContents() {
+        return 0;
+    }
+
+    @Override
+    public void writeToParcel(Parcel dest, int flags) {
+        dest.writeString(nombre);
+        dest.writeString(color);
+        dest.writeString(simbolo);
+        dest.writeValue(combinacion);
+    }
+
+    @SuppressWarnings("unused")
+    public static final Parcelable.Creator<Jugador> CREATOR = new Parcelable.Creator<Jugador>() {
+        @Override
+        public Jugador createFromParcel(Parcel in) {
+            return new Jugador(in);
+        }
+
+        @Override
+        public Jugador[] newArray(int size) {
+            return new Jugador[size];
+        }
+    };
 }

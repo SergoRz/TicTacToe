@@ -35,8 +35,10 @@ public class ActivityPartida extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_partida);
-        j1 = new Jugador("Sergio", "NARANJA", "X");
-        j2 = new Jugador("Emilio", "VERDE", "O");
+
+        Bundle extras = getIntent().getExtras();
+        j1 = extras.getParcelable("jugador1");
+        j2 = extras.getParcelable("jugador2");
         turno = 1;
         TVTurno = (TextView) findViewById(R.id.turno);
 
