@@ -12,5 +12,10 @@
     <string name="filename">File name</string>
     <string name="save">Save</string>
     <string name="back">Back</string>
-
+    <string name="empate">DRAW</string>
+    <string name="ganador">%1$s HAS WON</string>
+    <string name="turno">TURN OF %1$s</string>
+    <string name="btnVolver">BACK</string>
+    <string name="btnReiniciar">RESET</string>
+    <string name="trampas">DONT CHEAT!</string>
 </resources>

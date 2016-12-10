@@ -13,4 +13,10 @@
     <string name="filename">Nombre del fichero</string>
     <string name="save">Guardar</string>
     <string name="back">Volver</string>
+    <string name="btnReiniciar">REINICIAR</string>
+    <string name="btnVolver">VOLVER</string>
+    <string name="empate">EMPATE</string>
+    <string name="ganador">HA GANADO %1$s</string>
+    <string name="turno">TURNO DE %1$s</string>
+    <string name="trampas">¡NO HAGAS TRAMPAS!</string>
 </resources>

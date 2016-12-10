@@ -20,7 +20,7 @@
             android:textAlignment="center">
 
             <TextView
-                android:text="TURNO JUGADOR"
+                android:text="@string/turno"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:id="@+id/turno"
@@ -208,7 +208,7 @@
             android:paddingTop="75dp">
 
             <Button
-                android:text="VOLVER"
+                android:text="@string/btnVolver"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:id="@+id/btnVolver"
@@ -219,7 +219,7 @@
                 android:onClick="volver"/>
 
             <Button
-                android:text="REINICIAR"
+                android:text="@string/btnReiniciar"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:id="@+id/btnReiniciar"

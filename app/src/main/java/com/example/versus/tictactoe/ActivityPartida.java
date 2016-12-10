@@ -3,6 +3,7 @@ package com.example.versus.tictactoe;
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.content.res.ColorStateList;
+import android.content.res.Resources;
 import android.graphics.Color;
 import android.os.Environment;
 import android.support.v7.app.AppCompatActivity;
@@ -38,7 +39,8 @@ public class ActivityPartida extends AppCompatActivity {
         j2 = new Jugador("Emilio", "VERDE", "O");
         turno = 1;
         TVTurno = (TextView) findViewById(R.id.turno);
-        TVTurno.setText("TURNO DE " + j1.getNombre().toUpperCase());
+
+        TVTurno.setText(String.format((getResources().getString(R.string.turno)), (j1.getNombre().toUpperCase())));
         crearTablero();
     }
 
@@ -87,7 +89,7 @@ public class ActivityPartida extends AppCompatActivity {
                 colorearPieza(botonPulsado, j2, j1);
             }
         } else{
-            Toast.makeText(this, "¡No hagas trampas!", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, getResources().getString(R.string.trampas), Toast.LENGTH_SHORT).show();
         }
     }
 
@@ -106,7 +108,7 @@ public class ActivityPartida extends AppCompatActivity {
 
         actualizarColorRotulo(siguienteJugador);
         botonPulsado.setText(jugadorActual.getSimbolo());
-        TVTurno.setText("TURNO DE " + siguienteJugador.getNombre().toUpperCase());
+        TVTurno.setText(String.format((getResources().getString(R.string.turno)), (siguienteJugador.getNombre().toUpperCase())));
         mostrarGanador(jugadorActual, siguienteJugador);
     }
 
@@ -146,7 +148,7 @@ public class ActivityPartida extends AppCompatActivity {
         j1.getCombinacion().combinacion.clear();
         j2.getCombinacion().combinacion.clear();
 
-        TVTurno.setText("TURNO DE " + j1.getNombre().toUpperCase());
+        TVTurno.setText(String.format((getResources().getString(R.string.turno)), (j1.getNombre().toUpperCase())));
         actualizarColorRotulo(j1);
         findViewById(R.id.btnReiniciar).setClickable(true);
     }
@@ -156,21 +158,20 @@ public class ActivityPartida extends AppCompatActivity {
     }
 
     public void mostrarGanador(Jugador jugadorActual, Jugador siguienteJugador){
-        //Log.d("Combinacion " + jugador.getNombre(), jugador.getCombinacion().toString());
         if(partida.comprobarGanador(jugadorActual)) {
             findViewById(R.id.btnReiniciar).setClickable(true);
             deshabilitarBotones();
-            TVTurno.setText("HA GANADO " + jugadorActual.getNombre().toUpperCase());
+            TVTurno.setText(String.format(getResources().getString(R.string.ganador), jugadorActual.getNombre().toUpperCase()));
             actualizarColorRotulo(jugadorActual);
-            Toast.makeText(this, "HA GANADO "  + jugadorActual.getNombre().toUpperCase(), Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, String.format(getResources().getString(R.string.ganador), jugadorActual.getNombre().toUpperCase()), Toast.LENGTH_SHORT).show();
             guardarPartida(jugadorActual, siguienteJugador);
         }else{
             if(jugadorActual.getCombinacion().combinacion.size() == 4 && siguienteJugador.getCombinacion().combinacion.size() == 4) {
                 findViewById(R.id.btnReiniciar).setClickable(true);
                 deshabilitarBotones();
-                TVTurno.setText("EMPATE");
+                TVTurno.setText(getResources().getString(R.string.empate));
                 TVTurno.setTextColor(Color.parseColor("#000000"));
-                Toast.makeText(this, "EMPATE", Toast.LENGTH_SHORT).show();
+                Toast.makeText(this, getResources().getString(R.string.empate), Toast.LENGTH_SHORT).show();
                 //GUARDAR PARTIDA EMPATE
             }
         }
