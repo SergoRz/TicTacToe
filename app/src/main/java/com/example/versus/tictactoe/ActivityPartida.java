@@ -39,8 +39,6 @@ public class ActivityPartida extends AppCompatActivity {
 
         Bundle extras = getIntent().getExtras();
         j1 = extras.getParcelable("jugador1");
-        Log.i("nombre", j1.getNombre());
-        Log.i("color", j1.getColor());
         j1.setCombinacion(new Combinacion());
         j2 = extras.getParcelable("jugador2");
         j2.setCombinacion(new Combinacion());
