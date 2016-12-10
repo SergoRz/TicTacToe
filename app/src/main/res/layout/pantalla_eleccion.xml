@@ -4,13 +4,15 @@
         xmlns:android="http://schemas.android.com/apk/res/android"
         android:orientation="vertical"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:weightSum="1">
 
         <LinearLayout
             android:padding="10dp"
             android:orientation="vertical"
             android:layout_width="match_parent"
-            android:layout_height="245dp">
+            android:layout_height="245dp"
+            android:layout_weight="1">
 
             <TextView
                 android:text="JUGADOR 1 - Escoge nombre y color:"
@@ -90,7 +92,8 @@
             android:padding="10dp"
             android:orientation="vertical"
             android:layout_width="match_parent"
-            android:layout_height="255dp">
+            android:layout_height="255dp"
+            android:layout_weight="1.67">
 
             <TextView
                 android:text="JUGADOR 2 - Escoge nombre y color:"
@@ -170,7 +173,7 @@
         <LinearLayout
             android:orientation="horizontal"
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="123dp">
 
             <Button
                 android:text="@string/btnVolver"

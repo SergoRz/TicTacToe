@@ -78,6 +78,7 @@ public class Jugador implements Parcelable {
         dest.writeValue(combinacion);
     }
 
+
     @SuppressWarnings("unused")
     public static final Parcelable.Creator<Jugador> CREATOR = new Parcelable.Creator<Jugador>() {
         @Override

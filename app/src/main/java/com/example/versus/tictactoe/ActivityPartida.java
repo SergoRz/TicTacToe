@@ -29,7 +29,7 @@ public class ActivityPartida extends AppCompatActivity {
     Jugador j2;
     int turno;
     Partida partida = new Partida(j1,j2);
-    ArrayList<Pieza> tablero = new ArrayList<Pieza>();
+    ArrayList<Pieza> tablero = new ArrayList<>();
     TextView TVTurno;
 
     @Override
