@@ -78,6 +78,7 @@ public class Jugador implements Parcelable {
         dest.writeString(color);
         dest.writeString(simbolo);
         dest.writeValue(combinacion);
+
     }
 
     @SuppressWarnings("unused")
