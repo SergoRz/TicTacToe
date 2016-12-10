@@ -19,4 +19,6 @@
     <string name="ganador">HA GANADO %1$s</string>
     <string name="turno">TURNO DE %1$s</string>
     <string name="trampas">¡NO HAGAS TRAMPAS!</string>
+    <string name="errorFichSD">No se ha podido guardar la partida en la tarjeta SD</string>
+    <string name="errorFichTelf">No se ha podido guardar la partida en la memoria del telefono</string>
 </resources>

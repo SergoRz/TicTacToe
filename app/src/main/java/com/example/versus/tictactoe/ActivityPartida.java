@@ -196,7 +196,7 @@ public class ActivityPartida extends AppCompatActivity {
             osw.close();
         }
         catch (IOException e) {
-            Toast.makeText(this, "No se ha podido guardar la partida en la memoria del telefono", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, getResources().getString(R.string.errorFichTelf), Toast.LENGTH_SHORT).show();
         }
     }
 
@@ -210,7 +210,7 @@ public class ActivityPartida extends AppCompatActivity {
             fout.close();
         }
         catch (Exception ex) {
-            Toast.makeText(this, "No se ha podido guardar la partida en la tarjeta SD", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, getResources().getString(R.string.errorFichSD), Toast.LENGTH_SHORT).show();
         }
     }
 
