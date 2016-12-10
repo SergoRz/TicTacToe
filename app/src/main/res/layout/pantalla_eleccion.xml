@@ -15,7 +15,7 @@
             android:layout_weight="1">
 
             <TextView
-                android:text="JUGADOR 1 - Escoge nombre y color:"
+                android:text="@string/nombreJugador1"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:id="@+id/tvJug1Header"
@@ -30,7 +30,7 @@
                 android:layout_height="wrap_content">
 
                 <TextView
-                    android:text="Nombre:"
+                    android:text="@string/nombre"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:id="@+id/tvNomJug1"
@@ -54,7 +54,7 @@
                 android:layout_height="match_parent" >
 
                 <RadioButton
-                    android:text="NARANJA"
+                    android:text="@string/naranja"
                     android:onClick="putColor"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -65,7 +65,7 @@
                     android:textSize="18sp" />
 
                 <RadioButton
-                    android:text="VERDE"
+                    android:text="@string/verde"
                     android:onClick="putColor"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -76,7 +76,7 @@
                     android:textSize="18sp" />
 
                 <RadioButton
-                    android:text="AZUL"
+                    android:text="@string/azul"
                     android:onClick="putColor"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -96,7 +96,7 @@
             android:layout_weight="1.67">
 
             <TextView
-                android:text="JUGADOR 2 - Escoge nombre y color:"
+                android:text="@string/nombreJugador2"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:id="@+id/tvJug2Header"
@@ -111,7 +111,7 @@
                 android:layout_height="wrap_content">
 
                 <TextView
-                    android:text="Nombre:"
+                    android:text="@string/nombre"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:id="@+id/tvNomJug2"
@@ -136,7 +136,7 @@
                 android:layout_height="match_parent">
 
                 <RadioButton
-                    android:text="NARANJA"
+                    android:text="@string/naranja"
                     android:onClick="putColor"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -147,7 +147,7 @@
                     android:textSize="18sp" />
 
                 <RadioButton
-                    android:text="VERDE"
+                    android:text="@string/verde"
                     android:onClick="putColor"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -158,7 +158,7 @@
                     android:textSize="18sp" />
 
                 <RadioButton
-                    android:text="AZUL"
+                    android:text="@string/azul"
                     android:onClick="putColor"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"

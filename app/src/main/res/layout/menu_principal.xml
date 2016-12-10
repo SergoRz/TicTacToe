@@ -28,32 +28,37 @@
         android:id="@+id/textView" />
 
     <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="32dp"></LinearLayout>
+
+    <LinearLayout
         android:orientation="horizontal"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="213dp">
 
         <ImageButton
             android:layout_width="100dp"
-            android:layout_height="100dp"
+            android:layout_height="137dp"
             android:layout_marginTop="30dp"
             android:background="@android:color/transparent"
             android:scaleType="fitCenter"
             app:srcCompat="@mipmap/play"
             android:id="@+id/ibtnPlay"
-            android:layout_weight="1"
+            android:layout_weight="1.08"
             android:contentDescription=""
             tools:ignore="ContentDescription"
             android:onClick="goChoose"/>
 
         <ImageButton
             android:layout_width="100dp"
-            android:layout_height="100dp"
+            android:layout_height="140dp"
             android:layout_marginTop="30dp"
             android:background="@android:color/transparent"
             android:scaleType="fitCenter"
             app:srcCompat="@mipmap/settings"
             android:id="@+id/ibtnConf"
-            android:layout_weight="1"
+            android:layout_weight="1.06"
             tools:ignore="ContentDescription"
             android:onClick="goConfig"/>
 

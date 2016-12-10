@@ -20,4 +20,11 @@
     <string name="trampas">DONT CHEAT!</string>
     <string name="errorFichSD">There is a problem saving game in SD</string>
     <string name="errorFichTelf">There is a problem saving game in memory</string>
+    <string name="nombreJugador1">PLAYER 1 - Choose name and color:</string>
+    <string name="nombreJugador2">PLAYER 2 - Choose name and color:</string>
+    <string name="nombre">Name:</string>
+    <string name="naranja">ORANGE</string>
+    <string name="verde">GREEN</string>
+    <string name="azul">BLUE</string>
+
 </resources>

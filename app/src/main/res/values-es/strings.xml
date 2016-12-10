@@ -21,4 +21,6 @@
     <string name="trampas">¡NO HAGAS TRAMPAS!</string>
     <string name="errorFichSD">No se ha podido guardar la partida en la tarjeta SD</string>
     <string name="errorFichTelf">No se ha podido guardar la partida en la memoria del telefono</string>
+    <string name="nombreJugador1">JUGADOR 1 - Escoge nombre y color:</string>
+    <string name="nombreJugador2">JUGADOR 2 - Escoge nombre y color:</string>
 </resources>

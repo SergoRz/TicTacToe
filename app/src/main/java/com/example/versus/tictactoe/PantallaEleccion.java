@@ -46,8 +46,8 @@ public class PantallaEleccion extends AppCompatActivity {
         jugador1 = new Jugador("X");
         jugador2 = new Jugador("O");
 
-        jugador1.setColor(_rbOrangeJug1.getText().toString());
-        jugador2.setColor(_rbGreenJug2.getText().toString());
+        jugador1.setColor("NARANJA");
+        jugador2.setColor("NARANJA");
     }
 
 
@@ -68,37 +68,37 @@ public class PantallaEleccion extends AppCompatActivity {
                 _rbOrangeJug2.setEnabled(false);
                 _rbGreenJug2.setEnabled(true);
                 _rbBlueJug2.setEnabled(true);
-                jugador1.setColor(_rbOrangeJug1.getText().toString());
+                jugador1.setColor("NARANJA");
                 break;
             case R.id.rbGreenJug1:
                 _rbOrangeJug2.setEnabled(true);
                 _rbGreenJug2.setEnabled(false);
                 _rbBlueJug2.setEnabled(true);
-                jugador1.setColor(_rbGreenJug1.getText().toString());
+                jugador1.setColor("VERDE");
                 break;
             case R.id.rbBlueJug1:
                 _rbOrangeJug2.setEnabled(true);
                 _rbGreenJug2.setEnabled(true);
                 _rbBlueJug2.setEnabled(false);
-                jugador1.setColor(_rbBlueJug1.getText().toString());
+                jugador1.setColor("AZUL");
                 break;
             case R.id.rbOrangeJug2:
                 _rbOrangeJug1.setEnabled(false);
                 _rbGreenJug1.setEnabled(true);
                 _rbBlueJug1.setEnabled(true);
-                jugador2.setColor(_rbOrangeJug2.getText().toString());
+                jugador2.setColor("NARANJA");
                 break;
             case R.id.rbGreenJug2:
                 _rbOrangeJug1.setEnabled(true);
                 _rbGreenJug1.setEnabled(false);
                 _rbBlueJug1.setEnabled(true);
-                jugador2.setColor(_rbGreenJug2.getText().toString());
+                jugador2.setColor("VERDE");
                 break;
             case R.id.rbBlueJug2:
                 _rbOrangeJug1.setEnabled(true);
                 _rbGreenJug1.setEnabled(true);
                 _rbBlueJug1.setEnabled(false);
-                jugador2.setColor(_rbBlueJug2.getText().toString());
+                jugador2.setColor("AZUL");
                 break;
         }
     }
