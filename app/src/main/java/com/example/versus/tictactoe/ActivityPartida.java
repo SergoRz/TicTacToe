@@ -7,7 +7,6 @@ import android.graphics.Color;
 import android.os.Environment;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
@@ -35,13 +34,12 @@ public class ActivityPartida extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_partida);
-        j1 = new Jugador("SergioSanchez", "NARANJA", "X");
+        j1 = new Jugador("Sergio", "NARANJA", "X");
         j2 = new Jugador("Emilio", "VERDE", "O");
         turno = 1;
         TVTurno = (TextView) findViewById(R.id.turno);
-        TVTurno.setText("TURNO " + j1.getNombre().toUpperCase());
+        TVTurno.setText("TURNO DE " + j1.getNombre().toUpperCase());
         crearTablero();
-
     }
 
     public void crearTablero(){
@@ -116,7 +114,7 @@ public class ActivityPartida extends AppCompatActivity {
 
         actualizarColorRotulo(siguienteJugador);
         botonPulsado.setText(jugadorActual.getSimbolo());
-        TVTurno.setText("TURNO " + siguienteJugador.getNombre().toUpperCase());
+        TVTurno.setText("TURNO DE " + siguienteJugador.getNombre().toUpperCase());
         mostrarGanador(jugadorActual, siguienteJugador);
     }
 
@@ -151,6 +149,14 @@ public class ActivityPartida extends AppCompatActivity {
             actualizarColorRotulo(jugadorActual);
             Toast.makeText(this, "HA GANADO "  + jugadorActual.getNombre().toUpperCase(), Toast.LENGTH_SHORT).show();
             guardarPartida(jugadorActual, siguienteJugador);
+        }else{
+            if(jugadorActual.getCombinacion().combinacion.size() == 4 && siguienteJugador.getCombinacion().combinacion.size() == 4) {
+                deshabilitarBotones();
+                TVTurno.setText("EMPATE");
+                TVTurno.setTextColor(Color.parseColor("#000000"));
+                Toast.makeText(this, "EMPATE", Toast.LENGTH_SHORT).show();
+                //GUARDAR PARTIDA EMPATE
+            }
         }
     }
 
