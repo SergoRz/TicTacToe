@@ -29,4 +29,8 @@
     <string name="wipe">WIPE LIST</string>
     <string name="nombresIguales">Names can not be the same</string>
     <string name="nombresVacios">Names have not been entered</string>
+    <string name="salir">Exit</string>
+    <string name="borrarLista">The result list will be deleted. Are you sure?</string>
+    <string name="salirPartida">The data will be lost. Are you sure?</string>
+    <string name="salirApp">Do you want to exit?</string>
 </resources>
