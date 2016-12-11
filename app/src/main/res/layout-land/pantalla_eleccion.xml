@@ -1,0 +1,205 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:weightSum="1">
+
+    <LinearLayout
+        android:padding="10dp"
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="0.4">
+
+        <TextView
+            android:text="@string/nombreJugador1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/tvJug1Header"
+            android:textStyle="normal|bold"
+            android:textAlignment="center"
+            android:textSize="20sp"
+            android:textColor="@android:color/black" />
+
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:text="@string/nombre"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/tvNomJug1"
+                android:layout_weight="0.5"
+                android:textStyle="normal|bold"
+                android:textColor="@android:color/black"
+                android:textSize="18sp" />
+
+            <EditText
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:inputType="textPersonName"
+                android:maxLength="10"
+                android:ems="10"
+                android:id="@+id/etNomJug1"
+                android:layout_weight="0.5" />
+        </LinearLayout>
+
+        <RadioGroup
+            android:id="@+id/rgJug1"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" >
+
+            <RadioButton
+                android:text="@string/naranja"
+                android:onClick="putColor"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/rbOrangeJug1"
+                android:layout_weight="1"
+                android:textColor="@color/naranja"
+                android:textStyle="normal|bold"
+                android:textSize="18sp" />
+
+            <RadioButton
+                android:text="@string/verde"
+                android:onClick="putColor"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/rbGreenJug1"
+                android:layout_weight="1"
+                android:textColor="@color/verde"
+                android:textStyle="normal|bold"
+                android:textSize="18sp" />
+
+            <RadioButton
+                android:text="@string/azul"
+                android:onClick="putColor"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/rbBlueJug1"
+                android:layout_weight="1"
+                android:textColor="@color/azul"
+                android:textStyle="normal|bold"
+                android:textSize="18sp" />
+        </RadioGroup>
+    </LinearLayout>
+
+    <LinearLayout
+        android:padding="10dp"
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="0.4">
+
+        <TextView
+            android:text="@string/nombreJugador2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/tvJug2Header"
+            android:textStyle="normal|bold"
+            android:textAlignment="center"
+            android:textSize="20sp"
+            android:textColor="@android:color/black" />
+
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:text="@string/nombre"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/tvNomJug2"
+                android:layout_weight="0.5"
+                android:textAlignment="viewStart"
+                android:textStyle="normal|bold"
+                android:textColor="@android:color/black"
+                android:textSize="18sp" />
+
+            <EditText
+                android:layout_width="232dp"
+                android:layout_height="wrap_content"
+                android:maxLength="10"
+                android:inputType="textPersonName"
+                android:ems="10"
+                android:id="@+id/etNomJug2"
+                android:layout_weight="0.5" />
+        </LinearLayout>
+
+        <RadioGroup
+            android:id="@+id/rgJug2"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <RadioButton
+                android:text="@string/naranja"
+                android:onClick="putColor"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/rbOrangeJug2"
+                android:layout_weight="1"
+                android:textStyle="normal|bold"
+                android:textColor="@color/naranja"
+                android:textSize="18sp" />
+
+            <RadioButton
+                android:text="@string/verde"
+                android:onClick="putColor"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/rbGreenJug2"
+                android:layout_weight="1"
+                android:textColor="@color/verde"
+                android:textStyle="normal|bold"
+                android:textSize="18sp" />
+
+            <RadioButton
+                android:text="@string/azul"
+                android:onClick="putColor"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/rbBlueJug2"
+                android:layout_weight="1"
+                android:textColor="@color/azul"
+                android:textStyle="normal|bold"
+                android:textSize="18sp" />
+        </RadioGroup>
+
+    </LinearLayout>
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_weight="0.21"
+        android:layout_height="wrap_content">
+
+        <Button
+            android:text="@string/btnVolver"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:id="@+id/btnVolver"
+            android:layout_weight="1"
+            android:background="@android:color/background_dark"
+            android:textColor="@android:color/background_light"
+            android:textSize="24sp"
+            android:onClick="goBack" />
+
+        <Button
+            android:text="@string/play"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:id="@+id/btnReiniciar"
+            android:layout_weight="1"
+            android:background="@android:color/background_dark"
+            android:textColor="@android:color/background_light"
+            android:textSize="24sp"
+            android:onClick="goPlay"
+            android:clickable="false" />
+
+    </LinearLayout>
+</LinearLayout>

@@ -50,7 +50,6 @@ public class PantallaEleccion extends AppCompatActivity {
         jugador2.setColor("VERDE");
     }
 
-
     public void goPlay(View v){
         if(comprobarNombres()){
             jugador1.setNombre(_nombreJ1.getText().toString());
@@ -121,6 +120,49 @@ public class PantallaEleccion extends AppCompatActivity {
         finish();
         Intent intent = new Intent(PantallaEleccion.this, PantallaPrincipal.class);
         startActivity(intent);
+    }
+
+    //Guardamos los datos de la aplicación
+    protected void onSaveInstanceState(Bundle outState) {
+        super.onSaveInstanceState(outState);
+
+        outState.putString("colorJ1", jugador1.getColor());
+        outState.putString("colorJ2", jugador2.getColor());
+
+        outState.putBoolean("OJ1Checked", _rbOrangeJug1.isChecked());
+        outState.putBoolean("OJ2Checked", _rbOrangeJug2.isChecked());
+        outState.putBoolean("GJ1Checked", _rbGreenJug1.isChecked());
+        outState.putBoolean("GJ2Checked", _rbGreenJug2.isChecked());
+        outState.putBoolean("BJ1Checked", _rbBlueJug1.isChecked());
+        outState.putBoolean("BJ2Checked", _rbBlueJug2.isChecked());
+
+        outState.putBoolean("OJ1Enabled", _rbOrangeJug1.isEnabled());
+        outState.putBoolean("OJ2Enabled", _rbOrangeJug2.isEnabled());
+        outState.putBoolean("GJ1Enabled", _rbGreenJug1.isEnabled());
+        outState.putBoolean("GJ2Enabled", _rbGreenJug2.isEnabled());
+        outState.putBoolean("BJ1Enabled", _rbBlueJug1.isEnabled());
+        outState.putBoolean("BJ2Enabled", _rbBlueJug2.isEnabled());
+    }
+    //Cuando la aplicacion se restaura se cargan los datos que habias guardado previamente
+    protected void onRestoreInstanceState(Bundle savedInstanceState) {
+        super.onRestoreInstanceState(savedInstanceState);
+
+        jugador1.setColor(savedInstanceState.getString("colorJ1"));
+        jugador2.setColor(savedInstanceState.getString("colorJ2"));
+
+        _rbOrangeJug1.setChecked(savedInstanceState.getBoolean("OJ1Checked"));
+        _rbOrangeJug2.setChecked(savedInstanceState.getBoolean("OJ2Checked"));
+        _rbGreenJug1.setChecked(savedInstanceState.getBoolean("GJ1Checked"));
+        _rbGreenJug2.setChecked(savedInstanceState.getBoolean("GJ2Checked"));
+        _rbBlueJug1.setChecked(savedInstanceState.getBoolean("BJ1Checked"));
+        _rbBlueJug2.setChecked(savedInstanceState.getBoolean("BJ2Checked"));
+
+        _rbOrangeJug1.setEnabled(savedInstanceState.getBoolean("OJ1Enabled"));
+        _rbOrangeJug2.setEnabled(savedInstanceState.getBoolean("OJ2Enabled"));
+        _rbGreenJug1.setEnabled(savedInstanceState.getBoolean("GJ1Enabled"));
+        _rbGreenJug2.setEnabled(savedInstanceState.getBoolean("GJ2Enabled"));
+        _rbBlueJug1.setEnabled(savedInstanceState.getBoolean("BJ1Enabled"));
+        _rbBlueJug2.setEnabled(savedInstanceState.getBoolean("BJ2Enabled"));
     }
 
 }
