@@ -10,229 +10,180 @@
         android:orientation="vertical"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:weightSum="1"
-        android:background="@android:color/background_light">
+        android:background="@android:color/background_light"
+        android:layout_weight="0.8">
 
         <LinearLayout
             android:orientation="horizontal"
             android:layout_width="match_parent"
-            android:layout_height="85dp"
-            android:textAlignment="center">
+            android:layout_height="wrap_content"
+            android:textAlignment="center"
+            android:paddingTop="30dp">
 
             <TextView
                 android:text="@string/turno"
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
                 android:id="@+id/turno"
                 android:layout_weight="1"
                 android:textSize="30sp"
                 android:textAlignment="center"
-                android:paddingTop="30dp"
                 android:textStyle="normal|bold"
                 android:textColor="@android:color/background_dark" />
         </LinearLayout>
 
         <LinearLayout
-            android:orientation="horizontal"
+            android:orientation="vertical"
             android:layout_width="match_parent"
-            android:layout_height="125dp"
+            android:layout_height="wrap_content"
             android:paddingLeft="25dp"
-            android:paddingRight="25dp">
+            android:paddingRight="25dp"
+            android:layout_weight="1">
 
-            <Button
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:id="@+id/p11"
-                android:layout_weight="1"
-                android:onClick="colocarPieza"
-                android:paddingBottom="0dp"
-                android:paddingEnd="0dp"
-                android:paddingLeft="0dp"
-                android:paddingRight="3dp"
-                android:paddingStart="3dp"
-                android:paddingTop="3dp"
-                android:padding="3dp"
-                android:textStyle="normal|bold"
-                android:textSize="72sp"
-                android:textColor="@android:color/black" />
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1">
 
-            <Button
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:id="@+id/p12"
-                android:layout_weight="1"
-                android:onClick="colocarPieza"
-                android:padding="3dp"
-                android:paddingBottom="0dp"
-                android:paddingEnd="0dp"
-                android:paddingLeft="0dp"
-                android:paddingRight="3dp"
-                android:paddingStart="3dp"
-                android:paddingTop="3dp"
-                android:textSize="72sp"
-                android:textColor="@android:color/black" />
+                <Button
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:id="@+id/p11"
+                    android:layout_weight="1"
+                    android:onClick="colocarPieza"
+                    android:padding="3dp"
+                    android:textStyle="normal|bold"
+                    android:textSize="72sp"
+                    android:textColor="@android:color/black" />
 
-            <Button
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:id="@+id/p13"
-                android:layout_weight="1"
-                android:onClick="colocarPieza"
-                android:padding="3dp"
-                android:paddingBottom="0dp"
-                android:paddingEnd="0dp"
-                android:paddingLeft="0dp"
-                android:paddingRight="3dp"
-                android:paddingStart="3dp"
-                android:paddingTop="3dp"
-                android:textSize="72sp"
-                android:textColor="@android:color/black" />
+                <Button
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:id="@+id/p12"
+                    android:layout_weight="1"
+                    android:onClick="colocarPieza"
+                    android:padding="3dp"
+                    android:textSize="72sp"
+                    android:textColor="@android:color/black" />
+
+                <Button
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:id="@+id/p13"
+                    android:layout_weight="1"
+                    android:onClick="colocarPieza"
+                    android:padding="3dp"
+                    android:textSize="72sp"
+                    android:textColor="@android:color/black" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1">
+
+                <Button
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:id="@+id/p21"
+                    android:layout_weight="1"
+                    android:onClick="colocarPieza"
+                    android:padding="3dp"
+                    android:textSize="72sp"
+                    android:textColor="@android:color/black" />
+
+                <Button
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:id="@+id/p22"
+                    android:layout_weight="1"
+                    android:onClick="colocarPieza"
+                    android:padding="3dp"
+                    android:textSize="72sp"
+                    android:textColor="@android:color/black" />
+
+                <Button
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:id="@+id/p23"
+                    android:layout_weight="1"
+                    android:onClick="colocarPieza"
+                    android:padding="3dp"
+                    android:textSize="72sp"
+                    android:textColor="@android:color/black" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1">
+
+                <Button
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:id="@+id/p31"
+                    android:layout_weight="1"
+                    android:onClick="colocarPieza"
+                    android:padding="3dp"
+                    android:textSize="72sp"
+                    android:textColor="@android:color/black" />
+
+                <Button
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:id="@+id/p32"
+                    android:layout_weight="1"
+                    android:onClick="colocarPieza"
+                    android:padding="5dp"
+                    android:textSize="72sp"
+                    android:textColor="@android:color/black" />
+
+                <Button
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:id="@+id/p33"
+                    android:layout_weight="1"
+                    android:onClick="colocarPieza"
+                    android:padding="3dp"
+                    android:textSize="72sp"
+                    android:textColor="@android:color/black" />
+            </LinearLayout>
         </LinearLayout>
 
-        <LinearLayout
-            android:orientation="horizontal"
-            android:layout_width="match_parent"
-            android:layout_height="125dp"
-            android:paddingLeft="25dp"
-            android:paddingRight="25dp">
-
-            <Button
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:id="@+id/p21"
-                android:layout_weight="1"
-                android:onClick="colocarPieza"
-                android:padding="3dp"
-                android:paddingBottom="0dp"
-                android:paddingEnd="0dp"
-                android:paddingLeft="0dp"
-                android:paddingRight="3dp"
-                android:paddingStart="3dp"
-                android:paddingTop="3dp"
-                android:textSize="72sp"
-                android:textColor="@android:color/black" />
-
-            <Button
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:id="@+id/p22"
-                android:layout_weight="1"
-                android:onClick="colocarPieza"
-                android:padding="3dp"
-                android:paddingBottom="0dp"
-                android:paddingEnd="0dp"
-                android:paddingLeft="0dp"
-                android:paddingRight="3dp"
-                android:paddingStart="3dp"
-                android:paddingTop="3dp"
-                android:textSize="72sp"
-                android:textColor="@android:color/black" />
-
-            <Button
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:id="@+id/p23"
-                android:layout_weight="1"
-                android:onClick="colocarPieza"
-                android:padding="3dp"
-                android:paddingBottom="0dp"
-                android:paddingEnd="0dp"
-                android:paddingLeft="0dp"
-                android:paddingRight="3dp"
-                android:paddingStart="3dp"
-                android:paddingTop="3dp"
-                android:textSize="72sp"
-                android:textColor="@android:color/black" />
-        </LinearLayout>
-
-        <LinearLayout
-            android:orientation="horizontal"
-            android:layout_width="match_parent"
-            android:layout_height="125dp"
-            android:paddingLeft="25dp"
-            android:paddingRight="25dp">
-
-            <Button
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:id="@+id/p31"
-                android:layout_weight="1"
-                android:onClick="colocarPieza"
-                android:padding="3dp"
-                android:paddingBottom="0dp"
-                android:paddingEnd="0dp"
-                android:paddingLeft="0dp"
-                android:paddingRight="3dp"
-                android:paddingStart="3dp"
-                android:paddingTop="3dp"
-                android:textSize="72sp"
-                android:textColor="@android:color/black" />
-
-            <Button
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:id="@+id/p32"
-                android:layout_weight="1"
-                android:onClick="colocarPieza"
-                android:padding="5dp"
-                android:paddingBottom="0dp"
-                android:paddingEnd="0dp"
-                android:paddingLeft="0dp"
-                android:paddingRight="3dp"
-                android:paddingStart="3dp"
-                android:paddingTop="3dp"
-                android:textSize="72sp"
-                android:textColor="@android:color/black" />
-
-            <Button
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:id="@+id/p33"
-                android:layout_weight="1"
-                android:onClick="colocarPieza"
-                android:padding="3dp"
-                android:paddingBottom="0dp"
-                android:paddingEnd="0dp"
-                android:paddingLeft="0dp"
-                android:paddingRight="3dp"
-                android:paddingStart="3dp"
-                android:paddingTop="3dp"
-                android:textSize="72sp"
-                android:textColor="@android:color/black" />
-        </LinearLayout>
-
-        <LinearLayout
-            android:orientation="horizontal"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:paddingTop="75dp">
-
-            <Button
-                android:text="@string/btnVolver"
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:id="@+id/btnVolver"
-                android:layout_weight="1"
-                android:background="@android:color/background_dark"
-                android:textColor="@android:color/background_light"
-                android:textSize="24sp"
-                android:onClick="volver"
-                android:textStyle="normal|bold" />
-
-            <Button
-                android:text="@string/btnReiniciar"
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:id="@+id/btnReiniciar"
-                android:layout_weight="1"
-                android:background="@android:color/background_dark"
-                android:textColor="@android:color/background_light"
-                android:textSize="24sp"
-                android:onClick="reiniciar"
-                android:clickable="false"
-                android:textStyle="normal|bold" />
-        </LinearLayout>
 
     </LinearLayout>
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="0.2">
 
+        <Button
+            android:text="@string/btnVolver"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:id="@+id/btnVolver"
+            android:layout_weight="1"
+            android:background="@android:color/background_dark"
+            android:textColor="@android:color/background_light"
+            android:textSize="24sp"
+            android:onClick="volver"
+            android:textStyle="normal|bold" />
+
+        <Button
+            android:text="@string/btnReiniciar"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:id="@+id/btnReiniciar"
+            android:layout_weight="1"
+            android:background="@android:color/background_dark"
+            android:textColor="@android:color/background_light"
+            android:textSize="24sp"
+            android:onClick="reiniciar"
+            android:clickable="false"
+            android:textStyle="normal|bold" />
+    </LinearLayout>
 </LinearLayout>

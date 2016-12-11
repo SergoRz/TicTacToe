@@ -12,7 +12,8 @@
     <ImageView
         android:contentDescription="@string/desc"
         android:layout_width="match_parent"
-        android:layout_height="300dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="0.7"
         app:srcCompat="@mipmap/tic_tac_toe"
         android:id="@+id/ivFoto"
         android:layout_marginTop="15dp" />
@@ -20,6 +21,7 @@
     <TextView
         android:text="@string/tictactoe"
         android:textSize="60dp"
+        android:layout_weight="0.1"
         android:gravity="center"
         android:textStyle="bold"
         android:textColor="#000000"
@@ -30,32 +32,28 @@
     <LinearLayout
         android:orientation="horizontal"
         android:layout_width="match_parent"
-        android:layout_height="213dp">
+        android:layout_weight="0.2"
+        android:layout_height="wrap_content">
 
         <ImageButton
-            android:layout_width="100dp"
-            android:layout_height="137dp"
-            android:layout_marginTop="30dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:background="@android:color/transparent"
-            android:scaleType="fitCenter"
             app:srcCompat="@mipmap/play"
             android:id="@+id/ibtnPlay"
-            android:layout_weight="1.08"
-            android:contentDescription=""
-            tools:ignore="ContentDescription"
-            android:onClick="goChoose"/>
+            android:layout_weight="1"
+            android:onClick="goChoose"
+            android:layout_gravity="center"/>
 
         <ImageButton
-            android:layout_width="100dp"
-            android:layout_height="140dp"
-            android:layout_marginTop="30dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:background="@android:color/transparent"
-            android:scaleType="fitCenter"
             app:srcCompat="@mipmap/settings"
             android:id="@+id/ibtnConf"
-            android:layout_weight="1.06"
-            tools:ignore="ContentDescription"
-            android:onClick="goConfig"/>
+            android:layout_weight="1"
+            android:onClick="goConfig"
+            android:layout_gravity="center" />
 
     </LinearLayout>
 </LinearLayout>
