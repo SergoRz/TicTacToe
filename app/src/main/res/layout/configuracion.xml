@@ -4,100 +4,142 @@
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:paddingLeft="15dp"
-    android:paddingRight="15dp"
-    android:layout_alignParentTop="true"
-    android:layout_alignParentStart="true">
+    android:layout_weight="1"
+    >
 
-    <TextView
-        android:text="@string/language"
-        android:textSize="20sp"
+    <LinearLayout
+        android:orientation="vertical"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="15dp"
-        android:id="@+id/tvIdioma"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentStart="true"/>
+        android:layout_weight="0.8"
+        android:padding="10dp">
 
-    <RadioGroup
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content" >
 
-        <RadioButton
-            android:text="@string/spanish"
-            android:layout_width="wrap_content"
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="20dp"
-            android:id="@+id/rbEspañol"/>
+            android:padding="10dp">
 
-        <RadioButton
-            android:text="@string/english"
-            android:layout_width="wrap_content"
+            <TextView
+                android:text="@string/language"
+                android:textSize="30sp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/tvIdioma"
+                android:layout_alignParentTop="true"
+                android:layout_alignParentStart="true"/>
+
+            <RadioGroup
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" >
+
+                <RadioButton
+                    android:textSize="20sp"
+                    android:text="@string/spanish"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="20dp"
+                    android:id="@+id/rbEspañol"/>
+
+                <RadioButton
+                    android:textSize="20sp"
+                    android:text="@string/english"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="20dp"
+                    android:id="@+id/rbIngles"/>
+
+            </RadioGroup>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="20dp"
-            android:id="@+id/rbIngles"/>
+            android:padding="10dp">
 
-    </RadioGroup>
+            <TextView
+                android:text="@string/ubicacion"
+                android:textSize="30sp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/tvUbicacion"/>
 
-    <TextView
-        android:text="@string/ubicacion"
-        android:textSize="20sp"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="27dp"
-        android:id="@+id/tvUbicacion"/>
+            <CheckBox
+                android:textSize="20sp"
+                android:text="@string/sd"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/cbSD"
+                android:onClick="comprobarSD"
+                android:layout_marginLeft="20dp"/>
 
-    <CheckBox
-        android:text="@string/sd"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/cbSD"
-        android:onClick="comprobarSD"
-        android:layout_marginLeft="20dp"/>
+            <CheckBox
+                android:textSize="20sp"
+                android:text="@string/memory"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/cbMemory"
+                android:layout_marginLeft="20dp"/>
 
-    <CheckBox
-        android:text="@string/memory"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/cbMemory"
-        android:layout_marginLeft="20dp"/>
+        </LinearLayout>
 
-    <TextView
-        android:text="@string/filename"
-        android:textSize="20sp"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="30dp"
-        android:id="@+id/tvFileName"/>
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="10dp">
 
-    <EditText
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:inputType="textPersonName"
-        android:ems="10"
-        android:layout_marginTop="16dp"
-        android:id="@+id/etFileName" />
+            <TextView
+                android:text="@string/filename"
+                android:textSize="30sp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="30dp"
+                android:id="@+id/tvFileName"/>
+
+            <EditText
+                android:textSize="20sp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="textPersonName"
+                android:ems="10"
+                android:layout_marginTop="16dp"
+                android:id="@+id/etFileName" />
+        </LinearLayout>
+    </LinearLayout>
 
     <LinearLayout
         android:orientation="horizontal"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
-
-        <Button
-            android:text="@string/save"
-            android:layout_width="match_parent"
-            android:onClick="guardarPrefs"
-            android:layout_height="wrap_content"
-            android:id="@+id/btnSave"
-            android:layout_weight="1" />
+        android:layout_height="wrap_content"
+        android:layout_weight="0.2">
 
         <Button
             android:text="@string/back"
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
+            android:layout_weight="1"
             android:onClick="back"
             android:layout_height="wrap_content"
             android:id="@+id/btnBack"
-            android:layout_weight="1" />
+            android:background="@android:color/background_dark"
+            android:textColor="@android:color/background_light"
+            android:textSize="24sp"
+            android:layout_gravity="bottom"/>
+
+        <Button
+            android:text="@string/save"
+            android:layout_width="wrap_content"
+            android:onClick="guardarPrefs"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:id="@+id/btnSave"
+            android:background="@android:color/background_dark"
+            android:textColor="@android:color/background_light"
+            android:textSize="24sp"
+            android:layout_gravity="bottom"/>
     </LinearLayout>
 
 </LinearLayout>
