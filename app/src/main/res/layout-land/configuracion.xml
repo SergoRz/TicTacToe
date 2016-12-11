@@ -62,13 +62,6 @@
                 android:textColor="@android:color/black"
                 android:textStyle="normal|bold" />
 
-            <CheckBox
-                android:text="@string/memory"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:id="@+id/cbMemory"
-                android:layout_marginLeft="20dp"
-                android:textSize="18sp" />
 
             <CheckBox
                 android:text="@string/sd"

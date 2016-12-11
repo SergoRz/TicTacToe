@@ -23,7 +23,6 @@ public class Configuracion extends AppCompatActivity {
     private RadioButton _idiomaSpanish;
     private RadioButton _idiomaEnglish;
     private CheckBox _SD;
-    private CheckBox _MI;
     private EditText _fichero;
 
 
@@ -35,7 +34,6 @@ public class Configuracion extends AppCompatActivity {
         _idiomaSpanish = (RadioButton) findViewById(R.id.rbEspañol);
         _idiomaEnglish = (RadioButton) findViewById(R.id.rbIngles);
         _SD = (CheckBox) findViewById(R.id.cbSD);
-        _MI = (CheckBox) findViewById(R.id.cbMemory);
         _fichero = (EditText) findViewById(R.id.etFileName);
 
         cargarPrefs();
@@ -55,8 +53,6 @@ public class Configuracion extends AppCompatActivity {
 
         _SD.setChecked(prefs.getBoolean("guardarSD", true));
 
-        _MI.setChecked(prefs.getBoolean("guardarMI", true));
-
         _fichero.setText(prefs.getString("nombreFichero", "ejecuciones.txt"));
 
     }
@@ -68,7 +64,6 @@ public class Configuracion extends AppCompatActivity {
 
         editor.putString("idioma", recogerIdioma());
         editor.putBoolean("guardarSD", recogerLocSD());
-        editor.putBoolean("guardarMI", recogerLocMI());
         editor.putString("nombreFichero", recogerFichero());
         editor.commit();
 
@@ -111,18 +106,6 @@ public class Configuracion extends AppCompatActivity {
         return loc;
     }
 
-    public boolean recogerLocMI(){
-        boolean loc;
-
-        if(_MI.isChecked()) {
-            loc = true;
-        }
-        else{
-            loc = false;
-        }
-
-        return loc;
-    }
 
     public String recogerFichero(){
         String fichero = _fichero.getText().toString();
@@ -186,7 +169,6 @@ public class Configuracion extends AppCompatActivity {
         outState.putBoolean("btnEnglishChecked", _idiomaEnglish.isChecked());
 
         outState.putBoolean("btnSDChecked", _SD.isChecked());
-        outState.putBoolean("btnMIChecked", _MI.isChecked());
 
         cargarIdioma();
     }
@@ -198,7 +180,6 @@ public class Configuracion extends AppCompatActivity {
         _idiomaSpanish.setChecked(savedInstanceState.getBoolean("btnSpanishChecked"));
         _idiomaEnglish.setChecked(savedInstanceState.getBoolean("btnEnglishChecked"));
         _SD.setChecked(savedInstanceState.getBoolean("btnSDChecked"));
-        _MI.setChecked(savedInstanceState.getBoolean("btnMIChecked"));
 
     }
 
