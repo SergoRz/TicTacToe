@@ -221,6 +221,7 @@ public class Configuracion extends AppCompatActivity {
 
         conf.setLocale(loc);
         res.updateConfiguration(conf, dm);
+
     }
 
 }
