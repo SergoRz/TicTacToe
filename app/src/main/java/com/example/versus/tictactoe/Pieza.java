@@ -1,7 +1,9 @@
 package com.example.versus.tictactoe;
 
 
-public class Pieza {
+import java.io.Serializable;
+
+public class Pieza implements Serializable{
 
     private int numero;
 

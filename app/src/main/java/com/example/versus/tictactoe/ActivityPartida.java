@@ -101,7 +101,7 @@ public class ActivityPartida extends AppCompatActivity {
         tablero.add(p33);
 
         btnReiniciar.setClickable(false);
-        actualizarColorRotulo(j1);
+        actualizarColorRotulo(partida.getJ1());
     }
 
     public void colocarPieza(View v){
@@ -113,12 +113,12 @@ public class ActivityPartida extends AppCompatActivity {
         if(color == Color.BLACK){
             if(turno == 1){
                 turno = 2;
-                addPiezaJugador(v, j1);
-                colorearPieza(botonPulsado, j1, j2);
+                addPiezaJugador(v, partida.getJ1());
+                colorearPieza(botonPulsado, partida.getJ1(),  partida.getJ2());
             }else{
                 turno = 1;
-                addPiezaJugador(v, j2);
-                colorearPieza(botonPulsado, j2, j1);
+                addPiezaJugador(v,  partida.getJ2());
+                colorearPieza(botonPulsado,  partida.getJ2(), partida.getJ1());
             }
         } else{
             Toast.makeText(this, getResources().getString(R.string.trampas), Toast.LENGTH_SHORT).show();
@@ -177,11 +177,11 @@ public class ActivityPartida extends AppCompatActivity {
         }
 
         turno = 1;
-        j1.getCombinacion().combinacion.clear();
-        j2.getCombinacion().combinacion.clear();
+        partida.getJ1().getCombinacion().combinacion.clear();
+        partida.getJ2().getCombinacion().combinacion.clear();
 
-        TVTurno.setText(String.format((getResources().getString(R.string.turno)), (j1.getNombre().toUpperCase())));
-        actualizarColorRotulo(j1);
+        TVTurno.setText(String.format((getResources().getString(R.string.turno)), (partida.getJ1().getNombre().toUpperCase())));
+        actualizarColorRotulo(partida.getJ1());
         findViewById(R.id.btnReiniciar).setClickable(true);
     }
 

@@ -5,6 +5,7 @@ import java.util.ArrayList;
 
 public class Partida implements Serializable{
 
+
     private Jugador j1;
     private Jugador j2;
     private ArrayList<Combinacion> combinacionesGanadoras = new ArrayList<Combinacion> ();
@@ -99,6 +100,30 @@ public class Partida implements Serializable{
             }
         }
         return igual;
+    }
+
+    public Jugador getJ1() {
+        return j1;
+    }
+
+    public void setJ1(Jugador j1) {
+        this.j1 = j1;
+    }
+
+    public Jugador getJ2() {
+        return j2;
+    }
+
+    public void setJ2(Jugador j2) {
+        this.j2 = j2;
+    }
+
+    public ArrayList<Combinacion> getCombinacionesGanadoras() {
+        return combinacionesGanadoras;
+    }
+
+    public void setCombinacionesGanadoras(ArrayList<Combinacion> combinacionesGanadoras) {
+        this.combinacionesGanadoras = combinacionesGanadoras;
     }
 
 }
