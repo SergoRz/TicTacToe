@@ -11,8 +11,8 @@
             android:padding="10dp"
             android:orientation="vertical"
             android:layout_width="match_parent"
-            android:layout_height="245dp"
-            android:layout_weight="1">
+            android:layout_height="wrap_content"
+            android:layout_weight="0.45">
 
             <TextView
                 android:text="@string/nombreJugador1"
@@ -92,8 +92,8 @@
             android:padding="10dp"
             android:orientation="vertical"
             android:layout_width="match_parent"
-            android:layout_height="255dp"
-            android:layout_weight="1.67">
+            android:layout_height="wrap_content"
+            android:layout_weight="0.45">
 
             <TextView
                 android:text="@string/nombreJugador2"
@@ -173,7 +173,8 @@
         <LinearLayout
             android:orientation="horizontal"
             android:layout_width="match_parent"
-            android:layout_height="123dp">
+            android:layout_weight="0.1"
+            android:layout_height="wrap_content">
 
             <Button
                 android:text="@string/btnVolver"
