@@ -29,7 +29,7 @@
     <string name="verde">VERDE</string>
     <string name="wipe">LIMPIAR LISTA</string>
     <string name="salir">Salir</string>
-    <string name="borrarLista">Se borrara la lista de resultados. Esta seguro?</string>
+    <string name="borrarLista">Se borrara la lista de resultados. ¿Esta seguro?</string>
     <string name="salirPartida">Se perderán los datos de la partida. ¿ Esta seguro de que desea salir?</string>
     <string name="salirApp">¿Esta seguro de que desea cerrar la aplicacion?</string>
     <string name="nombresVacios">No se han introducido nombres</string>

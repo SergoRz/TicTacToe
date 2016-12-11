@@ -9,6 +9,7 @@ import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.DisplayMetrics;
+import android.util.Log;
 import android.view.KeyEvent;
 import android.view.View;
 import android.widget.CheckBox;
@@ -24,7 +25,6 @@ public class Configuracion extends AppCompatActivity {
     private RadioButton _idiomaEnglish;
     private CheckBox _SD;
     private EditText _fichero;
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -127,6 +127,7 @@ public class Configuracion extends AppCompatActivity {
         //Comprobamos el estado de la memoria externa (tarjeta SD)
         String estado = Environment.getExternalStorageState();
 
+        Log.d("Resultado:",estado);
         if (estado.equals(Environment.MEDIA_MOUNTED)) {
             sdDisponible = true;
             sdAccesoEscritura = true;

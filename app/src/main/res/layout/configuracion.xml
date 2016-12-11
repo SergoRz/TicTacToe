@@ -118,7 +118,8 @@
             android:layout_weight="1"
             android:background="@android:color/black"
             android:textColor="@android:color/background_light"
-            android:textSize="24sp" />
+            android:textSize="24sp"
+            android:textStyle="normal|bold" />
     </LinearLayout>
 
 </LinearLayout>
