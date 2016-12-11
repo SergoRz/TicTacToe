@@ -1,13 +1,16 @@
 package com.example.versus.tictactoe;
 
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.res.Configuration;
 import android.content.res.Resources;
 import android.os.Environment;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.DisplayMetrics;
+import android.view.KeyEvent;
 import android.view.View;
 import android.widget.CheckBox;
 import android.widget.EditText;
@@ -72,6 +75,7 @@ public class Configuracion extends AppCompatActivity {
 
         finish();
         startActivity(getIntent());
+
     }
 
     public String recogerIdioma(){
@@ -165,4 +169,15 @@ public class Configuracion extends AppCompatActivity {
         }
     }
 
+    public boolean onKeyDown(int keyCode, KeyEvent event) {
+        if (keyCode == KeyEvent.KEYCODE_BACK) {
+
+        Intent intent = new Intent(Configuracion.this, PantallaPrincipal.class);
+        startActivity(intent);
+
+        finish();
+        }
+        //para las demas cosas, se reenvia el evento al listener habitual
+        return super.onKeyDown(keyCode, event);
+    }
 }
