@@ -216,7 +216,8 @@
                 android:background="@android:color/background_dark"
                 android:textColor="@android:color/background_light"
                 android:textSize="24sp"
-                android:onClick="volver"/>
+                android:onClick="volver"
+                android:textStyle="normal|bold" />
 
             <Button
                 android:text="@string/btnReiniciar"
@@ -228,7 +229,8 @@
                 android:textColor="@android:color/background_light"
                 android:textSize="24sp"
                 android:onClick="reiniciar"
-                android:clickable="false" />
+                android:clickable="false"
+                android:textStyle="normal|bold" />
         </LinearLayout>
 
     </LinearLayout>

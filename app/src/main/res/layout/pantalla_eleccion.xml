@@ -173,7 +173,7 @@
         <LinearLayout
             android:orientation="horizontal"
             android:layout_width="match_parent"
-            android:layout_weight="0.1"
+            android:layout_weight="0.2"
             android:layout_height="wrap_content">
 
             <Button
@@ -185,7 +185,8 @@
                 android:background="@android:color/background_dark"
                 android:textColor="@android:color/background_light"
                 android:textSize="24sp"
-                android:onClick="goBack"/>
+                android:onClick="goBack"
+                android:textAlignment="center" />
 
             <Button
                 android:text="@string/play"
