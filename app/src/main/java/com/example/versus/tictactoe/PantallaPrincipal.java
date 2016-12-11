@@ -72,8 +72,8 @@ public class PantallaPrincipal extends AppCompatActivity {
         if (keyCode == KeyEvent.KEYCODE_BACK) {
             new AlertDialog.Builder(this)
                     .setIcon(android.R.drawable.ic_dialog_alert)
-                    .setTitle("Salir")
-                    .setMessage("Desea cerrar la aplicacion?")
+                    .setTitle(getResources().getString(R.string.salir))
+                    .setMessage(getResources().getString(R.string.salirApp))
                     .setNegativeButton(android.R.string.cancel, null)//sin listener
                     .setPositiveButton(android.R.string.ok, new DialogInterface.OnClickListener() {//un listener que al pulsar, cierre la aplicacion
                         @Override
