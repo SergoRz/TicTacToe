@@ -28,4 +28,6 @@
     <string name="nombre">Nombre:</string>
     <string name="verde">VERDE</string>
     <string name="wipe">LIMPIAR LISTA</string>
+    <string name="nombresVacios">No se han introducido nombres</string>
+    <string name="nombresIguales">Los nombres no pueden ser iguales</string>
 </resources>

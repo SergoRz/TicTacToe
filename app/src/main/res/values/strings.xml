@@ -27,5 +27,6 @@
     <string name="verde">GREEN</string>
     <string name="azul">BLUE</string>
     <string name="wipe">WIPE LIST</string>
-
+    <string name="nombresIguales">Names can not be the same</string>
+    <string name="nombresVacios">Names have not been entered</string>
 </resources>
