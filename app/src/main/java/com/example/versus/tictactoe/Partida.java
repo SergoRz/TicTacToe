@@ -1,8 +1,9 @@
 package com.example.versus.tictactoe;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 
-public class Partida{
+public class Partida implements Serializable{
 
     private Jugador j1;
     private Jugador j2;
@@ -97,7 +98,6 @@ public class Partida{
                 }
             }
         }
-
         return igual;
     }
 

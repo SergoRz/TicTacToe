@@ -37,9 +37,6 @@ public class Configuracion extends AppCompatActivity {
         _fichero = (EditText) findViewById(R.id.etFileName);
 
         cargarPrefs();
-
-
-
     }
 
     public void cargarPrefs(){

@@ -18,6 +18,7 @@ import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.OutputStreamWriter;
+import java.io.Serializable;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -28,9 +29,19 @@ public class ActivityPartida extends AppCompatActivity {
     Jugador j1;
     Jugador j2;
     int turno;
-    Partida partida = new Partida(j1,j2);
-    ArrayList<Pieza> tablero = new ArrayList<>();
+    Partida partida;
+    ArrayList<Pieza> tablero;
     TextView TVTurno;
+    Button btn11;
+    Button btn12;
+    Button btn13;
+    Button btn21;
+    Button btn22;
+    Button btn23;
+    Button btn31;
+    Button btn32;
+    Button btn33;
+    Button btnReiniciar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -43,10 +54,23 @@ public class ActivityPartida extends AppCompatActivity {
         j2 = extras.getParcelable("jugador2");
         j2.setCombinacion(new Combinacion());
 
+        partida = new Partida(j1,j2);
         turno = 1;
         TVTurno = (TextView) findViewById(R.id.turno);
 
         TVTurno.setText(String.format((getResources().getString(R.string.turno)), (j1.getNombre().toUpperCase())));
+
+        btn11 = (Button) findViewById(R.id.p11);
+        btn12 = (Button) findViewById(R.id.p12);
+        btn13 = (Button) findViewById(R.id.p13);
+        btn21 = (Button) findViewById(R.id.p21);
+        btn22 = (Button) findViewById(R.id.p22);
+        btn23 = (Button) findViewById(R.id.p23);
+        btn31 = (Button) findViewById(R.id.p31);
+        btn32 = (Button) findViewById(R.id.p32);
+        btn33 = (Button) findViewById(R.id.p33);
+        btnReiniciar = (Button) findViewById(R.id.btnReiniciar);
+
         crearTablero();
     }
 
@@ -64,6 +88,8 @@ public class ActivityPartida extends AppCompatActivity {
         Pieza p32 = new Pieza(32);
         Pieza p33 = new Pieza(33);
 
+        tablero = new ArrayList<>();
+
         tablero.add(p11);
         tablero.add(p12);
         tablero.add(p13);
@@ -74,7 +100,7 @@ public class ActivityPartida extends AppCompatActivity {
         tablero.add(p32);
         tablero.add(p33);
 
-        findViewById(R.id.btnReiniciar).setClickable(false);
+        btnReiniciar.setClickable(false);
         actualizarColorRotulo(j1);
     }
 
@@ -134,15 +160,15 @@ public class ActivityPartida extends AppCompatActivity {
 
     public void reiniciar(View v){
         ArrayList<Button> aButton = new ArrayList<>();
-        aButton.add((Button) findViewById(R.id.p11));
-        aButton.add((Button) findViewById(R.id.p12));
-        aButton.add((Button) findViewById(R.id.p13));
-        aButton.add((Button) findViewById(R.id.p21));
-        aButton.add((Button) findViewById(R.id.p22));
-        aButton.add((Button) findViewById(R.id.p23));
-        aButton.add((Button) findViewById(R.id.p31));
-        aButton.add((Button) findViewById(R.id.p32));
-        aButton.add((Button) findViewById(R.id.p33));
+        aButton.add(btn11);
+        aButton.add(btn12);
+        aButton.add(btn13);
+        aButton.add(btn21);
+        aButton.add(btn22);
+        aButton.add(btn23);
+        aButton.add(btn31);
+        aButton.add(btn32);
+        aButton.add(btn33);
 
         for(Button b: aButton){
             b.setTextColor(Color.BLACK);
@@ -269,18 +295,128 @@ public class ActivityPartida extends AppCompatActivity {
 
     public void deshabilitarBotones(){
         ArrayList<Button> aButton = new ArrayList<>();
-        aButton.add((Button) findViewById(R.id.p11));
-        aButton.add((Button) findViewById(R.id.p12));
-        aButton.add((Button) findViewById(R.id.p13));
-        aButton.add((Button) findViewById(R.id.p21));
-        aButton.add((Button) findViewById(R.id.p22));
-        aButton.add((Button) findViewById(R.id.p23));
-        aButton.add((Button) findViewById(R.id.p31));
-        aButton.add((Button) findViewById(R.id.p32));
-        aButton.add((Button) findViewById(R.id.p33));
+        aButton.add(btn11);
+        aButton.add(btn12);
+        aButton.add(btn13);
+        aButton.add(btn21);
+        aButton.add(btn22);
+        aButton.add(btn23);
+        aButton.add(btn31);
+        aButton.add(btn32);
+        aButton.add(btn33);
 
         for(Button b: aButton){
             b.setClickable(false);
         }
+    }
+
+    //Guardamos los datos de la aplicación
+    protected void onSaveInstanceState(Bundle outState) {
+        super.onSaveInstanceState(outState);
+        int color;
+        ColorStateList mList;
+
+        outState.putSerializable("partida", partida);
+
+        outState.putSerializable("tablero", tablero);
+
+        outState.putInt("turno", turno);
+
+        outState.putString("textoTurno", (String)TVTurno.getText());
+        mList = TVTurno.getTextColors();
+        color = mList.getDefaultColor();
+        outState.putInt("colorTurno", color);
+
+        mList = btn11.getTextColors();
+        color = mList.getDefaultColor();
+        outState.putInt("color11",color);
+        outState.putString("text11", (String)btn11.getText());
+
+        mList = btn12.getTextColors();
+        color = mList.getDefaultColor();
+        outState.putInt("color12",color);
+        outState.putString("text12", (String)btn12.getText());
+
+        mList = btn13.getTextColors();
+        color = mList.getDefaultColor();
+        outState.putInt("color13",color);
+        outState.putString("text13", (String)btn13.getText());
+
+        mList = btn21.getTextColors();
+        color = mList.getDefaultColor();
+        outState.putInt("color21",color);
+        outState.putString("text21", (String)btn21.getText());
+
+        mList = btn22.getTextColors();
+        color = mList.getDefaultColor();
+        outState.putInt("color22",color);
+        outState.putString("text22", (String)btn22.getText());
+
+        mList = btn23.getTextColors();
+        color = mList.getDefaultColor();
+        outState.putInt("color23",color);
+        outState.putString("text23", (String)btn23.getText());
+
+        mList = btn31.getTextColors();
+        color = mList.getDefaultColor();
+        outState.putInt("color31",color);
+        outState.putString("text31", (String)btn31.getText());
+
+        mList = btn32.getTextColors();
+        color = mList.getDefaultColor();
+        outState.putInt("color32",color);
+        outState.putString("text32", (String)btn32.getText());
+
+        mList = btn33.getTextColors();
+        color = mList.getDefaultColor();
+        outState.putInt("color33",color);
+        outState.putString("text33", (String)btn33.getText());
+
+        outState.putBoolean("btnReiniciarClickable", btnReiniciar.isClickable());
+
+    }
+    //Cuando la aplicacion se restaura se cargan los datos que habias guardado previamente
+    protected void onRestoreInstanceState(Bundle savedInstanceState) {
+        super.onRestoreInstanceState(savedInstanceState);
+
+        //NO ACABA LAS PARTIDAS CUANDO SE GIRA EN MITAD DE UNA
+        //SUPONEMOS QUE LO QUE PASA ES QUE LA COMBINACION DEL JUGADOR NO SE GUARDA
+        partida = (Partida) savedInstanceState.getSerializable("partida");
+
+        tablero = (ArrayList) savedInstanceState.getSerializable("tablero");
+
+        turno = savedInstanceState.getInt("turno");
+
+        TVTurno.setText(savedInstanceState.getString("textoTurno"));
+        TVTurno.setTextColor(savedInstanceState.getInt("colorTurno"));
+
+        btn11.setText(savedInstanceState.getString("text11"));
+        btn11.setTextColor(savedInstanceState.getInt("color11"));
+
+        btn12.setText(savedInstanceState.getString("text12"));
+        btn12.setTextColor(savedInstanceState.getInt("color12"));
+
+        btn13.setText(savedInstanceState.getString("text13"));
+        btn13.setTextColor(savedInstanceState.getInt("color13"));
+
+        btn21.setText(savedInstanceState.getString("text21"));
+        btn21.setTextColor(savedInstanceState.getInt("color21"));
+
+        btn22.setText(savedInstanceState.getString("text22"));
+        btn22.setTextColor(savedInstanceState.getInt("color22"));
+
+        btn23.setText(savedInstanceState.getString("text23"));
+        btn23.setTextColor(savedInstanceState.getInt("color23"));
+
+        btn31.setText(savedInstanceState.getString("text31"));
+        btn31.setTextColor(savedInstanceState.getInt("color31"));
+
+        btn32.setText(savedInstanceState.getString("text32"));
+        btn32.setTextColor(savedInstanceState.getInt("color32"));
+
+        btn33.setText(savedInstanceState.getString("text33"));
+        btn33.setTextColor(savedInstanceState.getInt("color33"));
+
+        btnReiniciar.setClickable(savedInstanceState.getBoolean("btnReiniciarClickable"));
     }
 }

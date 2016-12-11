@@ -1,8 +1,9 @@
 package com.example.versus.tictactoe;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 
-public class Combinacion {
+public class Combinacion implements Serializable{
 
     ArrayList<Pieza> combinacion;
 

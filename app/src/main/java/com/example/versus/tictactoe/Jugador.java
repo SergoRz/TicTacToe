@@ -4,6 +4,8 @@ package com.example.versus.tictactoe;
 import android.os.Parcel;
 import android.os.Parcelable;
 
+import java.io.Serializable;
+
 public class Jugador implements Parcelable {
 
     private String nombre;
@@ -77,7 +79,6 @@ public class Jugador implements Parcelable {
         dest.writeString(simbolo);
         dest.writeValue(combinacion);
     }
-
 
     @SuppressWarnings("unused")
     public static final Parcelable.Creator<Jugador> CREATOR = new Parcelable.Creator<Jugador>() {
