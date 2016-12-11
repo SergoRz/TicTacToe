@@ -47,7 +47,7 @@ public class PantallaEleccion extends AppCompatActivity {
         jugador2 = new Jugador("O");
 
         jugador1.setColor("NARANJA");
-        jugador2.setColor("NARANJA");
+        jugador2.setColor("VERDE");
     }
 
 
