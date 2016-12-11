@@ -196,7 +196,7 @@ public class ActivityPartida extends AppCompatActivity {
             TVTurno.setText(String.format(getResources().getString(R.string.ganador), jugadorActual.getNombre().toUpperCase()));
             actualizarColorRotulo(jugadorActual);
             Toast.makeText(this, String.format(getResources().getString(R.string.ganador), jugadorActual.getNombre().toUpperCase()), Toast.LENGTH_SHORT).show();
-            guardarPartida(jugadorActual, siguienteJugador);
+            guardarPartida(jugadorActual, siguienteJugador, "ganada");
         }else{
             if(jugadorActual.getCombinacion().combinacion.size() == 4 && siguienteJugador.getCombinacion().combinacion.size() == 4) {
                 findViewById(R.id.btnReiniciar).setClickable(true);
@@ -204,14 +204,20 @@ public class ActivityPartida extends AppCompatActivity {
                 TVTurno.setText(getResources().getString(R.string.empate));
                 TVTurno.setTextColor(Color.parseColor("#000000"));
                 Toast.makeText(this, getResources().getString(R.string.empate), Toast.LENGTH_SHORT).show();
-                //GUARDAR PARTIDA EMPATE
+                guardarPartida(jugadorActual, siguienteJugador, "empatada");
             }
         }
     }
 
-    public void guardarPartida(Jugador ganador, Jugador perdedor){
+    public void guardarPartida(Jugador ganador, Jugador perdedor, String res){
+        String resultado;
         SharedPreferences prefs = getSharedPreferences("MisPreferencias", MODE_PRIVATE);
-        String resultado = getDateTime() + ":\r" + ganador.getNombre() + " ha ganado a " + perdedor.getNombre();
+        if(res.equals("ganada")){
+            resultado = getDateTime() + ":\r" + ganador.getNombre() + " ha ganado a " + perdedor.getNombre();
+        }
+        else{
+            resultado = getDateTime() + ":\r" + ganador.getNombre() + " ha empatado con " + perdedor.getNombre();
+        }
 
         if(prefs.getBoolean("guardarSD", true)){
             guardarPartidaSD(resultado);
