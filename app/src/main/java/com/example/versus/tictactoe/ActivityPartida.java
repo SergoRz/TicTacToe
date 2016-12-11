@@ -1,14 +1,17 @@
 package com.example.versus.tictactoe;
 
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.SharedPreferences;
 import android.content.res.ColorStateList;
 import android.content.res.Resources;
 import android.graphics.Color;
 import android.os.Environment;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.KeyEvent;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
@@ -186,7 +189,19 @@ public class ActivityPartida extends AppCompatActivity {
     }
 
     public void volver(View v){
-        finish();
+        new AlertDialog.Builder(this)
+                .setIcon(android.R.drawable.ic_dialog_alert)
+                .setTitle("Salir")
+                .setMessage("Se perderán los datos de la partida. Desea salir?")
+                .setNegativeButton(android.R.string.cancel, null)//sin listener
+                .setPositiveButton(android.R.string.ok, new DialogInterface.OnClickListener() {//un listener que al pulsar, cierre la aplicacion
+                    @Override
+                    public void onClick(DialogInterface dialog, int which){
+                        //Salir
+                        ActivityPartida.this.finish();
+                    }
+                })
+                .show();
     }
 
     public void mostrarGanador(Jugador jugadorActual, Jugador siguienteJugador){
@@ -424,5 +439,27 @@ public class ActivityPartida extends AppCompatActivity {
         btn33.setTextColor(savedInstanceState.getInt("color33"));
 
         btnReiniciar.setClickable(savedInstanceState.getBoolean("btnReiniciarClickable"));
+    }
+
+    public boolean onKeyDown(int keyCode, KeyEvent event) {
+        if (keyCode == KeyEvent.KEYCODE_BACK) {
+            new AlertDialog.Builder(this)
+                    .setIcon(android.R.drawable.ic_dialog_alert)
+                    .setTitle("Salir")
+                    .setMessage("Se perderán los datos de la partida. Desea salir?")
+                    .setNegativeButton(android.R.string.cancel, null)//sin listener
+                    .setPositiveButton(android.R.string.ok, new DialogInterface.OnClickListener() {//un listener que al pulsar, cierre la aplicacion
+                        @Override
+                        public void onClick(DialogInterface dialog, int which){
+                            //Salir
+                            ActivityPartida.this.finish();
+                        }
+                    })
+                    .show();
+            // Si el listener devuelve true, significa que el evento esta procesado, y nadie debe hacer nada mas
+            return true;
+        }
+        //para las demas cosas, se reenvia el evento al listener habitual
+        return super.onKeyDown(keyCode, event);
     }
 }

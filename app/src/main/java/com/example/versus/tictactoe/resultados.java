@@ -1,8 +1,10 @@
 package com.example.versus.tictactoe;
 
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -62,17 +64,30 @@ public class resultados extends AppCompatActivity {
     }
 
     public void wipeList(View v){
-        try {
-            OutputStreamWriter osw = new OutputStreamWriter(openFileOutput(nombreFichero(), Context.MODE_PRIVATE));
-            osw.write("");
-            osw.close();
-        }
-        catch (IOException e) {
-            Toast.makeText(this, getResources().getString(R.string.errorFichTelf), Toast.LENGTH_SHORT).show();
-        }
+        new AlertDialog.Builder(this)
+                .setIcon(android.R.drawable.ic_dialog_alert)
+                .setTitle("Salir")
+                .setMessage("Esta seguro de borrar la lista de resultados?")
+                .setNegativeButton(android.R.string.cancel, null)//sin listener
+                .setPositiveButton(android.R.string.ok, new DialogInterface.OnClickListener() {//un listener que al pulsar, cierre la aplicacion
+                    @Override
+                    public void onClick(DialogInterface dialog, int which){
+                        //Salir
+                        try {
+                            OutputStreamWriter osw = new OutputStreamWriter(openFileOutput(nombreFichero(), Context.MODE_PRIVATE));
+                            osw.write("");
+                            osw.close();
+                        }
+                        catch (IOException e) {
+                            Toast.makeText(resultados.this, getResources().getString(R.string.errorFichTelf), Toast.LENGTH_SHORT).show();
+                        }
 
-        finish();
-        startActivity(getIntent());
+                        finish();
+                        startActivity(getIntent());
+                    }
+                })
+                .show();
+
     }
 
     public void back(View v){
