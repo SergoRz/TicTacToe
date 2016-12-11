@@ -9,7 +9,7 @@
     <LinearLayout
         android:orientation="vertical"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
         android:background="@android:color/background_light"
         android:layout_weight="0.8">
 
@@ -18,7 +18,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:textAlignment="center"
-            android:paddingTop="30dp">
+            android:paddingTop="30dp"
+            android:layout_weight="0.1">
 
             <TextView
                 android:text="@string/turno"
@@ -38,7 +39,7 @@
             android:layout_height="wrap_content"
             android:paddingLeft="25dp"
             android:paddingRight="25dp"
-            android:layout_weight="1">
+            android:layout_weight="0.7">
 
             <LinearLayout
                 android:orientation="horizontal"
@@ -151,9 +152,14 @@
                     android:textSize="72sp"
                     android:textColor="@android:color/black" />
             </LinearLayout>
+
         </LinearLayout>
 
-
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.2"></LinearLayout>
     </LinearLayout>
     <LinearLayout
         android:orientation="horizontal"
@@ -163,7 +169,7 @@
 
         <Button
             android:text="@string/btnVolver"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:id="@+id/btnVolver"
             android:layout_weight="1"
@@ -175,7 +181,7 @@
 
         <Button
             android:text="@string/btnReiniciar"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:id="@+id/btnReiniciar"
             android:layout_weight="1"
