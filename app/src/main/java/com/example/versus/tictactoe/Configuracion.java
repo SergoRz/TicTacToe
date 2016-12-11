@@ -165,4 +165,49 @@ public class Configuracion extends AppCompatActivity {
         }
     }
 
+    //Guardamos los datos de la aplicación
+    protected void onSaveInstanceState(Bundle outState) {
+        super.onSaveInstanceState(outState);
+
+        outState.putBoolean("btnSpanishChecked", _idiomaSpanish.isChecked());
+        outState.putBoolean("btnEnglishChecked", _idiomaEnglish.isChecked());
+
+        outState.putBoolean("btnSDChecked", _SD.isChecked());
+        outState.putBoolean("btnMIChecked", _MI.isChecked());
+
+        cargarIdioma();
+    }
+
+    //Cuando la aplicacion se restaura se cargan los datos que habias guardado previamente
+    protected void onRestoreInstanceState(Bundle savedInstanceState) {
+        super.onRestoreInstanceState(savedInstanceState);
+
+        _idiomaSpanish.setChecked(savedInstanceState.getBoolean("btnSpanishChecked"));
+        _idiomaEnglish.setChecked(savedInstanceState.getBoolean("btnEnglishChecked"));
+        _SD.setChecked(savedInstanceState.getBoolean("btnSDChecked"));
+        _MI.setChecked(savedInstanceState.getBoolean("btnMIChecked"));
+
+    }
+
+    public void cargarIdioma(){
+        SharedPreferences prefs = getSharedPreferences("MisPreferencias", MODE_PRIVATE);
+        String idioma = prefs.getString("idioma", "spanish");
+
+        Resources res = this.getApplicationContext().getResources();
+        DisplayMetrics dm = res.getDisplayMetrics();
+        android.content.res.Configuration conf = res.getConfiguration();
+        Locale loc;
+
+        if(idioma.equals("spanish")) {
+
+            loc = new Locale("es");
+        }
+        else{
+            loc = new Locale("en");
+        }
+
+        conf.setLocale(loc);
+        res.updateConfiguration(conf, dm);
+    }
+
 }
