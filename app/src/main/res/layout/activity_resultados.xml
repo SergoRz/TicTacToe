@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:weightSum="1">
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="10dp"
+        android:layout_weight="0.8">
+
+        <ListView
+            android:id="@+id/listView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="0.2">
+
+        <Button
+            android:text="@string/back"
+            android:layout_width="wrap_content"
+            android:layout_weight="1"
+            android:onClick="back"
+            android:layout_height="wrap_content"
+            android:id="@+id/btnBack"
+            android:background="@android:color/background_dark"
+            android:textColor="@android:color/background_light"
+            android:textSize="24sp"
+            android:layout_gravity="bottom"/>
+
+        <Button
+            android:text="@string/wipe"
+            android:layout_width="wrap_content"
+            android:onClick="wipeList"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:id="@+id/btnWipe"
+            android:background="@android:color/background_dark"
+            android:textColor="@android:color/background_light"
+            android:textSize="24sp"
+            android:layout_gravity="bottom"/>
+    </LinearLayout>
+
+</LinearLayout>
+

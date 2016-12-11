@@ -185,7 +185,7 @@ public class ActivityPartida extends AppCompatActivity {
 
     public void guardarPartida(Jugador ganador, Jugador perdedor){
         SharedPreferences prefs = getSharedPreferences("MisPreferencias", MODE_PRIVATE);
-        String resultado = getDateTime() + ": " + ganador.getNombre() + " ha ganado a " + perdedor.getNombre();
+        String resultado = getDateTime() + ":\r" + ganador.getNombre() + " ha ganado a " + perdedor.getNombre();
 
         if(prefs.getBoolean("guardarSD", true)){
             guardarPartidaSD(resultado);
@@ -197,8 +197,8 @@ public class ActivityPartida extends AppCompatActivity {
 
     public void guardarPartidaMI(String resultado){
         try {
-            OutputStreamWriter osw = new OutputStreamWriter(openFileOutput(nombreFichero(), Context.MODE_PRIVATE));
-            osw.write(resultado);
+            OutputStreamWriter osw = new OutputStreamWriter(openFileOutput(nombreFichero(), Context.MODE_APPEND));
+            osw.write(resultado + "\n");
             osw.close();
         }
         catch (IOException e) {

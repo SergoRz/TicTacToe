@@ -39,6 +39,16 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:background="@android:color/transparent"
+            app:srcCompat="@mipmap/settings"
+            android:id="@+id/ibtnConf"
+            android:layout_weight="1"
+            android:onClick="goConfig"
+            android:layout_gravity="center" />
+
+        <ImageButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@android:color/transparent"
             app:srcCompat="@mipmap/play"
             android:id="@+id/ibtnPlay"
             android:layout_weight="1"
@@ -49,10 +59,10 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:background="@android:color/transparent"
-            app:srcCompat="@mipmap/settings"
-            android:id="@+id/ibtnConf"
+            app:srcCompat="@mipmap/resultados"
+            android:id="@+id/ibtnRes"
             android:layout_weight="1"
-            android:onClick="goConfig"
+            android:onClick="goRes"
             android:layout_gravity="center" />
 
     </LinearLayout>
