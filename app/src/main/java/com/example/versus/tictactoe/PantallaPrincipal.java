@@ -36,6 +36,12 @@ public class PantallaPrincipal extends AppCompatActivity {
         startActivity(intent);
     }
 
+    public void goRes(View v){
+        finish();
+        Intent intent = new Intent(PantallaPrincipal.this, resultados.class);
+        startActivity(intent);
+    }
+
 
     public void cargarIdioma(){
         SharedPreferences prefs = getSharedPreferences("MisPreferencias", MODE_PRIVATE);

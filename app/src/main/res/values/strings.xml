@@ -26,5 +26,6 @@
     <string name="naranja">ORANGE</string>
     <string name="verde">GREEN</string>
     <string name="azul">BLUE</string>
+    <string name="wipe">WIPE LIST</string>
 
 </resources>
