@@ -47,12 +47,22 @@
         <ImageButton
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:background="@android:color/transparent"
+            app:srcCompat="@mipmap/resultados"
+            android:id="@+id/imageButton3"
+            android:layout_weight="1"
+            android:onClick="goRes"
+            android:layout_gravity="center" />
+
+        <ImageButton
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
             android:layout_marginTop="30dp"
             android:background="@android:color/transparent"
             android:scaleType="fitCenter"
             app:srcCompat="@mipmap/play"
             android:id="@+id/imageButton"
-            android:layout_weight="1.08"
+            android:layout_weight="1"
             android:contentDescription=""
             tools:ignore="ContentDescription"
             android:onClick="goChoose"
@@ -66,7 +76,7 @@
             android:scaleType="fitCenter"
             app:srcCompat="@mipmap/settings"
             android:id="@+id/imageButton2"
-            android:layout_weight="1.08"
+            android:layout_weight="1"
             tools:ignore="ContentDescription"
             android:onClick="goConfig"
             android:paddingBottom="15dp" />

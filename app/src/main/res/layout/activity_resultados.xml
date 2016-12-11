@@ -6,14 +6,13 @@
         android:orientation="vertical"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_weight="1"
+        android:layout_weight="0.9"
         android:padding="10dp">
 
         <ListView
             android:id="@+id/listView"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            />
+            android:layout_height="wrap_content"/>
 
     </LinearLayout>
 
@@ -21,11 +20,11 @@
         android:orientation="horizontal"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_weight="0">
+        android:layout_weight="0.15">
 
         <Button
             android:text="@string/back"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_weight="1"
             android:onClick="back"
             android:layout_height="match_parent"
@@ -36,7 +35,7 @@
 
         <Button
             android:text="@string/wipe"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:onClick="wipeList"
             android:layout_height="match_parent"
             android:layout_weight="1"
