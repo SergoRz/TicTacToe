@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="horizontal"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_weight="1">
+
+        <ImageView
+            android:contentDescription="@string/desc"
+            android:layout_width="match_parent"
+            android:layout_height="300dp"
+            app:srcCompat="@mipmap/tic_tac_toe"
+            android:id="@+id/imageView2"
+            android:layout_marginTop="15dp"
+            android:background="@mipmap/tic_tac_toe" />
+
+        <TextView
+            android:text="@string/tictactoe"
+            android:textSize="60dp"
+            android:gravity="center"
+            android:textStyle="bold"
+            android:textColor="#000000"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/textView2" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_weight="1">
+
+        <ImageButton
+            android:layout_width="match_parent"
+            android:layout_height="137dp"
+            android:layout_marginTop="30dp"
+            android:background="@android:color/transparent"
+            android:scaleType="fitCenter"
+            app:srcCompat="@mipmap/play"
+            android:id="@+id/imageButton"
+            android:layout_weight="1.08"
+            android:contentDescription=""
+            tools:ignore="ContentDescription"
+            android:onClick="goChoose" />
+
+        <ImageButton
+            android:layout_width="match_parent"
+            android:layout_height="140dp"
+            android:layout_marginTop="30dp"
+            android:background="@android:color/transparent"
+            android:scaleType="fitCenter"
+            app:srcCompat="@mipmap/settings"
+            android:id="@+id/imageButton2"
+            android:layout_weight="1.08"
+            tools:ignore="ContentDescription"
+            android:onClick="goConfig" />
+
+    </LinearLayout>
+</LinearLayout>

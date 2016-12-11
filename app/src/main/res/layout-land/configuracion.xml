@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_weight="0.8"
+        android:padding="15dp">
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:weightSum="1">
+
+            <TextView
+                android:text="@string/language"
+                android:textSize="24sp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
+                android:id="@+id/tvIdioma"
+                android:layout_alignParentTop="true"
+                android:layout_alignParentStart="true"
+                android:textStyle="normal|bold"
+                android:textColor="@android:color/black" />
+
+            <RadioGroup
+                android:layout_width="match_parent"
+                android:layout_height="80dp" >
+
+                <RadioButton
+                    android:text="@string/spanish"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="20dp"
+                    android:id="@+id/rbEspañol"
+                    android:textSize="18sp" />
+
+                <RadioButton
+                    android:text="@string/english"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="20dp"
+                    android:id="@+id/rbIngles"
+                    android:textSize="18sp" />
+
+            </RadioGroup>
+
+            <TextView
+                android:text="@string/ubicacion"
+                android:textSize="24sp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="27dp"
+                android:id="@+id/tvUbicacion"
+                android:layout_weight="0.12"
+                android:textColor="@android:color/black"
+                android:textStyle="normal|bold" />
+
+            <CheckBox
+                android:text="@string/memory"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/cbMemory"
+                android:layout_marginLeft="20dp"
+                android:textSize="18sp" />
+
+            <CheckBox
+                android:text="@string/sd"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/cbSD"
+                android:onClick="comprobarSD"
+                android:layout_marginLeft="20dp"
+                android:textSize="18sp" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1">
+
+            <TextView
+                android:text="@string/filename"
+                android:textSize="24sp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="30dp"
+                android:id="@+id/tvFileName"
+                android:textStyle="normal|bold"
+                android:textColor="@android:color/black" />
+
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="textPersonName"
+                android:ems="10"
+                android:layout_marginTop="16dp"
+                android:id="@+id/etFileName" />
+        </LinearLayout>
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="65dp">
+
+        <Button
+            android:text="@string/save"
+            android:layout_width="match_parent"
+            android:onClick="guardarPrefs"
+            android:layout_height="match_parent"
+            android:id="@+id/btnSave"
+            android:layout_weight="1"
+            android:textColor="@android:color/white"
+            android:background="@android:color/black"
+            android:textSize="24sp"
+            android:textStyle="normal|bold" />
+
+        <Button
+            android:text="@string/back"
+            android:layout_width="match_parent"
+            android:onClick="back"
+            android:layout_height="match_parent"
+            android:id="@+id/btnBack"
+            android:layout_weight="1"
+            android:background="@android:color/black"
+            android:textSize="24sp"
+            android:textStyle="normal|bold"
+            android:textColor="@android:color/background_light" />
+    </LinearLayout>
+</LinearLayout>
