@@ -191,8 +191,8 @@ public class ActivityPartida extends AppCompatActivity {
     public void volver(View v){
         new AlertDialog.Builder(this)
                 .setIcon(android.R.drawable.ic_dialog_alert)
-                .setTitle("Salir")
-                .setMessage("Se perderán los datos de la partida. Desea salir?")
+                .setTitle(getResources().getString(R.string.salir))
+                .setMessage(getResources().getString(R.string.salirPartida))
                 .setNegativeButton(android.R.string.cancel, null)//sin listener
                 .setPositiveButton(android.R.string.ok, new DialogInterface.OnClickListener() {//un listener que al pulsar, cierre la aplicacion
                     @Override
@@ -445,8 +445,8 @@ public class ActivityPartida extends AppCompatActivity {
         if (keyCode == KeyEvent.KEYCODE_BACK) {
             new AlertDialog.Builder(this)
                     .setIcon(android.R.drawable.ic_dialog_alert)
-                    .setTitle("Salir")
-                    .setMessage("Se perderán los datos de la partida. Desea salir?")
+                    .setTitle(getResources().getString(R.string.salir))
+                    .setMessage(getResources().getString(R.string.salirPartida))
                     .setNegativeButton(android.R.string.cancel, null)//sin listener
                     .setPositiveButton(android.R.string.ok, new DialogInterface.OnClickListener() {//un listener que al pulsar, cierre la aplicacion
                         @Override

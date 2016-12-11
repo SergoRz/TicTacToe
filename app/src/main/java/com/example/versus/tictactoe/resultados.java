@@ -9,12 +9,9 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ListView;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import java.io.BufferedReader;
-import java.io.File;
-import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.OutputStreamWriter;
@@ -66,8 +63,8 @@ public class resultados extends AppCompatActivity {
     public void wipeList(View v){
         new AlertDialog.Builder(this)
                 .setIcon(android.R.drawable.ic_dialog_alert)
-                .setTitle("Salir")
-                .setMessage("Esta seguro de borrar la lista de resultados?")
+                .setTitle(getResources().getString(R.string.salir))
+                .setMessage(getResources().getString(R.string.borrarLista))
                 .setNegativeButton(android.R.string.cancel, null)//sin listener
                 .setPositiveButton(android.R.string.ok, new DialogInterface.OnClickListener() {//un listener que al pulsar, cierre la aplicacion
                     @Override
