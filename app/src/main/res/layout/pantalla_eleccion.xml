@@ -8,7 +8,7 @@
         android:weightSum="1">
 
         <LinearLayout
-            android:padding="10dp"
+            android:padding="15dp"
             android:orientation="vertical"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -34,19 +34,19 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:id="@+id/tvNomJug1"
-                    android:layout_weight="1"
+                    android:layout_weight="0.5"
                     android:textStyle="normal|bold"
                     android:textColor="@android:color/black"
                     android:textSize="18sp" />
 
                 <EditText
-                    android:layout_width="205dp"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:inputType="textPersonName"
                     android:maxLength="10"
                     android:ems="10"
                     android:id="@+id/etNomJug1"
-                    android:layout_weight="1" />
+                    android:layout_weight="0.5" />
             </LinearLayout>
 
             <RadioGroup
@@ -90,7 +90,7 @@
         </LinearLayout>
 
         <LinearLayout
-            android:padding="10dp"
+            android:padding="15dp"
             android:orientation="vertical"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -116,20 +116,20 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:id="@+id/tvNomJug2"
-                    android:layout_weight="1"
+                    android:layout_weight="0.5"
                     android:textAlignment="viewStart"
                     android:textStyle="normal|bold"
                     android:textColor="@android:color/black"
                     android:textSize="18sp" />
 
                 <EditText
-                    android:layout_width="232dp"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:maxLength="10"
                     android:inputType="textPersonName"
                     android:ems="10"
                     android:id="@+id/etNomJug2"
-                    android:layout_weight="0.2" />
+                    android:layout_weight="0.5" />
             </LinearLayout>
 
             <RadioGroup
