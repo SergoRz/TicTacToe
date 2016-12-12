@@ -325,34 +325,40 @@ public class PantallaPartida extends AppCompatActivity {
     //Método que pertmite guardar una los datos de una partida en la tarjeta SD
     public void guardarPartidaSD(String resultado){
         try {
+            //Se obtiene la ruta del la tarjeta SD
             File ruta_sd = Environment.getExternalStorageDirectory();
-            Log.d("Ruta:",ruta_sd.getAbsolutePath());
+            //Se instancia el fichero con la ruta y el nombre
             File f = new File(ruta_sd.getAbsolutePath(), nombreFichero());
             OutputStreamWriter fout = new OutputStreamWriter(new FileOutputStream(f));
-
+            //Se escribe el resultado en el fichero
             fout.write(resultado);
             fout.close();
         }
         catch (Exception ex) {
+            //Si se produce algun error al guardar, se muestra un Toast de informacion
             Toast.makeText(this, getResources().getString(R.string.errorFichSD), Toast.LENGTH_SHORT).show();
         }
     }
 
+    //Método que busca el nombre del fichero donde se guardan las partidas en el fichero MisPreferencias
     public String nombreFichero(){
+        //Abre el fichero MisPreferencias
         SharedPreferences prefs = getSharedPreferences("MisPreferencias", MODE_PRIVATE);
         String nombre;
-
+        //Obtiene el nombre del fichero y si no lo encuentra devuelve "ejecuciones.txt" por defecto
         nombre = prefs.getString("nombreFichero", "ejecuciones.txt");
 
         return nombre;
     }
 
+    //Método que permite obtener la fecha y la hora del dispositivo
     private String getDateTime() {
         DateFormat dateFormat = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss");
         Date date = new Date();
         return dateFormat.format(date);
     }
 
+    //Método que permite añadir una pieza a la combinacion del jugador, dependiendo de la pieza pulsada
     public void addPiezaJugador(View v, Jugador jugador){
         switch (v.getId()) {
             case R.id.p11:
@@ -385,7 +391,9 @@ public class PantallaPartida extends AppCompatActivity {
         }
     }
 
+    //Método que permite deshabilitar todos los botones del teclado
     public void deshabilitarBotones(){
+        //Se crea un ArrayList con todos los botones del tablero
         ArrayList<Button> aButton = new ArrayList<>();
         aButton.add(btn11);
         aButton.add(btn12);
@@ -397,19 +405,19 @@ public class PantallaPartida extends AppCompatActivity {
         aButton.add(btn32);
         aButton.add(btn33);
 
+        //Recorre el array y establece la propiedad Clickable a false
         for(Button b: aButton){
             b.setClickable(false);
         }
     }
 
-    //Guardamos los datos de la aplicación
+    //Guardamos el estado de los datos de la aplicacion para cuando se cambie la orientacion
     protected void onSaveInstanceState(Bundle outState) {
         super.onSaveInstanceState(outState);
         int color;
         ColorStateList mList;
 
         outState.putSerializable("partida", partida);
-
         outState.putSerializable("tablero", tablero);
 
         outState.putInt("turno", turno);
@@ -467,14 +475,11 @@ public class PantallaPartida extends AppCompatActivity {
         outState.putBoolean("btnReiniciarClickable", btnReiniciar.isClickable());
 
         cargarIdioma();
-
     }
-    //Cuando la aplicacion se restaura se cargan los datos que habias guardado previamente
+    //Cuando la aplicacion se restaura se cargan los datos que habiamos guardado previamente
     protected void onRestoreInstanceState(Bundle savedInstanceState) {
         super.onRestoreInstanceState(savedInstanceState);
 
-        //NO ACABA LAS PARTIDAS CUANDO SE GIRA EN MITAD DE UNA
-        //SUPONEMOS QUE LO QUE PASA ES QUE LA COMBINACION DEL JUGADOR NO SE GUARDA
         partida = (Partida) savedInstanceState.getSerializable("partida");
 
         tablero = (ArrayList) savedInstanceState.getSerializable("tablero");
@@ -514,6 +519,7 @@ public class PantallaPartida extends AppCompatActivity {
         btnReiniciar.setClickable(savedInstanceState.getBoolean("btnReiniciarClickable"));
     }
 
+    //Método
     public boolean onKeyDown(int keyCode, KeyEvent event) {
         if (keyCode == KeyEvent.KEYCODE_BACK) {
             new AlertDialog.Builder(this)
