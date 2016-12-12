@@ -120,10 +120,12 @@ public class PantallaPartida extends AppCompatActivity {
             if(turno == 1){
                 addPiezaJugador(v, partida.getJ1());
                 colorearPieza(botonPulsado, partida.getJ1(),  partida.getJ2());
+                mostrarGanador(partida.getJ1(),  partida.getJ2());
                 turno = 2;
             }else{
                 addPiezaJugador(v,  partida.getJ2());
                 colorearPieza(botonPulsado,  partida.getJ2(), partida.getJ1());
+                mostrarGanador( partida.getJ2(),  partida.getJ1());
                 turno = 1;
             }
         } else{
@@ -147,7 +149,6 @@ public class PantallaPartida extends AppCompatActivity {
         actualizarColorRotulo(siguienteJugador);
         botonPulsado.setText(jugadorActual.getSimbolo());
         TVTurno.setText(String.format((getResources().getString(R.string.turno)), (siguienteJugador.getNombre().toUpperCase())));
-        mostrarGanador(jugadorActual, siguienteJugador);
     }
 
     public void actualizarColorRotulo(Jugador siguienteJugador){
