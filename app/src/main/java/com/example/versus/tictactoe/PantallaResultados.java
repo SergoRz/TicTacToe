@@ -9,6 +9,7 @@ import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.DisplayMetrics;
+import android.view.KeyEvent;
 import android.view.View;
 import android.widget.ListView;
 import android.widget.Toast;
@@ -135,5 +136,15 @@ public class PantallaResultados extends AppCompatActivity {
 
         conf.setLocale(loc);
         res.updateConfiguration(conf, dm);
+    }
+
+    public boolean onKeyDown(int keyCode, KeyEvent event) {
+        Intent intent = new Intent(PantallaResultados.this, PantallaPrincipal.class);
+        startActivity(intent);
+
+        finish();
+
+        //para las demas cosas, se reenvia el evento al listener habitual
+        return super.onKeyDown(keyCode, event);
     }
 }

@@ -56,7 +56,7 @@ public class PantallaConfiguracion extends AppCompatActivity {
 
 
     public void guardarPrefs(View v){
-        if(recogerFichero().equals("")){
+        if(!recogerFichero().equals("")){
             SharedPreferences prefs = getSharedPreferences("MisPreferencias", MODE_PRIVATE);
             SharedPreferences.Editor editor = prefs.edit();
 
