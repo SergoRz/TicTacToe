@@ -8,10 +8,10 @@ import java.io.Serializable;
 
 public class Jugador implements Parcelable {
 
-    private String nombre;
-    private String color;
-    private String simbolo;
-    private Combinacion combinacion;
+    private String nombre; //Nombre del jugador
+    private String color; //Color del jugador
+    private String simbolo; //Simbolo del jugador
+    private Combinacion combinacion; //Combinacion del jugador
 
     public Jugador(String simbolo){
         this.simbolo = simbolo;
@@ -45,6 +45,10 @@ public class Jugador implements Parcelable {
         return simbolo;
     }
 
+    /**
+     * Recrea un parcel con el objeto Jugador y le asigna los valores
+     * @param in Parcel que recibe
+     */
     protected Jugador(Parcel in) {
         nombre = in.readString();
         color = in.readString();
@@ -57,6 +61,10 @@ public class Jugador implements Parcelable {
         return 0;
     }
 
+    /**
+     * Se encarga de escribir los datos del objeto al Parcel
+     * @param dest Parcelo donde se escribe
+     */
     @Override
     public void writeToParcel(Parcel dest, int flags) {
         dest.writeString(nombre);
@@ -65,6 +73,9 @@ public class Jugador implements Parcelable {
         dest.writeValue(combinacion);
     }
 
+    /**
+     * Creador del Parcelable
+     */
     public static final Parcelable.Creator<Jugador> CREATOR = new Parcelable.Creator<Jugador>() {
         @Override
         public Jugador createFromParcel(Parcel in) {
