@@ -11,6 +11,7 @@ import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.DisplayMetrics;
+import android.util.Log;
 import android.view.KeyEvent;
 import android.view.View;
 import android.widget.Button;
@@ -47,6 +48,7 @@ public class PantallaPartida extends AppCompatActivity {
     Button btn33;
     Button btnReiniciar;
 
+    //Método que se ejecuta cuando se carga la PantallaPartida
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -61,11 +63,15 @@ public class PantallaPartida extends AppCompatActivity {
 
         //Se crea un objeto partida con los datos de los jugadores 1 y 2
         partida = new Partida(j1,j2);
-        turno = 1;
-        TVTurno = (TextView) findViewById(R.id.turno);
 
+        //Se inicializa el turno a 1
+        turno = 1;
+
+        //Se obtiene el TextView del turno y se actualiza el texto con el nombre del jugador 1
+        TVTurno = (TextView) findViewById(R.id.turno);
         TVTurno.setText(String.format((getResources().getString(R.string.turno)), (j1.getNombre().toUpperCase())));
 
+        //Se obtienen los botones del tablero
         btn11 = (Button) findViewById(R.id.p11);
         btn12 = (Button) findViewById(R.id.p12);
         btn13 = (Button) findViewById(R.id.p13);
@@ -75,11 +81,14 @@ public class PantallaPartida extends AppCompatActivity {
         btn31 = (Button) findViewById(R.id.p31);
         btn32 = (Button) findViewById(R.id.p32);
         btn33 = (Button) findViewById(R.id.p33);
+
+        //Se obtiene el boton reinicar
         btnReiniciar = (Button) findViewById(R.id.btnReiniciar);
 
         crearTablero();
     }
 
+    //Método que crea el tablero, crea las piezas y las añade a un ArrayList<Pieza>
     public void crearTablero(){
         //Creacion de las piezas
         Pieza p11 = new Pieza(11);
@@ -94,8 +103,10 @@ public class PantallaPartida extends AppCompatActivity {
         Pieza p32 = new Pieza(32);
         Pieza p33 = new Pieza(33);
 
+        //Se instancia el ArrayList
         tablero = new ArrayList<>();
 
+        //Se añaden las piezas al ArrayList tablero
         tablero.add(p11);
         tablero.add(p12);
         tablero.add(p13);
@@ -106,34 +117,55 @@ public class PantallaPartida extends AppCompatActivity {
         tablero.add(p32);
         tablero.add(p33);
 
+        //Se establece la propiedad Clickable de btnReiniciar a false
         btnReiniciar.setClickable(false);
+
+        //Se actualiza el color del rotulo con el color del jugador 1
         actualizarColorRotulo(partida.getJ1());
     }
 
+    //Método que se ejecuta cuando se pulsa una pieza del taablero
+    //permite colocar una pieza en el tablero y en la combinacion del usuario
+    //ademas de comprobar el ganador/empate.
     public void colocarPieza(View v){
+        //Se crea un objeto button buscando por la id del View que se recibe.
         Button botonPulsado = (Button) findViewById(v.getId());
 
+        //Se crea un objeto ColorStateList que nos va a permitir saber cual es el color que tiene el boton
         ColorStateList mList = botonPulsado.getTextColors();
         int color = mList.getDefaultColor();
 
+        //Si el color es negro
         if(color == Color.BLACK){
+            //Si el turno es del jugador 1
             if(turno == 1){
+                //Se añade la pieza al la combinacion del jugador 1
                 addPiezaJugador(v, partida.getJ1());
+                //Se colorea el tablero y se actualiza el textView del turno
                 colorearPieza(botonPulsado, partida.getJ1(),  partida.getJ2());
+                //Se comprueba el ganador
                 mostrarGanador(partida.getJ1(),  partida.getJ2());
+                //Se cambia el turno al jugador 2
                 turno = 2;
-            }else{
+            }else{ //Si el turno es del jugador 1
+                //Se añade la pieza al la combinacion del jugador 2
                 addPiezaJugador(v,  partida.getJ2());
+                //Se colorea el tablero y se actualiza el textView del turno
                 colorearPieza(botonPulsado,  partida.getJ2(), partida.getJ1());
+                //Se comprueba el ganador
                 mostrarGanador( partida.getJ2(),  partida.getJ1());
+                //Se cambia el turno al jugador 1
                 turno = 1;
             }
-        } else{
+        } else{ //Si la el color del texto del boton no es negro significa que esta ocupada
+            //Se informa al usuario diciendole que no haga trampas.
             Toast.makeText(this, getResources().getString(R.string.trampas), Toast.LENGTH_SHORT).show();
         }
     }
 
+    //Método que permite colorear el texto del boton, actualizar el rotulo.
     public void colorearPieza(Button botonPulsado, Jugador jugadorActual, Jugador siguienteJugador ){
+        //Dependiendo del color del usuario, pone el color del texto del boton de un color u otro.
         switch (jugadorActual.getColor().toUpperCase()){
             case "NARANJA":
                 botonPulsado.setTextColor(Color.parseColor("#FF9D09"));
@@ -146,12 +178,15 @@ public class PantallaPartida extends AppCompatActivity {
                 break;
         }
 
+        //Actualiza el rotulo de turno
         actualizarColorRotulo(siguienteJugador);
         botonPulsado.setText(jugadorActual.getSimbolo());
         TVTurno.setText(String.format((getResources().getString(R.string.turno)), (siguienteJugador.getNombre().toUpperCase())));
     }
 
+    //Método que permite actualizar el color del rotulo
     public void actualizarColorRotulo(Jugador siguienteJugador){
+        //Dependiendo del color del usuario, pone el color del rotulo de turno de un color u otro.
         switch (siguienteJugador.getColor().toUpperCase()){
             case "NARANJA":
                 TVTurno.setTextColor(Color.parseColor("#FF9D09"));
@@ -165,7 +200,9 @@ public class PantallaPartida extends AppCompatActivity {
         }
     }
 
+    //Método que permite reiniciar la partida
     public void reiniciar(View v){
+        //Se meten todos los botones del tablero en un ArrayList<Button>
         ArrayList<Button> aButton = new ArrayList<>();
         aButton.add(btn11);
         aButton.add(btn12);
@@ -177,22 +214,29 @@ public class PantallaPartida extends AppCompatActivity {
         aButton.add(btn32);
         aButton.add(btn33);
 
+        //Se recorre el array de buttons y se resetean a los valores iniciales.
         for(Button b: aButton){
             b.setTextColor(Color.BLACK);
             b.setText("");
             b.setClickable(true);
         }
 
+        //Se le da el turno al jugador 1
         turno = 1;
+        //Se vacian las combinaciones de los jugadores
         partida.getJ1().getCombinacion().combinacion.clear();
         partida.getJ2().getCombinacion().combinacion.clear();
 
+        //Se actualiza el rotulo
         TVTurno.setText(String.format((getResources().getString(R.string.turno)), (partida.getJ1().getNombre().toUpperCase())));
         actualizarColorRotulo(partida.getJ1());
-        findViewById(R.id.btnReiniciar).setClickable(true);
+        //Se establece la propiedad Clickable a false
+        findViewById(R.id.btnReiniciar).setClickable(false);
     }
 
+    //Método que te permite volver a la PantallaEleccion, con confirmacion
     public void volver(View v){
+        //Se muestra el dialog que permite decidir si volver o no
         new AlertDialog.Builder(this)
                 .setIcon(android.R.drawable.ic_dialog_alert)
                 .setTitle(getResources().getString(R.string.salir))
@@ -208,29 +252,47 @@ public class PantallaPartida extends AppCompatActivity {
                 .show();
     }
 
+    //Método que permite comprobar el ganador e informar al usuario del ganador o del empate.
     public void mostrarGanador(Jugador jugadorActual, Jugador siguienteJugador){
+        //Si el jugador actual es el ganador
         if(partida.comprobarGanador(jugadorActual)) {
+            //Se deja pulsar el boton Reiniciar
             findViewById(R.id.btnReiniciar).setClickable(true);
+            //Se deshabilitan los botones del tablero
             deshabilitarBotones();
+            //Se actualiza el rotulo mostrando el ganador
             TVTurno.setText(String.format(getResources().getString(R.string.ganador), jugadorActual.getNombre().toUpperCase()));
+            //Se pone el rotulo del color del ganador
             actualizarColorRotulo(jugadorActual);
+            //Se muestra un Toast que muestra el ganador
             Toast.makeText(this, String.format(getResources().getString(R.string.ganador), jugadorActual.getNombre().toUpperCase()), Toast.LENGTH_SHORT).show();
+            //Se guarda la partida con ganador
             guardarPartida(jugadorActual, siguienteJugador, "ganada");
-        }else{
+        }else{//Si no es el ganador
+            //Se comprueba si han empatado, es decir, si ambos tienen 4 piezas y ninguno ha ganado
             if(jugadorActual.getCombinacion().combinacion.size() == 4 && siguienteJugador.getCombinacion().combinacion.size() == 4) {
+                //Se deja pulsar el boton Reiniciar
                 findViewById(R.id.btnReiniciar).setClickable(true);
+                //Se deshabilitan los botones del tablero
                 deshabilitarBotones();
+                //Se actualiza el rotulo mostrando empate
                 TVTurno.setText(getResources().getString(R.string.empate));
+                //Se pone el rotulo de color negro
                 TVTurno.setTextColor(Color.parseColor("#000000"));
+                //Se muestra un Toast que muestra "Empate"
                 Toast.makeText(this, getResources().getString(R.string.empate), Toast.LENGTH_SHORT).show();
+                //Se guarda la partida empatada
                 guardarPartida(jugadorActual, siguienteJugador, "empatada");
             }
         }
     }
 
+    //Método que pertmite guardar una los datos de una partida
     public void guardarPartida(Jugador ganador, Jugador perdedor, String res){
         String resultado;
+        //Abrimos el fichero de la preferencias
         SharedPreferences prefs = getSharedPreferences("MisPreferencias", MODE_PRIVATE);
+        //Dependiendo del resultado de la partida se guarda con un texto u otro
         if(res.equals("ganada")){
             resultado = getDateTime() + ":\r" + ganador.getNombre() + " ha ganado a " + perdedor.getNombre();
         }
@@ -238,28 +300,33 @@ public class PantallaPartida extends AppCompatActivity {
             resultado = getDateTime() + ":\r" + ganador.getNombre() + " ha empatado con " + perdedor.getNombre();
         }
 
+        //Si la opcion de guardar en la SD es true se guarda en la SD
         if(prefs.getBoolean("guardarSD", true)){
             guardarPartidaSD(resultado);
         }
-        if(prefs.getBoolean("guardarMI", true)){
-            guardarPartidaMI(resultado);
-        }
+        //Se guardan los datos en la memoria local
+        guardarPartidaMI(resultado);
     }
 
+    //Método que pertmite guardar una los datos de una partida en la memoria interna
     public void guardarPartidaMI(String resultado){
         try {
+            //Se guarda el resultado en el fichero obtenido de las preferencias mediante el método nombreFichero()
             OutputStreamWriter osw = new OutputStreamWriter(openFileOutput(nombreFichero(), Context.MODE_APPEND));
             osw.write(resultado + "\n");
             osw.close();
         }
         catch (IOException e) {
+            //Si se produce algun error al guardar, se muestra un Toast de informacion
             Toast.makeText(this, getResources().getString(R.string.errorFichTelf), Toast.LENGTH_SHORT).show();
         }
     }
 
+    //Método que pertmite guardar una los datos de una partida en la tarjeta SD
     public void guardarPartidaSD(String resultado){
         try {
             File ruta_sd = Environment.getExternalStorageDirectory();
+            Log.d("Ruta:",ruta_sd.getAbsolutePath());
             File f = new File(ruta_sd.getAbsolutePath(), nombreFichero());
             OutputStreamWriter fout = new OutputStreamWriter(new FileOutputStream(f));
 
