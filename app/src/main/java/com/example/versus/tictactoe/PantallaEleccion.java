@@ -29,6 +29,10 @@ public class PantallaEleccion extends AppCompatActivity {
     RadioButton _rbBlueJug2;
 
 
+    /**
+     * Metodo que se ejecuta al iniciar la Activity, se instancian las variables y se cargan algunos atributos de los objetos
+     * @param savedInstanceState
+     */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -55,10 +59,17 @@ public class PantallaEleccion extends AppCompatActivity {
         jugador2.setColor("VERDE");
     }
 
+    /**
+     * Metodo que se encarga de establecer los nombres de los jugadores y mostrar la pantalla de PantallPartida.
+     * Se ejecuta al hacer click en el boton de Jugar
+     * @param v Boton Jugar
+     */
     public void goPlay(View v){
-        if(comprobarNombres()){
+        if(comprobarNombres()){ //Si los nombre son validos..
+            //Se asignan los nombres a los jugadores
             jugador1.setNombre(_nombreJ1.getText().toString());
             jugador2.setNombre(_nombreJ2.getText().toString());
+            //Se inicia la pantalla de PantallaPartida
             Intent intent = new Intent(PantallaEleccion.this, PantallaPartida.class);
             intent.putExtra("jugador1", jugador1);
             intent.putExtra("jugador2", jugador2);
@@ -66,12 +77,17 @@ public class PantallaEleccion extends AppCompatActivity {
         }
     }
 
+    /**
+     * Metodo que se encarga de establecer el color de cada jugador cuando se selecciona.
+     * Se ejecuta al clicar un RadioButton de color.
+     * @param rb RadioButton clicado.
+     */
     public void putColor(View rb){
-        switch (rb.getId()) {
-            case R.id.rbOrangeJug1:
-                _rbOrangeJug2.setEnabled(false);
-                _rbGreenJug2.setEnabled(true);
-                _rbBlueJug2.setEnabled(true);
+        switch (rb.getId()) { //Switch para identificar el RadioButton clicado.
+            case R.id.rbOrangeJug1: //Si se clica el Naranja del Jugador 1..
+                _rbOrangeJug2.setEnabled(false); //Se deshabilita ese color para el otro jugador
+                _rbGreenJug2.setEnabled(true); //Se habilita el color verde para el otro jugador
+                _rbBlueJug2.setEnabled(true);//Se habilita el color verde para el otro jugador
                 jugador1.setColor("NARANJA");
                 break;
             case R.id.rbGreenJug1:

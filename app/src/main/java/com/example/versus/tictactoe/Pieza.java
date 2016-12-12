@@ -5,7 +5,7 @@ import java.io.Serializable;
 
 public class Pieza implements Serializable{
 
-    private int numero;
+    private int numero; //Numero de la pieza que le identifica
 
     public Pieza(int numero) {
         this.numero = numero;

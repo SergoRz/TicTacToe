@@ -10,7 +10,7 @@ import android.widget.TextView;
 import java.util.ArrayList;
 
 /**
- * Created by EmilioCB on 18/10/2016.
+ * Created by EmilioCB on 08/12/2016.
  */
 
 public class ResultadoAdapter extends ArrayAdapter<String> {
@@ -38,13 +38,13 @@ public class ResultadoAdapter extends ArrayAdapter<String> {
     public View getView(int position, View convertView, ViewGroup parent) {
         LayoutInflater inflater = (LayoutInflater) contexto.getSystemService(Context.LAYOUT_INFLATER_SERVICE); //Se crea el LayoutInflater
 
-        View layoutResultado = inflater.inflate(R.layout.fila_resultado, parent, false); //Instancia el layout personalizado(fila) en esta Vista.
+        View layoutResultado = inflater.inflate(R.layout.fila_resultado, parent, false); //Instancia el layout personalizado(fila_resultado) en esta Vista.
 
-        TextView linea = (TextView) layoutResultado.findViewById(R.id.textViewTitulo); //TextView del titulo, se asocia con el del XML
+        TextView linea = (TextView) layoutResultado.findViewById(R.id.textViewResultado); //TextView del resultado, se asocia con el del XML
 
-        String res = array_resultados.get(position); //Se recorren los titulares
+        String res = array_resultados.get(position); //Se recorren los resultados
 
-        linea.setText(res); //Se recoge el titulo del titular en el que se encuentra
+        linea.setText(res); //Se recoge el resultado en el que se encuentra
 
         return layoutResultado;
     }

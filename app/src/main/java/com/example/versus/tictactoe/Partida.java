@@ -6,9 +6,9 @@ import java.util.ArrayList;
 public class Partida implements Serializable{
 
 
-    private Jugador j1;
-    private Jugador j2;
-    private ArrayList<Combinacion> combinacionesGanadoras = new ArrayList<Combinacion> ();
+    private Jugador j1; //Jugador 1 de la partida
+    private Jugador j2; //Jugador 1 de la partida
+    private ArrayList<Combinacion> combinacionesGanadoras = new ArrayList<Combinacion> (); //Combinaciones ganadoras de la partida
 
     public Partida(Jugador j1, Jugador j2) {
         this.j1 = j1;
@@ -16,6 +16,10 @@ public class Partida implements Serializable{
         iniciarPartida();
     }
 
+    /**
+     * Metodo que se encarga de generar todas las combinaciones ganadoras de la partida e introducirlas en el ArrayList
+     * de combinacionesGanadoras
+     */
     public void iniciarPartida(){
         //Creacion de las piezas
         Pieza p11 = new Pieza(11);
@@ -90,12 +94,17 @@ public class Partida implements Serializable{
         combinacionesGanadoras.add(cGanadora8);
     }
 
+    /**
+     * Metodo que se encarga de comporbar si un jugador ha ganado la partida,
+     * @param jugador Jugador que se comprueba
+     * @return Devuelve true, si ha ganado, o false si no ha ganado
+     */
     public boolean comprobarGanador(Jugador jugador){
         boolean igual = false;
-        if(jugador.getCombinacion().combinacion.size() > 2) {
-            for(Combinacion cPartida: combinacionesGanadoras){
-                if(jugador.getCombinacion().equals(cPartida)){
-                    igual = true;
+        if(jugador.getCombinacion().combinacion.size() > 2) { //Si la combinacion del jugador tiene mas de dos piezas..
+            for(Combinacion cPartida: combinacionesGanadoras){ //Se recorre las combinaciones ganadoras de la partida
+                if(jugador.getCombinacion().equals(cPartida)){ //Si la combinacion del jugador coincide con alguna ganadora..
+                    igual = true; //Son iguales
                     break;
                 }
             }
