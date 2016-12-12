@@ -56,16 +56,22 @@ public class PantallaConfiguracion extends AppCompatActivity {
 
 
     public void guardarPrefs(View v){
-        SharedPreferences prefs = getSharedPreferences("MisPreferencias", MODE_PRIVATE);
-        SharedPreferences.Editor editor = prefs.edit();
+        if(recogerFichero().equals("")){
+            SharedPreferences prefs = getSharedPreferences("MisPreferencias", MODE_PRIVATE);
+            SharedPreferences.Editor editor = prefs.edit();
 
-        editor.putString("idioma", recogerIdioma());
-        editor.putBoolean("guardarSD", recogerLocSD());
-        editor.putString("nombreFichero", recogerFichero());
-        editor.commit();
+            editor.putString("idioma", recogerIdioma());
+            editor.putBoolean("guardarSD", recogerLocSD());
+            editor.putString("nombreFichero", recogerFichero());
+            editor.commit();
 
-        finish();
-        startActivity(getIntent());
+            finish();
+            startActivity(getIntent());
+        }
+        else{
+            Toast.makeText(this, getResources().getString(R.string.ficheroVacio), Toast.LENGTH_SHORT).show();
+        }
+
     }
 
     public String recogerIdioma(){
