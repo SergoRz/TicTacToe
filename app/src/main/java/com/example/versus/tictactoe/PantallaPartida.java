@@ -602,6 +602,10 @@ public class PantallaPartida extends AppCompatActivity {
         return super.onKeyDown(keyCode, event);
     }
 
+    /**
+     * Metodo que se encarga de cargar el idioma de la aplicacion.
+     * Se ejecuta al girar el dispositivo.
+     */
     public void cargarIdioma(){
         SharedPreferences prefs = getSharedPreferences("MisPreferencias", MODE_PRIVATE);
         String idioma = prefs.getString("idioma", "spanish");
