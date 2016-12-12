@@ -48,7 +48,11 @@ public class PantallaPartida extends AppCompatActivity {
     Button btn33;
     Button btnReiniciar;
 
-    //Método que se ejecuta cuando se carga la PantallaPartida
+    //
+    /**
+     * Método que se ejecuta cuando se carga la PantallaPartida
+     * @param savedInstanceState
+     */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -88,7 +92,9 @@ public class PantallaPartida extends AppCompatActivity {
         crearTablero();
     }
 
-    //Método que crea el tablero, crea las piezas y las añade a un ArrayList<Pieza>
+    /**
+     * Método que crea el tablero, crea las piezas y las añade a un ArrayList<Pieza>
+     */
     public void crearTablero(){
         //Creacion de las piezas
         Pieza p11 = new Pieza(11);
@@ -127,6 +133,12 @@ public class PantallaPartida extends AppCompatActivity {
     //Método que se ejecuta cuando se pulsa una pieza del taablero
     //permite colocar una pieza en el tablero y en la combinacion del usuario
     //ademas de comprobar el ganador/empate.
+    /**
+     * Método que se ejecuta cuando se pulsa una pieza del taablero
+     * permite colocar una pieza en el tablero y en la combinacion del usuario
+     * ademas de comprobar el ganador/empate.
+     * @param v boton pulsado
+     */
     public void colocarPieza(View v){
         //Se crea un objeto button buscando por la id del View que se recibe.
         Button botonPulsado = (Button) findViewById(v.getId());
@@ -163,7 +175,12 @@ public class PantallaPartida extends AppCompatActivity {
         }
     }
 
-    //Método que permite colorear el texto del boton, actualizar el rotulo.
+    /**
+     * Método que permite colorear el texto del boton, actualizar el rotulo.
+     * @param botonPulsado boton pulsado
+     * @param jugadorActual jugador que posee el turno
+     * @param siguienteJugador jugador al que se le va a dar el turno
+     */
     public void colorearPieza(Button botonPulsado, Jugador jugadorActual, Jugador siguienteJugador ){
         //Dependiendo del color del usuario, pone el color del texto del boton de un color u otro.
         switch (jugadorActual.getColor().toUpperCase()){
@@ -184,7 +201,10 @@ public class PantallaPartida extends AppCompatActivity {
         TVTurno.setText(String.format((getResources().getString(R.string.turno)), (siguienteJugador.getNombre().toUpperCase())));
     }
 
-    //Método que permite actualizar el color del rotulo
+    /**
+     * Método que permite actualizar el color del rotulo
+     * @param siguienteJugador jugador al que se le va a dar el turno
+     */
     public void actualizarColorRotulo(Jugador siguienteJugador){
         //Dependiendo del color del usuario, pone el color del rotulo de turno de un color u otro.
         switch (siguienteJugador.getColor().toUpperCase()){
@@ -200,7 +220,10 @@ public class PantallaPartida extends AppCompatActivity {
         }
     }
 
-    //Método que permite reiniciar la partida
+    /**
+     * Método que permite reiniciar la partida
+     * @param v Boton reiniciar
+     */
     public void reiniciar(View v){
         //Se meten todos los botones del tablero en un ArrayList<Button>
         ArrayList<Button> aButton = new ArrayList<>();
@@ -234,7 +257,10 @@ public class PantallaPartida extends AppCompatActivity {
         findViewById(R.id.btnReiniciar).setClickable(false);
     }
 
-    //Método que te permite volver a la PantallaEleccion, con confirmacion
+    /**
+     * Método que te permite volver a la PantallaEleccion, con confirmacion
+     * @param v Boton volver
+     */
     public void volver(View v){
         //Se muestra el dialog que permite decidir si volver o no
         new AlertDialog.Builder(this)
@@ -252,7 +278,11 @@ public class PantallaPartida extends AppCompatActivity {
                 .show();
     }
 
-    //Método que permite comprobar el ganador e informar al usuario del ganador o del empate.
+    /**
+     * Método que permite comprobar el ganador e informar al usuario del ganador o del empate.
+     * @param jugadorActual jugador que posee el turno
+     * @param siguienteJugador jugador al que se le va a pasar el turno
+     */
     public void mostrarGanador(Jugador jugadorActual, Jugador siguienteJugador){
         //Si el jugador actual es el ganador
         if(partida.comprobarGanador(jugadorActual)) {
@@ -287,7 +317,12 @@ public class PantallaPartida extends AppCompatActivity {
         }
     }
 
-    //Método que pertmite guardar una los datos de una partida
+    /**
+     * Método que pertmite guardar una los datos de una partida
+     * @param ganador jugador que ha ganado o empatado
+     * @param perdedor jugador que ha perdido o empatado
+     * @param res indica como ha quedado la partida ganada o empatada
+     */
     public void guardarPartida(Jugador ganador, Jugador perdedor, String res){
         String resultado;
         //Abrimos el fichero de la preferencias
@@ -308,7 +343,10 @@ public class PantallaPartida extends AppCompatActivity {
         guardarPartidaMI(resultado);
     }
 
-    //Método que pertmite guardar una los datos de una partida en la memoria interna
+    /**
+     * Método que pertmite guardar una los datos de una partida en la memoria interna
+     * @param resultado string que va a escribir en el fichero
+     */
     public void guardarPartidaMI(String resultado){
         try {
             //Se guarda el resultado en el fichero obtenido de las preferencias mediante el método nombreFichero()
@@ -322,37 +360,50 @@ public class PantallaPartida extends AppCompatActivity {
         }
     }
 
-    //Método que pertmite guardar una los datos de una partida en la tarjeta SD
+    /**
+     * Método que pertmite guardar una los datos de una partida en la tarjeta SD
+     * @param resultado string que va a escribir en el fichero
+     */
     public void guardarPartidaSD(String resultado){
         try {
+            //Se obtiene la ruta del la tarjeta SD
             File ruta_sd = Environment.getExternalStorageDirectory();
-            Log.d("Ruta:",ruta_sd.getAbsolutePath());
+            //Se instancia el fichero con la ruta y el nombre
             File f = new File(ruta_sd.getAbsolutePath(), nombreFichero());
             OutputStreamWriter fout = new OutputStreamWriter(new FileOutputStream(f));
-
+            //Se escribe el resultado en el fichero
             fout.write(resultado);
             fout.close();
         }
         catch (Exception ex) {
+            //Si se produce algun error al guardar, se muestra un Toast de informacion
             Toast.makeText(this, getResources().getString(R.string.errorFichSD), Toast.LENGTH_SHORT).show();
         }
     }
 
+    //Método que busca el nombre del fichero donde se guardan las partidas en el fichero MisPreferencias
     public String nombreFichero(){
+        //Abre el fichero MisPreferencias
         SharedPreferences prefs = getSharedPreferences("MisPreferencias", MODE_PRIVATE);
         String nombre;
-
+        //Obtiene el nombre del fichero y si no lo encuentra devuelve "ejecuciones.txt" por defecto
         nombre = prefs.getString("nombreFichero", "ejecuciones.txt");
 
         return nombre;
     }
 
+    //Método que permite obtener la fecha y la hora del dispositivo
     private String getDateTime() {
         DateFormat dateFormat = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss");
         Date date = new Date();
         return dateFormat.format(date);
     }
 
+    /**
+     * Método que permite añadir una pieza a la combinacion del jugador, dependiendo de la pieza pulsada
+     * @param v boton pulsado
+     * @param jugador contenedor donde guardamos los datos de la activity
+     */
     public void addPiezaJugador(View v, Jugador jugador){
         switch (v.getId()) {
             case R.id.p11:
@@ -385,7 +436,12 @@ public class PantallaPartida extends AppCompatActivity {
         }
     }
 
+
+    /**
+     * Método que permite deshabilitar todos los botones del teclado
+     */
     public void deshabilitarBotones(){
+        //Se crea un ArrayList con todos los botones del tablero
         ArrayList<Button> aButton = new ArrayList<>();
         aButton.add(btn11);
         aButton.add(btn12);
@@ -397,19 +453,22 @@ public class PantallaPartida extends AppCompatActivity {
         aButton.add(btn32);
         aButton.add(btn33);
 
+        //Recorre el array y establece la propiedad Clickable a false
         for(Button b: aButton){
             b.setClickable(false);
         }
     }
 
-    //Guardamos los datos de la aplicación
+    /**
+     * Guardamos el estado de los datos de la aplicacion para cuando se cambie la orientacion
+     * @param outState contenedor donde guardamos los datos de la activity
+     */
     protected void onSaveInstanceState(Bundle outState) {
         super.onSaveInstanceState(outState);
         int color;
         ColorStateList mList;
 
         outState.putSerializable("partida", partida);
-
         outState.putSerializable("tablero", tablero);
 
         outState.putInt("turno", turno);
@@ -467,14 +526,15 @@ public class PantallaPartida extends AppCompatActivity {
         outState.putBoolean("btnReiniciarClickable", btnReiniciar.isClickable());
 
         cargarIdioma();
-
     }
-    //Cuando la aplicacion se restaura se cargan los datos que habias guardado previamente
+
+    /**
+     * Cuando la aplicacion se restaura se cargan los datos que habiamos guardado previamente
+     * @param savedInstanceState contener donde se guardan los datos de la activity
+     */
     protected void onRestoreInstanceState(Bundle savedInstanceState) {
         super.onRestoreInstanceState(savedInstanceState);
 
-        //NO ACABA LAS PARTIDAS CUANDO SE GIRA EN MITAD DE UNA
-        //SUPONEMOS QUE LO QUE PASA ES QUE LA COMBINACION DEL JUGADOR NO SE GUARDA
         partida = (Partida) savedInstanceState.getSerializable("partida");
 
         tablero = (ArrayList) savedInstanceState.getSerializable("tablero");
@@ -514,16 +574,22 @@ public class PantallaPartida extends AppCompatActivity {
         btnReiniciar.setClickable(savedInstanceState.getBoolean("btnReiniciarClickable"));
     }
 
+    /**
+     * Metodo que se encarga de volver a la pantalla anterior al pulsar en el boton atras del dispositivo
+     * @param keyCode Codigo del boton pulsado
+     * @param event Pulsacion
+     * @return Devuelve true si se ejecuta con exito
+     */
     public boolean onKeyDown(int keyCode, KeyEvent event) {
-        if (keyCode == KeyEvent.KEYCODE_BACK) {
-            new AlertDialog.Builder(this)
+        if (keyCode == KeyEvent.KEYCODE_BACK) {//Si el codigo del boton pulsado es igual que el codigo del boton atras..
+            new AlertDialog.Builder(this)//Se muestra un dialog para confirmar la salida
                     .setIcon(android.R.drawable.ic_dialog_alert)
                     .setTitle(getResources().getString(R.string.salir))
                     .setMessage(getResources().getString(R.string.salirPartida))
                     .setNegativeButton(android.R.string.cancel, null)//sin listener
                     .setPositiveButton(android.R.string.ok, new DialogInterface.OnClickListener() {//un listener que al pulsar, cierre la aplicacion
                         @Override
-                        public void onClick(DialogInterface dialog, int which){
+                        public void onClick(DialogInterface dialog, int which){//Si se pulsa aceptar..
                             //Salir
                             PantallaPartida.this.finish();
                         }
@@ -536,6 +602,10 @@ public class PantallaPartida extends AppCompatActivity {
         return super.onKeyDown(keyCode, event);
     }
 
+    /**
+     * Metodo que se encarga de cargar el idioma de la aplicacion.
+     * Se ejecuta al girar el dispositivo.
+     */
     public void cargarIdioma(){
         SharedPreferences prefs = getSharedPreferences("MisPreferencias", MODE_PRIVATE);
         String idioma = prefs.getString("idioma", "spanish");

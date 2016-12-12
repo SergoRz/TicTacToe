@@ -123,6 +123,10 @@ public class PantallaEleccion extends AppCompatActivity {
         }
     }
 
+    /**
+     * Metodo que comprueba si los nombres estan vacios o no
+     * @return true si los del nombre no estan vacios y false si estan vacios
+     */
     public boolean comprobarNombres(){
         boolean correcto = true;
         if(_nombreJ1.getText().toString().equals("") || _nombreJ2.getText().toString().equals("")){
@@ -137,13 +141,20 @@ public class PantallaEleccion extends AppCompatActivity {
         return correcto;
     }
 
+    /**
+     * Metodo que permite volver a la pantalla anterior.
+     * @param v Boton volver
+     */
     public void goBack(View v){
         finish();
         Intent intent = new Intent(PantallaEleccion.this, PantallaPrincipal.class);
         startActivity(intent);
     }
 
-    //Guardamos los datos de la aplicación
+    /**
+     * Guardamos el estado de los datos de la aplicacion para cuando se cambie la orientacion
+     * @param outState contenedor donde guardamos los datos de la activity
+     */
     protected void onSaveInstanceState(Bundle outState) {
         super.onSaveInstanceState(outState);
 
@@ -166,7 +177,11 @@ public class PantallaEleccion extends AppCompatActivity {
 
         cargarIdioma();
     }
-    //Cuando la aplicacion se restaura se cargan los datos que habias guardado previamente
+
+    /**
+     * Cuando la aplicacion se restaura se cargan los datos que habiamos guardado previamente
+     * @param savedInstanceState contener donde se guardan los datos de la activity
+     */
     protected void onRestoreInstanceState(Bundle savedInstanceState) {
         super.onRestoreInstanceState(savedInstanceState);
 
@@ -188,6 +203,10 @@ public class PantallaEleccion extends AppCompatActivity {
         _rbBlueJug2.setEnabled(savedInstanceState.getBoolean("BJ2Enabled"));
     }
 
+    /**
+     * Metodo que se encarga de cargar el idioma de la aplicacion.
+     * Se ejecuta al girar el dispositivo.
+     */
     public void cargarIdioma(){
         SharedPreferences prefs = getSharedPreferences("MisPreferencias", MODE_PRIVATE);
         String idioma = prefs.getString("idioma", "spanish");
@@ -209,6 +228,12 @@ public class PantallaEleccion extends AppCompatActivity {
 
     }
 
+    /**
+     * Metodo que se encarga de volver a la pantalla anterior al pulsar en el boton atras del dispositivo
+     * @param keyCode Codigo del boton pulsado
+     * @param event Pulsacion
+     * @return Devuelve true si se ejecuta con exito
+     */
     public boolean onKeyDown(int keyCode, KeyEvent event) {
         Intent intent = new Intent(PantallaEleccion.this, PantallaPrincipal.class);
         startActivity(intent);
