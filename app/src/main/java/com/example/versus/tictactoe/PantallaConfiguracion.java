@@ -182,11 +182,12 @@ public class PantallaConfiguracion extends AppCompatActivity {
             sdDisponible = true;
             sdAccesoEscritura = false;
         }
-        else {
+        else { //Si no hay tarjeta SD..
             sdDisponible = false;
             sdAccesoEscritura = false;
         }
 
+        //Se informa al usuario del estado de la tarjeta
         if(!sdDisponible){
             _SD.setChecked(false);
             Toast.makeText(this, "No hay tarjeta SD disponible", Toast.LENGTH_SHORT).show();
@@ -197,17 +198,25 @@ public class PantallaConfiguracion extends AppCompatActivity {
         }
     }
 
+    /**
+     * Metodo que se encarga de volver a la pantalla anterior al pulsar en el boton atras del dispositivo
+     * @param keyCode Codigo del boton pulsado
+     * @param event Pulsacion
+     * @return Devuelve true si se ejecuta con exito
+     */
     public boolean onKeyDown(int keyCode, KeyEvent event) {
-        if (keyCode == KeyEvent.KEYCODE_BACK) {
+        if (keyCode == KeyEvent.KEYCODE_BACK) { //Si el codigo del boton pulsado es igual que el codigo del boton atras..
 
-        Intent intent = new Intent(PantallaConfiguracion.this, PantallaPrincipal.class);
-        startActivity(intent);
+            //Se muestra la pantalla anterior y se cierra la actual
+            Intent intent = new Intent(PantallaConfiguracion.this, PantallaPrincipal.class);
+            startActivity(intent);
 
-        finish();
+            finish();
         }
         //para las demas cosas, se reenvia el evento al listener habitual
         return super.onKeyDown(keyCode, event);
     }
+
     //Guardamos los datos de la aplicación
     protected void onSaveInstanceState(Bundle outState) {
         super.onSaveInstanceState(outState);
@@ -230,7 +239,12 @@ public class PantallaConfiguracion extends AppCompatActivity {
 
     }
 
+    /**
+     * Metodo que se encarga de cargar el idioma de la aplicacion.
+     * Se ejecuta al girar el dispositivo.
+     */
     public void cargarIdioma(){
+        //Se accede a las preferencias y se establece el idioma
         SharedPreferences prefs = getSharedPreferences("MisPreferencias", MODE_PRIVATE);
         String idioma = prefs.getString("idioma", "spanish");
 
