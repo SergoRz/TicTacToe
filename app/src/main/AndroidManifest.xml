@@ -18,9 +18,9 @@
             </intent-filter>
         </activity>
         <activity android:name=".PantallaPartida" />
-        <activity android:name=".Configuracion" />
+        <activity android:name=".PantallaConfiguracion" />
         <activity android:name=".PantallaEleccion" />
-        <activity android:name=".resultados"></activity>
+        <activity android:name=".PantallaResultados"></activity>
     </application>
 
 </manifest>

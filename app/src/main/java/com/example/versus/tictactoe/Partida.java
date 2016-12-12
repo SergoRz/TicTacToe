@@ -79,6 +79,7 @@ public class Partida implements Serializable{
         aP8.add(p13);
         Combinacion cGanadora8 = new Combinacion(aP8);
 
+        //Se añaden al array combinacionesGanadoras las combinaciones ganadoras
         combinacionesGanadoras.add(cGanadora1);
         combinacionesGanadoras.add(cGanadora2);
         combinacionesGanadoras.add(cGanadora3);
@@ -106,24 +107,9 @@ public class Partida implements Serializable{
         return j1;
     }
 
-    public void setJ1(Jugador j1) {
-        this.j1 = j1;
-    }
-
     public Jugador getJ2() {
         return j2;
     }
 
-    public void setJ2(Jugador j2) {
-        this.j2 = j2;
-    }
-
-    public ArrayList<Combinacion> getCombinacionesGanadoras() {
-        return combinacionesGanadoras;
-    }
-
-    public void setCombinacionesGanadoras(ArrayList<Combinacion> combinacionesGanadoras) {
-        this.combinacionesGanadoras = combinacionesGanadoras;
-    }
 
 }

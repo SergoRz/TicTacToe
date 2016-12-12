@@ -193,7 +193,7 @@
                 android:text="@string/play"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
-                android:id="@+id/btnReiniciar"
+                android:id="@+id/btnJugar"
                 android:layout_weight="1"
                 android:background="@android:color/background_dark"
                 android:textColor="@android:color/background_light"

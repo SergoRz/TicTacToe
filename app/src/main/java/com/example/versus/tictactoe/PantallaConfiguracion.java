@@ -2,14 +2,11 @@ package com.example.versus.tictactoe;
 
 import android.content.Intent;
 import android.content.SharedPreferences;
-import android.content.res.Configuration;
 import android.content.res.Resources;
 import android.os.Environment;
-import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.DisplayMetrics;
-import android.util.Log;
 import android.view.KeyEvent;
 import android.view.View;
 import android.widget.CheckBox;
@@ -19,7 +16,7 @@ import android.widget.Toast;
 
 import java.util.Locale;
 
-public class Configuracion extends AppCompatActivity {
+public class PantallaConfiguracion extends AppCompatActivity {
 
     private RadioButton _idiomaSpanish;
     private RadioButton _idiomaEnglish;
@@ -114,7 +111,7 @@ public class Configuracion extends AppCompatActivity {
     }
 
     public void back(View v){
-        Intent intent = new Intent(Configuracion.this, PantallaPrincipal.class);
+        Intent intent = new Intent(PantallaConfiguracion.this, PantallaPrincipal.class);
         startActivity(intent);
 
         finish();
@@ -127,7 +124,6 @@ public class Configuracion extends AppCompatActivity {
         //Comprobamos el estado de la memoria externa (tarjeta SD)
         String estado = Environment.getExternalStorageState();
 
-        Log.d("Resultado:",estado);
         if (estado.equals(Environment.MEDIA_MOUNTED)) {
             sdDisponible = true;
             sdAccesoEscritura = true;
@@ -154,7 +150,7 @@ public class Configuracion extends AppCompatActivity {
     public boolean onKeyDown(int keyCode, KeyEvent event) {
         if (keyCode == KeyEvent.KEYCODE_BACK) {
 
-        Intent intent = new Intent(Configuracion.this, PantallaPrincipal.class);
+        Intent intent = new Intent(PantallaConfiguracion.this, PantallaPrincipal.class);
         startActivity(intent);
 
         finish();

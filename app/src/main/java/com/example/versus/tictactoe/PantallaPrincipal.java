@@ -10,10 +10,6 @@ import android.os.Bundle;
 import android.util.DisplayMetrics;
 import android.view.KeyEvent;
 import android.view.View;
-import android.view.Window;
-import android.widget.Toast;
-
-import java.util.ArrayList;
 
 import java.util.Locale;
 
@@ -24,12 +20,11 @@ public class PantallaPrincipal extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         cargarIdioma();
         setContentView(R.layout.menu_principal);
-
     }
 
     public void goConfig(View v){
         finish();
-        Intent intent = new Intent(PantallaPrincipal.this, Configuracion.class);
+        Intent intent = new Intent(PantallaPrincipal.this, PantallaConfiguracion.class);
         startActivity(intent);
     }
 
@@ -41,7 +36,7 @@ public class PantallaPrincipal extends AppCompatActivity {
 
     public void goRes(View v){
         finish();
-        Intent intent = new Intent(PantallaPrincipal.this, resultados.class);
+        Intent intent = new Intent(PantallaPrincipal.this, PantallaResultados.class);
         startActivity(intent);
     }
 

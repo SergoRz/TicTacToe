@@ -20,7 +20,7 @@ import java.io.OutputStreamWriter;
 import java.util.ArrayList;
 import java.util.Locale;
 
-public class resultados extends AppCompatActivity {
+public class PantallaResultados extends AppCompatActivity {
     ListView lista;
     ArrayList<String> resul;
     ResultadoAdapter adaptador;
@@ -79,7 +79,7 @@ public class resultados extends AppCompatActivity {
                             osw.close();
                         }
                         catch (IOException e) {
-                            Toast.makeText(resultados.this, getResources().getString(R.string.errorFichTelf), Toast.LENGTH_SHORT).show();
+                            Toast.makeText(PantallaResultados.this, getResources().getString(R.string.errorFichTelf), Toast.LENGTH_SHORT).show();
                         }
 
                         finish();
@@ -91,7 +91,7 @@ public class resultados extends AppCompatActivity {
     }
 
     public void back(View v){
-        Intent intent = new Intent(resultados.this, PantallaPrincipal.class);
+        Intent intent = new Intent(PantallaResultados.this, PantallaPrincipal.class);
         startActivity(intent);
 
         finish();

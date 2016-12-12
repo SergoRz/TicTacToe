@@ -17,17 +17,6 @@ public class Jugador implements Parcelable {
         this.simbolo = simbolo;
     }
 
-    public Jugador(String nombre, String color, String simbolo) {
-        this.nombre = nombre;
-        this.color = color;
-        this.simbolo = simbolo;
-    }
-
-    public boolean equals(Jugador jugador){
-        if(jugador.nombre.equals(this.nombre) && jugador.color.equals(this.color))return true;
-        else return false;
-    }
-
     public String getNombre() {
         return nombre;
     }
@@ -56,10 +45,6 @@ public class Jugador implements Parcelable {
         return simbolo;
     }
 
-    public void setSimbolo(String simbolo) {
-        this.simbolo = simbolo;
-    }
-
     protected Jugador(Parcel in) {
         nombre = in.readString();
         color = in.readString();
@@ -80,7 +65,6 @@ public class Jugador implements Parcelable {
         dest.writeValue(combinacion);
     }
 
-    @SuppressWarnings("unused")
     public static final Parcelable.Creator<Jugador> CREATOR = new Parcelable.Creator<Jugador>() {
         @Override
         public Jugador createFromParcel(Parcel in) {
