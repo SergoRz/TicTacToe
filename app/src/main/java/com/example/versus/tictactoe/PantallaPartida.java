@@ -11,7 +11,6 @@ import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.DisplayMetrics;
-import android.util.Log;
 import android.view.KeyEvent;
 import android.view.View;
 import android.widget.Button;
@@ -22,15 +21,15 @@ import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.OutputStreamWriter;
-import java.io.Serializable;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.Locale;
 
-public class ActivityPartida extends AppCompatActivity {
+public class PantallaPartida extends AppCompatActivity {
 
+    //Se declaran las variables que se van a utilizar
     Jugador j1;
     Jugador j2;
     int turno;
@@ -53,12 +52,14 @@ public class ActivityPartida extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_partida);
 
+        //Se obtienen los datos que se reciben de la Activity PantallaEleccion
         Bundle extras = getIntent().getExtras();
         j1 = extras.getParcelable("jugador1");
         j1.setCombinacion(new Combinacion());
         j2 = extras.getParcelable("jugador2");
         j2.setCombinacion(new Combinacion());
 
+        //Se crea un objeto partida con los datos de los jugadores 1 y 2
         partida = new Partida(j1,j2);
         turno = 1;
         TVTurno = (TextView) findViewById(R.id.turno);
@@ -117,13 +118,13 @@ public class ActivityPartida extends AppCompatActivity {
 
         if(color == Color.BLACK){
             if(turno == 1){
-                turno = 2;
                 addPiezaJugador(v, partida.getJ1());
                 colorearPieza(botonPulsado, partida.getJ1(),  partida.getJ2());
+                turno = 2;
             }else{
-                turno = 1;
                 addPiezaJugador(v,  partida.getJ2());
                 colorearPieza(botonPulsado,  partida.getJ2(), partida.getJ1());
+                turno = 1;
             }
         } else{
             Toast.makeText(this, getResources().getString(R.string.trampas), Toast.LENGTH_SHORT).show();
@@ -200,7 +201,7 @@ public class ActivityPartida extends AppCompatActivity {
                     @Override
                     public void onClick(DialogInterface dialog, int which){
                         //Salir
-                        ActivityPartida.this.finish();
+                        PantallaPartida.this.finish();
                     }
                 })
                 .show();
@@ -456,7 +457,7 @@ public class ActivityPartida extends AppCompatActivity {
                         @Override
                         public void onClick(DialogInterface dialog, int which){
                             //Salir
-                            ActivityPartida.this.finish();
+                            PantallaPartida.this.finish();
                         }
                     })
                     .show();

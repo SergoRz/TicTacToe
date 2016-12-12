@@ -9,7 +9,6 @@ import android.util.DisplayMetrics;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.RadioButton;
-import android.widget.RadioGroup;
 import android.widget.Toast;
 
 import java.util.Locale;
@@ -59,7 +58,7 @@ public class PantallaEleccion extends AppCompatActivity {
         if(comprobarNombres()){
             jugador1.setNombre(_nombreJ1.getText().toString());
             jugador2.setNombre(_nombreJ2.getText().toString());
-            Intent intent = new Intent(PantallaEleccion.this, ActivityPartida.class);
+            Intent intent = new Intent(PantallaEleccion.this, PantallaPartida.class);
             intent.putExtra("jugador1", jugador1);
             intent.putExtra("jugador2", jugador2);
             startActivity(intent);

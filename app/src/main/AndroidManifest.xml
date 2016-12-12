@@ -17,7 +17,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".ActivityPartida" />
+        <activity android:name=".PantallaPartida" />
         <activity android:name=".Configuracion" />
         <activity android:name=".PantallaEleccion" />
         <activity android:name=".resultados"></activity>
