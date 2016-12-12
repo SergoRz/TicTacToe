@@ -181,7 +181,6 @@ public class PantallaEleccion extends AppCompatActivity {
         Locale loc;
 
         if(idioma.equals("spanish")) {
-
             loc = new Locale("es");
         }
         else{
