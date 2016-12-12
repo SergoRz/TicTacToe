@@ -1,13 +1,18 @@
 package com.example.versus.tictactoe;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
+import android.content.res.Resources;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.DisplayMetrics;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.Toast;
+
+import java.util.Locale;
 
 public class PantallaEleccion extends AppCompatActivity {
 
@@ -142,6 +147,8 @@ public class PantallaEleccion extends AppCompatActivity {
         outState.putBoolean("GJ2Enabled", _rbGreenJug2.isEnabled());
         outState.putBoolean("BJ1Enabled", _rbBlueJug1.isEnabled());
         outState.putBoolean("BJ2Enabled", _rbBlueJug2.isEnabled());
+
+        cargarIdioma();
     }
     //Cuando la aplicacion se restaura se cargan los datos que habias guardado previamente
     protected void onRestoreInstanceState(Bundle savedInstanceState) {
@@ -163,6 +170,27 @@ public class PantallaEleccion extends AppCompatActivity {
         _rbGreenJug2.setEnabled(savedInstanceState.getBoolean("GJ2Enabled"));
         _rbBlueJug1.setEnabled(savedInstanceState.getBoolean("BJ1Enabled"));
         _rbBlueJug2.setEnabled(savedInstanceState.getBoolean("BJ2Enabled"));
+    }
+
+    public void cargarIdioma(){
+        SharedPreferences prefs = getSharedPreferences("MisPreferencias", MODE_PRIVATE);
+        String idioma = prefs.getString("idioma", "spanish");
+
+        Resources res = this.getApplicationContext().getResources();
+        DisplayMetrics dm = res.getDisplayMetrics();
+        android.content.res.Configuration conf = res.getConfiguration();
+        Locale loc;
+
+        if(idioma.equals("spanish")) {
+
+            loc = new Locale("es");
+        }
+        else{
+            loc = new Locale("en");
+        }
+
+        conf.setLocale(loc);
+        res.updateConfiguration(conf, dm);
     }
 
 }

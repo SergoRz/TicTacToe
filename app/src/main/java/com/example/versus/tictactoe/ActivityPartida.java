@@ -10,6 +10,7 @@ import android.os.Environment;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.DisplayMetrics;
 import android.util.Log;
 import android.view.KeyEvent;
 import android.view.View;
@@ -26,6 +27,7 @@ import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.Locale;
 
 public class ActivityPartida extends AppCompatActivity {
 
@@ -395,6 +397,8 @@ public class ActivityPartida extends AppCompatActivity {
 
         outState.putBoolean("btnReiniciarClickable", btnReiniciar.isClickable());
 
+        cargarIdioma();
+
     }
     //Cuando la aplicacion se restaura se cargan los datos que habias guardado previamente
     protected void onRestoreInstanceState(Bundle savedInstanceState) {
@@ -461,5 +465,26 @@ public class ActivityPartida extends AppCompatActivity {
         }
         //para las demas cosas, se reenvia el evento al listener habitual
         return super.onKeyDown(keyCode, event);
+    }
+
+    public void cargarIdioma(){
+        SharedPreferences prefs = getSharedPreferences("MisPreferencias", MODE_PRIVATE);
+        String idioma = prefs.getString("idioma", "spanish");
+
+        Resources res = this.getApplicationContext().getResources();
+        DisplayMetrics dm = res.getDisplayMetrics();
+        android.content.res.Configuration conf = res.getConfiguration();
+        Locale loc;
+
+        if(idioma.equals("spanish")) {
+
+            loc = new Locale("es");
+        }
+        else{
+            loc = new Locale("en");
+        }
+
+        conf.setLocale(loc);
+        res.updateConfiguration(conf, dm);
     }
 }

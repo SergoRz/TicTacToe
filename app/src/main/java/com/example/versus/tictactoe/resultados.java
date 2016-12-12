@@ -4,9 +4,11 @@ import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.content.res.Resources;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.DisplayMetrics;
 import android.view.View;
 import android.widget.ListView;
 import android.widget.Toast;
@@ -16,6 +18,7 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.OutputStreamWriter;
 import java.util.ArrayList;
+import java.util.Locale;
 
 public class resultados extends AppCompatActivity {
     ListView lista;
@@ -101,5 +104,36 @@ public class resultados extends AppCompatActivity {
         nombre = prefs.getString("nombreFichero", "ejecuciones.txt");
 
         return nombre;
+    }
+
+    //Guardamos los datos de la aplicación
+    protected void onSaveInstanceState(Bundle outState) {
+        super.onSaveInstanceState(outState);
+        cargarIdioma();
+    }
+    //Cuando la aplicacion se restaura se cargan los datos que habias guardado previamente
+    protected void onRestoreInstanceState(Bundle savedInstanceState) {
+        super.onRestoreInstanceState(savedInstanceState);
+    }
+
+    public void cargarIdioma(){
+        SharedPreferences prefs = getSharedPreferences("MisPreferencias", MODE_PRIVATE);
+        String idioma = prefs.getString("idioma", "spanish");
+
+        Resources res = this.getApplicationContext().getResources();
+        DisplayMetrics dm = res.getDisplayMetrics();
+        android.content.res.Configuration conf = res.getConfiguration();
+        Locale loc;
+
+        if(idioma.equals("spanish")) {
+
+            loc = new Locale("es");
+        }
+        else{
+            loc = new Locale("en");
+        }
+
+        conf.setLocale(loc);
+        res.updateConfiguration(conf, dm);
     }
 }
