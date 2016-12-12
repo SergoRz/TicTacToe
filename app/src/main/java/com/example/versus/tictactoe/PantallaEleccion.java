@@ -190,6 +190,7 @@ public class PantallaEleccion extends AppCompatActivity {
 
         conf.setLocale(loc);
         res.updateConfiguration(conf, dm);
+
     }
 
     public boolean onKeyDown(int keyCode, KeyEvent event) {
