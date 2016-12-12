@@ -33,4 +33,5 @@
     <string name="borrarLista">The result list will be deleted. Are you sure?</string>
     <string name="salirPartida">The data will be lost. Are you sure?</string>
     <string name="salirApp">Do you want to exit?</string>
+    <string name="ficheroVacio">The namefile is empty</string>
 </resources>

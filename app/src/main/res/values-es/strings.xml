@@ -34,4 +34,5 @@
     <string name="salirApp">¿Esta seguro de que desea cerrar la aplicacion?</string>
     <string name="nombresVacios">No se han introducido nombres</string>
     <string name="nombresIguales">Los nombres no pueden ser iguales</string>
+    <string name="ficheroVacio">El nombre del fichero esta vacio</string>
 </resources>
